@@ -90,6 +90,8 @@ class AppRadius {
   static double get r80 => 80.r;
   static double get r90 => 90.r;
   static double get r100 => 100.r;
+  static double get r110 => 110.r;
+  static double get r120 => 120.r;
 }
 
 class AppWidth {
@@ -175,6 +177,7 @@ class AppHeight {
   static double get h90 => 90.h;
   static double get h100 => 100.h;
   static double get h105 => 105.h;
+  static double get h110 => 110.h;
   static double get h120 => 120.h;
   static double get h130 => 130.h;
   static double get h135 => 135.h;

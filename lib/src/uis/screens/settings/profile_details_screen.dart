@@ -24,188 +24,190 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
-          body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: AppHeight.h10),
-                    AppbarWidget(
-                      onbackTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      icon:
-                          SvgPicture.asset('lib/assets/svg/settings/edit.svg'),
-                      onPressed: () {
-                        AppRoutes.pushNamed(context,
-                            name: AppRoutes.editProfileDetailScreen);
-                      },
-                    ),
-                    Text(
-                      AppStrings.kProfileDetails,
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s24,
-                        color: ColorManager.titleTextColor,
-                        fontFamily: FontConstants.rubik,
-                      ),
-                    ),
-                    SizedBox(height: AppHeight.h30),
-                    Center(
-                      child: Container(
-                        height: AppHeight.h120,
-                        width: AppWidth.w130,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            width: AppWidth.w4,
-                            color: ColorManager.secondaryColor,
+          body: Padding(
+            padding:
+                EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: AppHeight.h20),
+                AppbarWidget(
+                  onbackTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: SvgPicture.asset('lib/assets/svg/settings/edit.svg'),
+                  onPressed: () {
+                    AppRoutes.pushNamed(context,
+                        name: AppRoutes.editProfileDetailScreen);
+                  },
+                ),
+                Text(
+                  AppStrings.kProfileDetails,
+                  style: mediumTextStyle(
+                    fontSize: FontSize.s24,
+                    color: ColorManager.titleTextColor,
+                    fontFamily: FontConstants.rubik,
+                  ),
+                ),
+                SizedBox(height: AppHeight.h30),
+                Expanded(
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
+                      Center(
+                        child: Container(
+                          height: AppHeight.h120,
+                          width: AppWidth.w130,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: AppWidth.w4,
+                              color: ColorManager.secondaryColor,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: AppHeight.h20),
-                    TextField(
-                      autofocus: true,
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                      decoration: InputDecoration(
-                        labelText: AppStrings.kFirstName,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
+                      SizedBox(height: AppHeight.h20),
+                      TextField(
+                        autofocus: true,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.textColor,
                           fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: AppStrings.kFirstName,
+                          labelStyle: regularTextStyle(
+                            color: ColorManager.buttonGreyText,
+                            fontFamily: FontConstants.quicksand,
+                            fontSize: FontSize.s20,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: AppHeight.h15),
-                    TextField(
-                      autofocus: true,
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                      decoration: InputDecoration(
-                        labelText: AppStrings.kLastName,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
+                      SizedBox(height: AppHeight.h15),
+                      TextField(
+                        autofocus: true,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.textColor,
                           fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: AppStrings.kLastName,
+                          labelStyle: regularTextStyle(
+                            color: ColorManager.buttonGreyText,
+                            fontFamily: FontConstants.quicksand,
+                            fontSize: FontSize.s20,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: AppHeight.h15),
-                    TextField(
-                      autofocus: true,
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                      decoration: InputDecoration(
-                        labelText: AppStrings.kDateofBirth,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
+                      SizedBox(height: AppHeight.h15),
+                      TextField(
+                        autofocus: true,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.textColor,
                           fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: AppStrings.kDateofBirth,
+                          labelStyle: regularTextStyle(
+                            color: ColorManager.buttonGreyText,
+                            fontFamily: FontConstants.quicksand,
+                            fontSize: FontSize.s20,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: AppHeight.h15),
-                    TextField(
-                      autofocus: true,
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                      decoration: InputDecoration(
-                        labelText: AppStrings.kNationality,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
+                      SizedBox(height: AppHeight.h15),
+                      TextField(
+                        autofocus: true,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.textColor,
                           fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: AppStrings.kNationality,
+                          labelStyle: regularTextStyle(
+                            color: ColorManager.buttonGreyText,
+                            fontFamily: FontConstants.quicksand,
+                            fontSize: FontSize.s20,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: AppHeight.h15),
-                    TextField(
-                      autofocus: true,
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                      decoration: InputDecoration(
-                        labelText: AppStrings.kPhoneNumber,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
+                      SizedBox(height: AppHeight.h15),
+                      TextField(
+                        autofocus: true,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.textColor,
                           fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: AppStrings.kPhoneNumber,
+                          labelStyle: regularTextStyle(
+                            color: ColorManager.buttonGreyText,
+                            fontFamily: FontConstants.quicksand,
+                            fontSize: FontSize.s20,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: AppHeight.h15),
-                    TextField(
-                      autofocus: true,
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                      decoration: InputDecoration(
-                        labelText: AppStrings.kEmailAddress,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
+                      SizedBox(height: AppHeight.h15),
+                      TextField(
+                        autofocus: true,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.textColor,
                           fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: AppStrings.kEmailAddress,
+                          labelStyle: regularTextStyle(
+                            color: ColorManager.buttonGreyText,
+                            fontFamily: FontConstants.quicksand,
+                            fontSize: FontSize.s20,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: AppHeight.h15),
-                    TextField(
-                      autofocus: true,
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                      decoration: InputDecoration(
-                        labelText: AppStrings.kNIN,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
+                      SizedBox(height: AppHeight.h15),
+                      TextField(
+                        autofocus: true,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.textColor,
                           fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: AppStrings.kNIN,
+                          labelStyle: regularTextStyle(
+                            color: ColorManager.buttonGreyText,
+                            fontFamily: FontConstants.quicksand,
+                            fontSize: FontSize.s20,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: AppHeight.h15),
-                    TextField(
-                      autofocus: true,
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                      decoration: InputDecoration(
-                        labelText: AppStrings.kHomeAddress,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
+                      SizedBox(height: AppHeight.h15),
+                      TextField(
+                        autofocus: true,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.textColor,
                           fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: AppStrings.kHomeAddress,
+                          labelStyle: regularTextStyle(
+                            color: ColorManager.buttonGreyText,
+                            fontFamily: FontConstants.quicksand,
+                            fontSize: FontSize.s20,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: AppHeight.h30),
-                  ],
+                      SizedBox(height: AppHeight.h30),
+                    ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         );

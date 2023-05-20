@@ -1,6 +1,11 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
@@ -14,13 +19,84 @@ import '/src/uis/widgets/app_textbutton.dart';
 import '/src/uis/widgets/app_title_text.dart';
 import '/src/uis/widgets/app_elevatedbutton.dart';
 
-class AddProfilePhoto extends StatelessWidget {
+class AddProfilePhoto extends StatefulWidget {
   const AddProfilePhoto({super.key});
 
-  void _backTap(BuildContext ctx) {
-    AppRoutes.popUntil(
-      ctx,
-      name: AppRoutes.faceBiometricScreen,
+  // final void Function(File pickedImage)? imagePickFn;
+
+  @override
+  State<AddProfilePhoto> createState() => _AddProfilePhotoState();
+}
+
+class _AddProfilePhotoState extends State<AddProfilePhoto> {
+  File? _image;
+  XFile? imageFile;
+  FilePickerResult? resultFile;
+
+  pickFile() async {
+    resultFile = await FilePicker.platform.pickFiles(
+      withReadStream: true,
+      type: FileType.custom,
+      allowedExtensions: ['pdf', '.png', '.jpeg'],
+    );
+
+    if (resultFile != null) {
+      PlatformFile file = resultFile!.files.first;
+      print(file.name);
+      print(file.bytes);
+      print(file.extension);
+      print(file.path);
+    } else {
+      print('no file selected');
+    }
+  }
+
+  Future imageSelector(BuildContext context, String pickerType) async {
+    switch (pickerType) {
+      case AppStrings.kGallery:
+        imageFile = (await ImagePicker()
+            .pickImage(source: ImageSource.gallery, imageQuality: 90));
+        break;
+
+      case AppStrings.kCamera:
+        imageFile = (await ImagePicker()
+            .pickImage(source: ImageSource.camera, imageQuality: 90));
+        break;
+    }
+
+    setState(() {
+      _image = File(imageFile!.path);
+    });
+  }
+
+  _showImagePickerSheet() {
+    showCupertinoModalPopup(
+      context: context,
+      builder: (BuildContext context) => CupertinoActionSheet(
+        actions: [
+          CupertinoActionSheetAction(
+            onPressed: () => {
+              imageSelector(context, AppStrings.kCamera),
+              Navigator.pop(context),
+            },
+            child: const Text(AppStrings.kCamera),
+          ),
+          CupertinoActionSheetAction(
+            onPressed: () => {
+              imageSelector(context, AppStrings.kGallery),
+              Navigator.pop(context),
+            },
+            child: const Text(AppStrings.kGallery),
+          ),
+        ],
+        cancelButton: CupertinoActionSheetAction(
+          isDestructiveAction: true,
+          onPressed: () => {
+            Navigator.pop(context),
+          },
+          child: const Text(AppStrings.kCancel),
+        ),
+      ),
     );
   }
 
@@ -39,10 +115,9 @@ class AddProfilePhoto extends StatelessWidget {
                   SizedBox(height: AppHeight.h15),
                   AppbarWidget(
                     onbackTap: () {
-                      _backTap(context);
+                      Navigator.of(context).pop();
                     },
                   ),
-                  SizedBox(height: AppHeight.h10),
                   const AppTitleText(
                     title: AppStrings.kAddProfilePhoto,
                     titleDes: AppStrings.kAddProfilePhotoDes,
@@ -52,37 +127,50 @@ class AddProfilePhoto extends StatelessWidget {
                     child: Stack(
                       children: [
                         Container(
-                          height: AppHeight.h200,
+                          clipBehavior: Clip.antiAlias,
+                          height: AppHeight.h180,
                           width: AppWidth.w200,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: ColorManager.primaryColor,
-                            shape: BoxShape.circle,
+                            borderRadius: BorderRadius.circular(AppRadius.r120),
                           ),
-                          child: Center(
-                            child: SvgPicture.asset('lib/assets/svg/image.svg'),
-                          ),
+                          child: imageFile == null
+                              ? Center(
+                                  child: SvgPicture.asset(
+                                      'lib/assets/svg/image.svg'),
+                                )
+                              : Image.file(
+                                  File(imageFile!.path),
+                                  fit: BoxFit.cover,
+                                ),
                         ),
                         Positioned(
                           top: AppSize.s160,
                           left: AppSize.s140,
-                          child: Container(
-                            height: AppHeight.h40,
-                            width: AppWidth.w40,
-                            decoration: const BoxDecoration(
-                              color: ColorManager.scaffoldBg,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.09),
-                                  blurRadius: 25.0,
+                          child: imageFile == null
+                              ? Container(
+                                  height: AppHeight.h40,
+                                  width: AppWidth.w40,
+                                  decoration: const BoxDecoration(
+                                    color: ColorManager.scaffoldBg,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 0.09),
+                                        blurRadius: 25.0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Center(
+                                    child: IconButton(
+                                      onPressed: _showImagePickerSheet,
+                                      icon: SvgPicture.asset(
+                                          'lib/assets/svg/camera.svg'),
+                                    ),
+                                  ),
                                 )
-                              ],
-                            ),
-                            child: Center(
-                                child: SvgPicture.asset(
-                                    'lib/assets/svg/camera.svg')),
-                          ),
-                        ),
+                              : Container(),
+                        )
                       ],
                     ),
                   ),

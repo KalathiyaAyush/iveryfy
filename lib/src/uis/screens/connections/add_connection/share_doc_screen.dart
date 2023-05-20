@@ -13,8 +13,18 @@ import '/src/uis/widgets/app_title_text.dart';
 import '/src/uis/widgets/app_elevatedbutton.dart';
 import '/src/uis/screens/connections/widgets/share_doc_card.dart';
 
-class ShareDocumentScreen extends StatelessWidget {
+class ShareDocumentScreen extends StatefulWidget {
   const ShareDocumentScreen({super.key});
+
+  @override
+  State<ShareDocumentScreen> createState() => _ShareDocumentScreenState();
+}
+
+class _ShareDocumentScreenState extends State<ShareDocumentScreen> {
+  bool passport = false;
+  bool dlicence = false;
+  bool addProof = false;
+  bool righttoWork = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,40 +47,122 @@ class ShareDocumentScreen extends StatelessWidget {
                     titleDes: AppStrings.kShareDocumentsDes,
                   ),
                   SizedBox(height: AppHeight.h20),
-                  ShareDocCard(
-                    title: AppStrings.kPassport,
-                    isSelected: true,
-                    onChange: (value) {},
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: ColorManager.primaryColor),
+                        borderRadius: BorderRadius.circular(AppRadius.r6)),
+                    child: CheckboxListTile(
+                      contentPadding: EdgeInsets.zero,
+                      controlAffinity: ListTileControlAffinity.leading,
+                      activeColor: ColorManager.secondaryColor,
+                      side: const BorderSide(color: ColorManager.primaryColor),
+                      title: Text(
+                        AppStrings.kPassport,
+                        style: mediumTextStyle(
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      ),
+                      value: passport,
+                      onChanged: (value) {
+                        setState(() {
+                          passport = value!;
+                        });
+                      },
+                    ),
                   ),
                   SizedBox(height: AppHeight.h15),
-                  ShareDocCard(
-                    title: AppStrings.kDriverLicense,
-                    isSelected: true,
-                    onChange: (value) {},
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: ColorManager.primaryColor),
+                        borderRadius: BorderRadius.circular(AppRadius.r6)),
+                    child: CheckboxListTile(
+                      contentPadding: EdgeInsets.zero,
+                      controlAffinity: ListTileControlAffinity.leading,
+                      activeColor: ColorManager.secondaryColor,
+                      side: const BorderSide(color: ColorManager.primaryColor),
+                      title: Text(
+                        AppStrings.kDriverLicense,
+                        style: mediumTextStyle(
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      ),
+                      value: dlicence,
+                      onChanged: (value) {
+                        setState(() {
+                          dlicence = value!;
+                        });
+                      },
+                    ),
                   ),
                   SizedBox(height: AppHeight.h15),
-                  ShareDocCard(
-                    title: AppStrings.kProofofAddress,
-                    isSelected: false,
-                    onChange: (value) {},
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: ColorManager.primaryColor),
+                        borderRadius: BorderRadius.circular(AppRadius.r6)),
+                    child: CheckboxListTile(
+                      contentPadding: EdgeInsets.zero,
+                      controlAffinity: ListTileControlAffinity.leading,
+                      activeColor: ColorManager.secondaryColor,
+                      side: const BorderSide(color: ColorManager.primaryColor),
+                      title: Text(
+                        AppStrings.kProofofAddress,
+                        style: mediumTextStyle(
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      ),
+                      value: addProof,
+                      onChanged: (value) {
+                        setState(() {
+                          addProof = value!;
+                        });
+                      },
+                    ),
                   ),
                   SizedBox(height: AppHeight.h15),
-                  ShareDocCard(
-                    title: AppStrings.kRighttoWork,
-                    isSelected: false,
-                    onChange: (value) {},
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: ColorManager.primaryColor),
+                        borderRadius: BorderRadius.circular(AppRadius.r6)),
+                    child: CheckboxListTile(
+                      contentPadding: EdgeInsets.zero,
+                      controlAffinity: ListTileControlAffinity.leading,
+                      activeColor: ColorManager.secondaryColor,
+                      dense: true,
+                      side: const BorderSide(color: ColorManager.primaryColor),
+                      title: Text(
+                        AppStrings.kRighttoWork,
+                        style: mediumTextStyle(
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      ),
+                      value: righttoWork,
+                      onChanged: (value) {
+                        setState(() {
+                          righttoWork = value!;
+                        });
+                      },
+                    ),
                   ),
                   const Spacer(),
                   AppElevatedButton(
-                    onPressed: () {
-                      AppRoutes.pushNamed(context,
-                          name: AppRoutes.setExpiryDateScreen);
-                    },
+                    onPressed:
+                        passport && dlicence && addProof && righttoWork == true
+                            ? () {
+                                AppRoutes.pushNamed(context,
+                                    name: AppRoutes.setExpiryDateScreen);
+                              }
+                            : null,
                     child: Text(
                       AppStrings.kNext,
                       style: semiBoldTextStyle(
                         fontSize: FontSize.s16,
-                        color: ColorManager.scaffoldBg,
+                        color: passport == true
+                            ? ColorManager.scaffoldBg
+                            : ColorManager.buttonGreyText,
                         fontFamily: FontConstants.quicksand,
                       ),
                     ),

@@ -64,7 +64,7 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: AppHeight.h40),
+            SizedBox(height: AppHeight.h30),
             AppbarWidget(onbackTap: () {
               Navigator.of(context).pop();
             }),

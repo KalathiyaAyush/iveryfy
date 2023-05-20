@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iverify/src/resources/color_manager.dart';
-import 'package:iverify/src/resources/font_manager.dart';
-import 'package:iverify/src/resources/string_manager.dart';
-import 'package:iverify/src/resources/style_manager.dart';
-import 'package:iverify/src/resources/value_manager.dart';
+
+import '/src/resources/font_manager.dart';
+import '/src/resources/color_manager.dart';
+import '/src/resources/style_manager.dart';
+import '/src/resources/value_manager.dart';
+import '/src/resources/string_manager.dart';
 
 class DocumentCard extends StatelessWidget {
   final String? assetName;
@@ -47,8 +48,10 @@ class DocumentCard extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: AppHeight.h3),
-                    Wrap(
-                      children: children ?? [],
+                    SingleChildScrollView(
+                      child: Row(
+                        children: children ?? [],
+                      ),
                     ),
                   ],
                 ),

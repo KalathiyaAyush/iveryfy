@@ -7,6 +7,7 @@ class AppStrings {
   static const String kyes = 'Yes';
   static const String kcontinue = 'Continue';
   static const String kSave = 'Save';
+  static const String kCancel = 'Cancel';
 
   // splash screen
   static const String kiverify = 'iverifi';
@@ -101,6 +102,8 @@ class AppStrings {
   static const String kAddProfilePhoto = 'Add a Profile Photo';
   static const String kAddProfilePhotoDes =
       'Upload your best photo as it\'s easier \nto recognise you';
+  static const String kGallery = 'Gallery';
+  static const String kCamera = 'Camera';
 
   //verify id screen
   static const String kVerifyIdDes = 'Let\'s start verifying your \nIdentity?';
