@@ -4,6 +4,7 @@ import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
+import '/src/resources/assets_manager.dart';
 import '/src/resources/string_manager.dart';
 
 class AppBarWidget extends StatelessWidget {
@@ -39,7 +40,7 @@ class AppBarWidget extends StatelessWidget {
               ],
             ),
             CircleAvatar(
-              child: Image.asset('lib/assets/images/profile_picture.png'),
+              child: Image.asset(ImageAssets.profilePicIcon),
             ),
           ],
         ),

@@ -1,10 +1,6 @@
-// ignore_for_file: unused_field
+// ignore_for_file: unused_field, unused_element
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iverify/src/uis/screens/documents/widgets/document_card.dart';
-import 'package:iverify/src/uis/widgets/appbar_widget.dart';
-
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '/src/resources/font_manager.dart';
@@ -12,7 +8,9 @@ import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/string_manager.dart';
+import '/src/uis/widgets/appbar_widget.dart';
 import '/src/uis/screens/documents/widgets/multi_select.dart';
+import '/src/uis/screens/documents/widgets/document_card.dart';
 
 class PassportDetailScreen extends StatefulWidget {
   const PassportDetailScreen({super.key});
@@ -136,69 +134,69 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
                   .toList(),
             ),
             SizedBox(height: AppHeight.h10),
-            Container(
-              width: AppWidth.w330,
-              height: AppHeight.h45,
-              padding: EdgeInsets.only(left: AppPadding.p15),
-              decoration: BoxDecoration(
-                border: Border.all(color: ColorManager.primaryColor),
-                borderRadius: BorderRadius.circular(AppRadius.r6),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        AppStrings.kSelectTags,
-                        style: regularTextStyle(
-                          fontSize: FontSize.s16,
-                          color: ColorManager.buttonGreyText,
-                          fontFamily: FontConstants.quicksand,
-                        ),
-                      ),
-                    ],
-                  ),
-                  IconButton(
-                    onPressed: _showMultiSelect,
-                    icon: SvgPicture.asset('lib/assets/svg/dropdown.svg'),
-                  ),
-                ],
-              ),
-            ),
+            // Container(
+            //   width: AppWidth.w330,
+            //   height: AppHeight.h45,
+            //   padding: EdgeInsets.only(left: AppPadding.p15),
+            //   decoration: BoxDecoration(
+            //     border: Border.all(color: ColorManager.primaryColor),
+            //     borderRadius: BorderRadius.circular(AppRadius.r6),
+            //   ),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Column(
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           Text(
+            //             AppStrings.kSelectTags,
+            //             style: regularTextStyle(
+            //               fontSize: FontSize.s16,
+            //               color: ColorManager.buttonGreyText,
+            //               fontFamily: FontConstants.quicksand,
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //       IconButton(
+            //         onPressed: _showMultiSelect,
+            //         icon: SvgPicture.asset('lib/assets/svg/dropdown.svg'),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             SizedBox(height: AppHeight.h5),
             Column(
-              children: [
-                Container(
-                  width: AppWidth.w330,
-                  height: AppHeight.h180,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                        color: const Color.fromRGBO(227, 227, 227, 1)),
-                    borderRadius: BorderRadius.circular(AppRadius.r6),
-                  ),
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: tagsList
-                        .map(
-                          (tag) => CheckboxListTile(
-                            dense: true,
-                            side: const BorderSide(
-                                color: ColorManager.primaryColor),
-                            contentPadding:
-                                const EdgeInsets.symmetric(horizontal: 0),
-                            controlAffinity: ListTileControlAffinity.leading,
-                            activeColor: ColorManager.secondaryColor,
-                            value: _selectedItems.contains(tag),
-                            onChanged: (isChecked) =>
-                                _itemChange(tag, isChecked!),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ),
+              children: const [
+                // Container(
+                //   width: AppWidth.w330,
+                //   height: AppHeight.h180,
+                //   decoration: BoxDecoration(
+                //     border: Border.all(
+                //         color: const Color.fromRGBO(227, 227, 227, 1)),
+                //     borderRadius: BorderRadius.circular(AppRadius.r6),
+                //   ),
+                //   child: ListView(
+                //     shrinkWrap: true,
+                //     children: tagsList
+                //         .map(
+                //           (tag) => CheckboxListTile(
+                //             dense: true,
+                //             side: const BorderSide(
+                //                 color: ColorManager.primaryColor),
+                //             contentPadding:
+                //                 const EdgeInsets.symmetric(horizontal: 0),
+                //             controlAffinity: ListTileControlAffinity.leading,
+                //             activeColor: ColorManager.secondaryColor,
+                //             value: _selectedItems.contains(tag),
+                //             onChanged: (isChecked) =>
+                //                 _itemChange(tag, isChecked!),
+                //           ),
+                //         )
+                //         .toList(),
+                //   ),
+                // ),
               ],
             ),
           ],

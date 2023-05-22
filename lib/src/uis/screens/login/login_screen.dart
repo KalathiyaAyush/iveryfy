@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iverify/src/resources/routes_manager.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
+import '/src/resources/routes_manager.dart';
+import '/src/resources/assets_manager.dart';
 import '/src/resources/string_manager.dart';
 import '/src/uis/widgets/app_title_text.dart';
 
@@ -46,7 +47,7 @@ class SigninScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  SvgPicture.asset('lib/assets/svg/whatsapp.svg',
+                  SvgPicture.asset(ImageAssets.whatsappIcon,
                       height: AppHeight.h25),
                   SizedBox(width: AppWidth.w10),
                   Text(
@@ -63,7 +64,7 @@ class SigninScreen extends StatelessWidget {
             SizedBox(height: AppHeight.h15),
             socialMediaContainer(
               AppStrings.kgoogle,
-              'lib/assets/svg/google.svg',
+              ImageAssets.googleIcon,
               () {
                 AppRoutes.pushNamed(
                   context,
@@ -92,7 +93,7 @@ class SigninScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Image.asset('lib/assets/images/metamask.png'),
+                  Image.asset(ImageAssets.metamaskIcon),
                   SizedBox(width: AppWidth.w10),
                   Text(
                     AppStrings.kMetamask,

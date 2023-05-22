@@ -1,16 +1,19 @@
+// ignore_for_file: unused_field
+
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
+import '/src/resources/assets_manager.dart';
 import '/src/resources/routes_manager.dart';
 import '/src/resources/string_manager.dart';
 
@@ -136,8 +139,8 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                           ),
                           child: imageFile == null
                               ? Center(
-                                  child: SvgPicture.asset(
-                                      'lib/assets/svg/image.svg'),
+                                  child:
+                                      SvgPicture.asset(ImageAssets.imageIcon),
                                 )
                               : Image.file(
                                   File(imageFile!.path),
@@ -165,7 +168,7 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                                     child: IconButton(
                                       onPressed: _showImagePickerSheet,
                                       icon: SvgPicture.asset(
-                                          'lib/assets/svg/camera.svg'),
+                                          ImageAssets.cameraIcon),
                                     ),
                                   ),
                                 )

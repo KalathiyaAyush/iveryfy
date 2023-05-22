@@ -6,6 +6,7 @@ import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
+import '/src/resources/assets_manager.dart';
 import '/src/resources/string_manager.dart';
 
 import '/src/uis/screens/home/appbar_widget/appbar_widget.dart';
@@ -69,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ? Column(
                           children: [
                             SizedBox(height: AppHeight.h60),
-                            Image.asset('lib/assets/images/error.png'),
+                            Image.asset(ImageAssets.errorIcon),
                             SizedBox(height: AppHeight.h10),
                             Text(
                               AppStrings.knoActivities,

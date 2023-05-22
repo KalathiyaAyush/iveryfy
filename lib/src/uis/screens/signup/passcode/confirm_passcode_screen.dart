@@ -5,6 +5,7 @@ import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
+import '/src/resources/assets_manager.dart';
 import '/src/resources/routes_manager.dart';
 import '/src/resources/string_manager.dart';
 import '/src/uis/widgets/app_elevatedbutton.dart';
@@ -27,7 +28,7 @@ class _ConfirmPasscodeSignupState extends State<ConfirmPasscodeSignup> {
         child: Column(
           children: [
             SizedBox(height: AppHeight.h50),
-            Image.asset('lib/assets/images/security.png'),
+            Image.asset(ImageAssets.securityIcon),
             SizedBox(height: AppHeight.h15),
             Text(
               AppStrings.kConfirmPasscode,

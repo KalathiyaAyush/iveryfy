@@ -8,6 +8,7 @@ import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
 import '/src/resources/string_manager.dart';
+import '/src/resources/assets_manager.dart';
 import '/src/resources/routes_manager.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -45,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('lib/assets/svg/splash_icon.svg'),
+            SvgPicture.asset(ImageAssets.splashIcon),
             SizedBox(height: AppHeight.h15),
             Text(
               AppStrings.kiverify,

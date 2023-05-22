@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '/src/resources/color_manager.dart';
 import '/src/resources/value_manager.dart';
+import '/src/resources/assets_manager.dart';
 
 import '/src/uis/screens/home/home_screen.dart';
 import '/src/uis/screens/settings/setting_screen.dart';
@@ -71,8 +72,8 @@ class _BottomNavigationbarScreenState extends State<BottomNavigationbarScreen> {
                 },
                 icon: SvgPicture.asset(
                   _selectedIndex == 0
-                      ? 'lib/assets/svg/bnb/home_filled.svg'
-                      : 'lib/assets/svg/bnb/home.svg',
+                      ? ImageAssets.homeFilledIcon
+                      : ImageAssets.homeIcon,
                   color: ColorManager.scaffoldBg,
                 ),
               ),
@@ -84,8 +85,8 @@ class _BottomNavigationbarScreenState extends State<BottomNavigationbarScreen> {
                 },
                 icon: SvgPicture.asset(
                   _selectedIndex == 1
-                      ? 'lib/assets/svg/bnb/document_filled.svg'
-                      : 'lib/assets/svg/bnb/document.svg',
+                      ? ImageAssets.docFilledIcon
+                      : ImageAssets.docIcon,
                   color: ColorManager.scaffoldBg,
                 ),
               ),
@@ -97,8 +98,8 @@ class _BottomNavigationbarScreenState extends State<BottomNavigationbarScreen> {
                 },
                 icon: SvgPicture.asset(
                   _selectedIndex == 2
-                      ? 'lib/assets/svg/bnb/connection_filled.svg'
-                      : 'lib/assets/svg/bnb/connections.svg',
+                      ? ImageAssets.connectionFilledIcon
+                      : ImageAssets.connectionIcon,
                   color: ColorManager.scaffoldBg,
                 ),
               ),
@@ -110,8 +111,8 @@ class _BottomNavigationbarScreenState extends State<BottomNavigationbarScreen> {
                 },
                 icon: SvgPicture.asset(
                   _selectedIndex == 3
-                      ? 'lib/assets/svg/bnb/setting_filled.svg'
-                      : 'lib/assets/svg/bnb/settings.svg',
+                      ? ImageAssets.settingsFilledIcon
+                      : ImageAssets.settingsIcon,
                   color: ColorManager.scaffoldBg,
                 ),
               ),

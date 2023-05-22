@@ -6,6 +6,7 @@ import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
 import '/src/resources/routes_manager.dart';
 import '/src/resources/string_manager.dart';
+import '/src/resources/assets_manager.dart';
 
 import '/src/uis/widgets/app_elevatedbutton.dart';
 import '/src/uis/widgets/app_outlinedbutton.dart';
@@ -21,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-            Image.asset('lib/assets/images/welcome_icon.png'),
+            Image.asset(ImageAssets.welcomeIcon),
             SizedBox(height: AppHeight.h20),
             Column(
               children: [

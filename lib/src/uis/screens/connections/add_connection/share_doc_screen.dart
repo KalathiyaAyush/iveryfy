@@ -11,7 +11,6 @@ import '/src/resources/string_manager.dart';
 import '/src/uis/widgets/appbar_widget.dart';
 import '/src/uis/widgets/app_title_text.dart';
 import '/src/uis/widgets/app_elevatedbutton.dart';
-import '/src/uis/screens/connections/widgets/share_doc_card.dart';
 
 class ShareDocumentScreen extends StatefulWidget {
   const ShareDocumentScreen({super.key});
@@ -149,13 +148,10 @@ class _ShareDocumentScreenState extends State<ShareDocumentScreen> {
                   ),
                   const Spacer(),
                   AppElevatedButton(
-                    onPressed:
-                        passport && dlicence && addProof && righttoWork == true
-                            ? () {
-                                AppRoutes.pushNamed(context,
-                                    name: AppRoutes.setExpiryDateScreen);
-                              }
-                            : null,
+                    onPressed: () {
+                      AppRoutes.pushNamed(context,
+                          name: AppRoutes.setExpiryDateScreen);
+                    },
                     child: Text(
                       AppStrings.kNext,
                       style: semiBoldTextStyle(

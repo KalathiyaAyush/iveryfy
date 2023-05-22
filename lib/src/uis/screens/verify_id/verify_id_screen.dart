@@ -5,6 +5,7 @@ import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
+import '/src/resources/assets_manager.dart';
 import '/src/resources/routes_manager.dart';
 import '/src/resources/string_manager.dart';
 
@@ -51,7 +52,7 @@ class VerifyIdScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Image.asset(
-                          'lib/assets/images/id_verify.png',
+                          ImageAssets.verifyIDIcon,
                           fit: BoxFit.cover,
                         ),
                         Text(

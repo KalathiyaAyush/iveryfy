@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iverify/src/resources/routes_manager.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
+import '/src/resources/assets_manager.dart';
+import '/src/resources/routes_manager.dart';
 import '/src/resources/string_manager.dart';
 import '/src/uis/widgets/app_elevatedbutton.dart';
 
@@ -23,7 +24,7 @@ class DocumentVerificationScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  Image.asset('lib/assets/images/verified.png'),
+                  Image.asset(ImageAssets.verifiedIcon),
                   SizedBox(height: AppHeight.h25),
                   Text(
                     AppStrings.kAwesome,

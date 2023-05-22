@@ -6,6 +6,7 @@ import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
+import '/src/resources/assets_manager.dart';
 import '/src/resources/routes_manager.dart';
 import '/src/resources/string_manager.dart';
 
@@ -38,11 +39,10 @@ class FaceBiometricScreen extends StatelessWidget {
                     fit: StackFit.loose,
                     alignment: AlignmentDirectional.center,
                     children: [
-                      Center(
-                          child: Image.asset('lib/assets/images/outside.png')),
+                      Center(child: Image.asset(ImageAssets.outsideIcon)),
                       Positioned(
                         child: LottieBuilder.asset(
-                          'lib/assets/lottie_json/face_id_biometric.json',
+                          ImageAssets.faceIDIcon,
                           height: AppHeight.h70,
                         ),
                       ),

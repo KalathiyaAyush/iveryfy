@@ -24,32 +24,13 @@ class _MutliSelectState extends State<MutliSelect> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: const Text('Select tags'),
-      content: SingleChildScrollView(
-        child: ListBody(
-          children: widget.tagsList
-              .map((tag) => CheckboxListTile(
-                    value: _selectedItems.contains(tag),
-                    onChanged: (isChecked) => _itemChange(tag, isChecked!),
-                  ))
-              .toList(),
-        ),
-      ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Cancel'),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context, _selectedItems);
-          },
-          child: const Text('Submit'),
-        ),
-      ],
+    return ListBody(
+      children: widget.tagsList
+          .map((tag) => CheckboxListTile(
+                value: _selectedItems.contains(tag),
+                onChanged: (isChecked) => _itemChange(tag, isChecked!),
+              ))
+          .toList(),
     );
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -157,7 +159,7 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
                                         File(imageFile!.path),
                                         fit: BoxFit.cover,
                                       )
-                                    : Text(''),
+                                    : const Text(''),
                               ),
                               Positioned(
                                 top: AppSize.s90,
