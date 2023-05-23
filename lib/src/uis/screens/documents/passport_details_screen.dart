@@ -57,56 +57,66 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: AppHeight.h30),
-            AppbarWidget(onbackTap: () {
-              Navigator.of(context).pop();
-            }),
-            Text(
-              AppStrings.kPassportDetails,
-              style: mediumTextStyle(
-                fontSize: FontSize.s24,
-                color: ColorManager.titleTextColor,
-                fontFamily: FontConstants.rubik,
-              ),
-            ),
-            SizedBox(height: AppHeight.h4),
-            Text(
-              'Uploaded on 12 Jun 2023, 12:00:30',
-              style: mediumTextStyle(
-                fontSize: FontSize.s18,
-                color: ColorManager.titleTextColor,
-                fontFamily: FontConstants.quicksand,
-              ),
-            ),
-            SizedBox(height: AppHeight.h20),
-            Center(
-              child: Column(
-                children: [
-                  Text(
-                    AppStrings.kQrCode,
-                    style: mediumTextStyle(
-                      fontSize: FontSize.s16,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.rubik,
-                    ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: AppHeight.h30),
+          AppbarWidget(onbackTap: () {
+            Navigator.of(context).pop();
+          }),
+          Padding(
+            padding:
+                EdgeInsets.only(right: AppPadding.p10, left: AppPadding.p20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppStrings.kPassportDetails,
+                  style: mediumTextStyle(
+                    fontSize: FontSize.s24,
+                    color: ColorManager.titleTextColor,
+                    fontFamily: FontConstants.rubik,
                   ),
-                  QrImageView(
-                    data: 'Happy Codding!!',
-                    version: QrVersions.auto,
-                    size: AppSize.s150,
+                ),
+                SizedBox(height: AppHeight.h4),
+                Text(
+                  'Uploaded on 12 Jun 2023, 12:00:30',
+                  style: mediumTextStyle(
+                    fontSize: FontSize.s18,
+                    color: ColorManager.titleTextColor,
+                    fontFamily: FontConstants.quicksand,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(height: AppHeight.h25),
-            DocumentCard(
+          ),
+          SizedBox(height: AppHeight.h20),
+          Center(
+            child: Column(
+              children: [
+                Text(
+                  AppStrings.kQrCode,
+                  style: mediumTextStyle(
+                    fontSize: FontSize.s16,
+                    color: ColorManager.titleTextColor,
+                    fontFamily: FontConstants.rubik,
+                  ),
+                ),
+                QrImageView(
+                  data: 'Happy Codding!!',
+                  version: QrVersions.auto,
+                  size: AppSize.s150,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: AppHeight.h25),
+          Padding(
+            padding:
+                EdgeInsets.only(right: AppPadding.p10, left: AppPadding.p15),
+            child: DocumentCard(
               onTap: () {},
-              assetName: 'lib/assets/svg/arrow.svg',
+              // assetName: 'lib/assets/svg/arrow.svg',
               children: _selectedItems
                   .map(
                     (e) => Padding(
@@ -133,74 +143,74 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
                   )
                   .toList(),
             ),
-            SizedBox(height: AppHeight.h10),
-            // Container(
-            //   width: AppWidth.w330,
-            //   height: AppHeight.h45,
-            //   padding: EdgeInsets.only(left: AppPadding.p15),
-            //   decoration: BoxDecoration(
-            //     border: Border.all(color: ColorManager.primaryColor),
-            //     borderRadius: BorderRadius.circular(AppRadius.r6),
-            //   ),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Column(
-            //         mainAxisAlignment: MainAxisAlignment.center,
-            //         crossAxisAlignment: CrossAxisAlignment.start,
-            //         children: [
-            //           Text(
-            //             AppStrings.kSelectTags,
-            //             style: regularTextStyle(
-            //               fontSize: FontSize.s16,
-            //               color: ColorManager.buttonGreyText,
-            //               fontFamily: FontConstants.quicksand,
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //       IconButton(
-            //         onPressed: _showMultiSelect,
-            //         icon: SvgPicture.asset('lib/assets/svg/dropdown.svg'),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            SizedBox(height: AppHeight.h5),
-            Column(
-              children: const [
-                // Container(
-                //   width: AppWidth.w330,
-                //   height: AppHeight.h180,
-                //   decoration: BoxDecoration(
-                //     border: Border.all(
-                //         color: const Color.fromRGBO(227, 227, 227, 1)),
-                //     borderRadius: BorderRadius.circular(AppRadius.r6),
-                //   ),
-                //   child: ListView(
-                //     shrinkWrap: true,
-                //     children: tagsList
-                //         .map(
-                //           (tag) => CheckboxListTile(
-                //             dense: true,
-                //             side: const BorderSide(
-                //                 color: ColorManager.primaryColor),
-                //             contentPadding:
-                //                 const EdgeInsets.symmetric(horizontal: 0),
-                //             controlAffinity: ListTileControlAffinity.leading,
-                //             activeColor: ColorManager.secondaryColor,
-                //             value: _selectedItems.contains(tag),
-                //             onChanged: (isChecked) =>
-                //                 _itemChange(tag, isChecked!),
-                //           ),
-                //         )
-                //         .toList(),
-                //   ),
-                // ),
-              ],
-            ),
-          ],
-        ),
+          ),
+          SizedBox(height: AppHeight.h10),
+          // Container(
+          //   width: AppWidth.w330,
+          //   height: AppHeight.h45,
+          //   padding: EdgeInsets.only(left: AppPadding.p15),
+          //   decoration: BoxDecoration(
+          //     border: Border.all(color: ColorManager.primaryColor),
+          //     borderRadius: BorderRadius.circular(AppRadius.r6),
+          //   ),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         children: [
+          //           Text(
+          //             AppStrings.kSelectTags,
+          //             style: regularTextStyle(
+          //               fontSize: FontSize.s16,
+          //               color: ColorManager.buttonGreyText,
+          //               fontFamily: FontConstants.quicksand,
+          //             ),
+          //           ),
+          //         ],
+          //       ),
+          //       IconButton(
+          //         onPressed: _showMultiSelect,
+          //         icon: SvgPicture.asset('lib/assets/svg/dropdown.svg'),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          SizedBox(height: AppHeight.h5),
+          Column(
+            children: const [
+              // Container(
+              //   width: AppWidth.w330,
+              //   height: AppHeight.h180,
+              //   decoration: BoxDecoration(
+              //     border: Border.all(
+              //         color: const Color.fromRGBO(227, 227, 227, 1)),
+              //     borderRadius: BorderRadius.circular(AppRadius.r6),
+              //   ),
+              //   child: ListView(
+              //     shrinkWrap: true,
+              //     children: tagsList
+              //         .map(
+              //           (tag) => CheckboxListTile(
+              //             dense: true,
+              //             side: const BorderSide(
+              //                 color: ColorManager.primaryColor),
+              //             contentPadding:
+              //                 const EdgeInsets.symmetric(horizontal: 0),
+              //             controlAffinity: ListTileControlAffinity.leading,
+              //             activeColor: ColorManager.secondaryColor,
+              //             value: _selectedItems.contains(tag),
+              //             onChanged: (isChecked) =>
+              //                 _itemChange(tag, isChecked!),
+              //           ),
+              //         )
+              //         .toList(),
+              //   ),
+              // ),
+            ],
+          ),
+        ],
       ),
     );
   }

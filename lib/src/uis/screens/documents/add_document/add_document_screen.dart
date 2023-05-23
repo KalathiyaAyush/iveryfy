@@ -21,41 +21,39 @@ class AddDocumentScreen extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
-          body: Padding(
-            padding:
-                EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: AppHeight.h40),
-                AppbarWidget(onbackTap: () {}),
-                const AppTitleText(
-                  title: AppStrings.kAddNewDocuments,
-                  titleDes: AppStrings.kAddDocumentDes,
-                ),
-                SizedBox(height: AppHeight.h30),
-                Column(
-                  children: [
-                    _buildDocumentCard(
-                      AppStrings.kPassport,
-                      AppStrings.kAddPassportDetails,
-                    ),
-                    _buildDocumentCard(
-                      AppStrings.kDriverLicense,
-                      AppStrings.kAddDLDetails,
-                    ),
-                    _buildDocumentCard(
-                      AppStrings.kProofofAddress,
-                      AppStrings.kAddAddressDetail,
-                    ),
-                    _buildDocumentCard(
-                      AppStrings.kRighttoWork,
-                      AppStrings.kAddGovermentProof,
-                    ),
-                  ],
-                ),
-                const Spacer(),
-                AppElevatedButton(
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: AppHeight.h20),
+              AppbarWidget(onbackTap: () {}),
+              const AppTitleText(
+                title: AppStrings.kAddNewDocuments,
+                titleDes: AppStrings.kAddDocumentDes,
+              ),
+              SizedBox(height: AppHeight.h30),
+              Column(
+                children: [
+                  _buildDocumentCard(
+                    AppStrings.kPassport,
+                    AppStrings.kAddPassportDetails,
+                  ),
+                  _buildDocumentCard(
+                    AppStrings.kDriverLicense,
+                    AppStrings.kAddDLDetails,
+                  ),
+                  _buildDocumentCard(
+                    AppStrings.kProofofAddress,
+                    AppStrings.kAddAddressDetail,
+                  ),
+                  _buildDocumentCard(
+                    AppStrings.kRighttoWork,
+                    AppStrings.kAddGovermentProof,
+                  ),
+                ],
+              ),
+              const Spacer(),
+              Center(
+                child: AppElevatedButton(
                   onPressed: () {
                     AppRoutes.pushNamed(context,
                         name: AppRoutes.documentAddedScreen);
@@ -69,9 +67,9 @@ class AddDocumentScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: AppHeight.h30),
-              ],
-            ),
+              ),
+              SizedBox(height: AppHeight.h30),
+            ],
           ),
         );
       },
@@ -80,12 +78,13 @@ class AddDocumentScreen extends StatelessWidget {
 
   Widget _buildDocumentCard(String title, String titleDes) {
     return Padding(
-      padding: EdgeInsets.only(bottom: AppPadding.p18),
+      padding: EdgeInsets.only(
+          bottom: AppPadding.p18, left: AppPadding.p20, right: AppPadding.p20),
       child: Container(
-        width: AppWidth.w335,
-        height: AppHeight.h65,
+        width: double.infinity,
+        height: AppHeight.h60,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppRadius.r12),
+          borderRadius: BorderRadius.circular(AppRadius.r6),
           border: Border.all(color: ColorManager.primaryColor),
         ),
         child: Row(
@@ -111,7 +110,7 @@ class AddDocumentScreen extends StatelessWidget {
                 Text(
                   titleDes,
                   style: regularTextStyle(
-                    fontSize: FontSize.s14,
+                    fontSize: FontSize.s13,
                     color: ColorManager.hintTextColor,
                     fontFamily: FontConstants.quicksand,
                   ),

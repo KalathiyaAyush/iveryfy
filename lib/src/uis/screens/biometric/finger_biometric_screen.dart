@@ -23,33 +23,31 @@ class FingerBiometricScreen extends StatelessWidget {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppHeight.h40),
-                  const AppTitleText(
-                    title: AppStrings.kSetupFingerprint,
-                    titleDes: AppStrings.kSetupDes,
-                  ),
-                  const Spacer(),
-                  Stack(
-                    fit: StackFit.loose,
-                    alignment: AlignmentDirectional.center,
-                    children: [
-                      Center(child: Image.asset(ImageAssets.outsideIcon)),
-                      Positioned(
-                        child: LottieBuilder.asset(
-                          ImageAssets.fingerPrintIcon,
-                          height: AppHeight.h150,
-                        ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: AppHeight.h40),
+                const AppTitleText(
+                  title: AppStrings.kSetupFingerprint,
+                  titleDes: AppStrings.kSetupDes,
+                ),
+                const Spacer(),
+                Stack(
+                  fit: StackFit.loose,
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    Center(child: Image.asset(ImageAssets.outsideIcon)),
+                    Positioned(
+                      child: LottieBuilder.asset(
+                        ImageAssets.fingerPrintIcon,
+                        height: AppHeight.h150,
                       ),
-                    ],
-                  ),
-                  const Spacer(),
-                  AppElevatedButton(
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                Center(
+                  child: AppElevatedButton(
                     onPressed: () {},
                     child: Text(
                       AppStrings.kEnableFingerPrint,
@@ -60,27 +58,27 @@ class FingerBiometricScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: AppHeight.h5),
-                  Center(
-                    child: AppTextButton(
-                        onPressed: () {
-                          AppRoutes.pushNamed(
-                            context,
-                            name: AppRoutes.faceBiometricScreen,
-                          );
-                        },
-                        child: Text(
-                          AppStrings.kSkipForNow,
-                          style: regularTextStyle(
-                            fontSize: FontSize.s16,
-                            color: ColorManager.titleTextColor,
-                            fontFamily: FontConstants.quicksand,
-                          ),
-                        )),
-                  ),
-                  SizedBox(height: AppHeight.h10),
-                ],
-              ),
+                ),
+                SizedBox(height: AppHeight.h5),
+                Center(
+                  child: AppTextButton(
+                      onPressed: () {
+                        AppRoutes.pushNamed(
+                          context,
+                          name: AppRoutes.faceBiometricScreen,
+                        );
+                      },
+                      child: Text(
+                        AppStrings.kSkipForNow,
+                        style: regularTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      )),
+                ),
+                SizedBox(height: AppHeight.h10),
+              ],
             ),
           ),
         );

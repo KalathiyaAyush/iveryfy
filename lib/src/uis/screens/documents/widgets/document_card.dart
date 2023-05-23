@@ -20,7 +20,7 @@ class DocumentCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: AppHeight.h100,
-        width: AppWidth.w330,
+        width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppRadius.r8),
           border: Border.all(
@@ -30,39 +30,37 @@ class DocumentCard extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: AppHeight.h15),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(width: AppWidth.w10),
-                SvgPicture.asset('lib/assets/svg/pass_black.svg'),
-                SizedBox(width: AppWidth.w10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      AppStrings.kPassport,
-                      style: semiBoldTextStyle(
-                        fontSize: FontSize.s20,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
+            Center(
+              child: Row(
+                children: [
+                  SizedBox(width: AppWidth.w10),
+                  SvgPicture.asset('lib/assets/svg/pass_black.svg'),
+                  SizedBox(width: AppWidth.w10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        AppStrings.kPassport,
+                        style: semiBoldTextStyle(
+                          fontSize: FontSize.s18,
+                          color: ColorManager.textColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: AppHeight.h3),
-                    SingleChildScrollView(
-                      child: Row(
+                      Row(
                         children: children ?? [],
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(width: AppWidth.w180),
-                SvgPicture.asset(assetName ?? ''),
-              ],
+                    ],
+                  ),
+                  SizedBox(width: AppWidth.w180),
+                  SvgPicture.asset(assetName ?? ''),
+                ],
+              ),
             ),
             const Spacer(),
             Container(
               height: AppHeight.h40,
-              width: AppWidth.w330,
+              width: double.infinity,
               decoration: BoxDecoration(
                 border: Border.all(
                   color: ColorManager.credCardColor,

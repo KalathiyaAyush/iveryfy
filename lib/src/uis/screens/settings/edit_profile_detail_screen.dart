@@ -115,17 +115,16 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppHeight.h10),
-                  AppbarWidget(onbackTap: () {
-                    Navigator.of(context).pop();
-                  }),
-                  Text(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppbarWidget(onbackTap: () {
+                  Navigator.of(context).pop();
+                }),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: Text(
                     AppStrings.kEditProfileDetails,
                     style: mediumTextStyle(
                       fontSize: FontSize.s24,
@@ -133,114 +132,88 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
                       fontFamily: FontConstants.rubik,
                     ),
                   ),
-                  SizedBox(height: AppHeight.h30),
-                  Expanded(
-                    child: ListView(
-                      shrinkWrap: true,
-                      children: [
-                        Center(
-                          child: Stack(
-                            children: [
-                              Container(
-                                clipBehavior: Clip.antiAlias,
-                                height: AppHeight.h120,
-                                width: AppWidth.w130,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: imageFile == null
-                                      ? Border.all(
-                                          width: AppWidth.w4,
-                                          color: ColorManager.secondaryColor,
-                                        )
-                                      : Border.all(),
-                                ),
-                                child: imageFile != null
-                                    ? Image.file(
-                                        File(imageFile!.path),
-                                        fit: BoxFit.cover,
+                ),
+                SizedBox(height: AppHeight.h30),
+                Expanded(
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
+                      Center(
+                        child: Stack(
+                          children: [
+                            Container(
+                              clipBehavior: Clip.antiAlias,
+                              height: AppHeight.h120,
+                              width: AppWidth.w130,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: imageFile == null
+                                    ? Border.all(
+                                        width: AppWidth.w4,
+                                        color: ColorManager.secondaryColor,
                                       )
-                                    : const Text(''),
+                                    : Border.all(),
                               ),
-                              Positioned(
-                                top: AppSize.s90,
-                                left: AppSize.s90,
-                                child: Container(
-                                  height: AppHeight.h40,
-                                  width: AppWidth.w40,
-                                  decoration: const BoxDecoration(
-                                      color: ColorManager.scaffoldBg,
-                                      shape: BoxShape.circle,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Color.fromRGBO(0, 0, 0, 0.09),
-                                          blurRadius: 25.0,
-                                        ),
-                                      ]),
-                                  child: Center(
-                                    child: IconButton(
-                                      onPressed: _showImagePickerSheet,
-                                      icon: SvgPicture.asset(
-                                          'lib/assets/svg/camera.svg'),
-                                    ),
+                              child: imageFile != null
+                                  ? Image.file(
+                                      File(imageFile!.path),
+                                      fit: BoxFit.cover,
+                                    )
+                                  : const Text(''),
+                            ),
+                            Positioned(
+                              top: AppSize.s90,
+                              left: AppSize.s90,
+                              child: Container(
+                                height: AppHeight.h40,
+                                width: AppWidth.w40,
+                                decoration: const BoxDecoration(
+                                    color: ColorManager.scaffoldBg,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromRGBO(0, 0, 0, 0.09),
+                                        blurRadius: 25.0,
+                                      ),
+                                    ]),
+                                child: Center(
+                                  child: IconButton(
+                                    onPressed: _showImagePickerSheet,
+                                    icon: SvgPicture.asset(
+                                        'lib/assets/svg/camera.svg'),
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        SizedBox(height: AppHeight.h20),
-                        Form(
+                      ),
+                      SizedBox(height: AppHeight.h20),
+                      Form(
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: AppPadding.p20, right: AppPadding.p20),
                           child: Column(
                             children: [
                               AppTextField(
-                                style: mediumTextStyle(
-                                  fontSize: FontSize.s16,
-                                  color: ColorManager.textColor,
-                                  fontFamily: FontConstants.quicksand,
-                                ),
                                 controller: _firstNameController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 labelText: AppStrings.kFirstName,
-                                labelStyle: regularTextStyle(
-                                  color: ColorManager.buttonGreyText,
-                                  fontFamily: FontConstants.quicksand,
-                                  fontSize: FontSize.s20,
-                                ),
                               ),
                               SizedBox(height: AppHeight.h15),
                               AppTextField(
-                                style: mediumTextStyle(
-                                  fontSize: FontSize.s16,
-                                  color: ColorManager.textColor,
-                                  fontFamily: FontConstants.quicksand,
-                                ),
                                 controller: _lastNameController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 labelText: AppStrings.kLastName,
-                                labelStyle: regularTextStyle(
-                                  color: ColorManager.buttonGreyText,
-                                  fontFamily: FontConstants.quicksand,
-                                  fontSize: FontSize.s20,
-                                ),
                               ),
                               SizedBox(height: AppHeight.h15),
                               AppTextField(
-                                style: mediumTextStyle(
-                                  fontSize: FontSize.s16,
-                                  color: ColorManager.textColor,
-                                  fontFamily: FontConstants.quicksand,
-                                ),
                                 controller: _dateController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 labelText: AppStrings.kDateofBirth,
-                                labelStyle: regularTextStyle(
-                                  color: ColorManager.buttonGreyText,
-                                  fontFamily: FontConstants.quicksand,
-                                  fontSize: FontSize.s20,
-                                ),
                                 suffixIcon: IconButton(
                                   onPressed: () {
                                     _selectDate(context);
@@ -252,97 +225,51 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
                               ),
                               SizedBox(height: AppHeight.h15),
                               AppTextField(
-                                style: mediumTextStyle(
-                                  fontSize: FontSize.s16,
-                                  color: ColorManager.textColor,
-                                  fontFamily: FontConstants.quicksand,
-                                ),
                                 controller: _nationalityController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 labelText: AppStrings.kNationality,
-                                labelStyle: regularTextStyle(
-                                  color: ColorManager.buttonGreyText,
-                                  fontFamily: FontConstants.quicksand,
-                                  fontSize: FontSize.s20,
-                                ),
                               ),
                               SizedBox(height: AppHeight.h15),
                               AppTextField(
-                                style: mediumTextStyle(
-                                  fontSize: FontSize.s16,
-                                  color: ColorManager.textColor,
-                                  fontFamily: FontConstants.quicksand,
-                                ),
                                 controller: _phoneNumberController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 labelText: AppStrings.kPhoneNumber,
-                                labelStyle: regularTextStyle(
-                                  color: ColorManager.buttonGreyText,
-                                  fontFamily: FontConstants.quicksand,
-                                  fontSize: FontSize.s20,
-                                ),
                               ),
                               SizedBox(height: AppHeight.h15),
                               AppTextField(
-                                style: mediumTextStyle(
-                                  fontSize: FontSize.s16,
-                                  color: ColorManager.textColor,
-                                  fontFamily: FontConstants.quicksand,
-                                ),
                                 controller: _emailController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 labelText: AppStrings.kEmailAddress,
-                                labelStyle: regularTextStyle(
-                                  color: ColorManager.buttonGreyText,
-                                  fontFamily: FontConstants.quicksand,
-                                  fontSize: FontSize.s20,
-                                ),
                               ),
                               SizedBox(height: AppHeight.h15),
                               AppTextField(
-                                style: mediumTextStyle(
-                                  fontSize: FontSize.s16,
-                                  color: ColorManager.textColor,
-                                  fontFamily: FontConstants.quicksand,
-                                ),
                                 controller: _ninController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 labelText: AppStrings.kNIN,
-                                labelStyle: regularTextStyle(
-                                  color: ColorManager.buttonGreyText,
-                                  fontFamily: FontConstants.quicksand,
-                                  fontSize: FontSize.s20,
-                                ),
                               ),
                               SizedBox(height: AppHeight.h15),
                               AppTextField(
-                                style: mediumTextStyle(
-                                  fontSize: FontSize.s16,
-                                  color: ColorManager.textColor,
-                                  fontFamily: FontConstants.quicksand,
-                                ),
                                 controller: _homeAddressController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 labelText: AppStrings.kHomeAddress,
-                                labelStyle: regularTextStyle(
-                                  color: ColorManager.buttonGreyText,
-                                  fontFamily: FontConstants.quicksand,
-                                  fontSize: FontSize.s20,
-                                ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(height: AppHeight.h30),
-                      ],
-                    ),
+                      ),
+                      SizedBox(height: AppHeight.h30),
+                    ],
                   ),
-                  AppElevatedButton(
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: AppElevatedButton(
                     onPressed: () {},
                     child: Text(
                       AppStrings.kSave,
@@ -353,9 +280,9 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: AppHeight.h20),
-                ],
-              ),
+                ),
+                SizedBox(height: AppHeight.h20),
+              ],
             ),
           ),
         );

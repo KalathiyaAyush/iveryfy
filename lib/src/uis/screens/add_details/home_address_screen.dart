@@ -51,83 +51,33 @@ class _HomeAddressScreenState extends State<HomeAddressScreen> {
                     child: Column(
                       children: [
                         AppTextField(
-                          style: mediumTextStyle(
-                            fontSize: FontSize.s16,
-                            color: ColorManager.textColor,
-                            fontFamily: FontConstants.quicksand,
-                          ),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           labelText: AppStrings.kHomeaddressline2,
                           controller: _homeAddressLine1ontroller,
-                          labelStyle: regularTextStyle(
-                            color: ColorManager.buttonGreyText,
-                            fontFamily: FontConstants.quicksand,
-                            fontSize: FontSize.s20,
-                          ),
                         ),
                         SizedBox(height: AppHeight.h15),
                         AppTextField(
-                          style: mediumTextStyle(
-                            fontSize: FontSize.s16,
-                            color: ColorManager.textColor,
-                            fontFamily: FontConstants.quicksand,
-                          ),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           labelText: AppStrings.kHomeaddressline2,
                           controller: _homeAddressLine2ontroller,
-                          labelStyle: regularTextStyle(
-                            color: ColorManager.buttonGreyText,
-                            fontFamily: FontConstants.quicksand,
-                            fontSize: FontSize.s20,
-                          ),
                         ),
                         SizedBox(height: AppHeight.h15),
                         AppTextField(
-                          style: mediumTextStyle(
-                            fontSize: FontSize.s16,
-                            color: ColorManager.textColor,
-                            fontFamily: FontConstants.quicksand,
-                          ),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           labelText: AppStrings.kCity,
                           controller: _cityController,
-                          labelStyle: regularTextStyle(
-                            color: ColorManager.buttonGreyText,
-                            fontFamily: FontConstants.quicksand,
-                            fontSize: FontSize.s20,
-                          ),
                         ),
                         SizedBox(height: AppHeight.h15),
                         AppTextField(
-                          style: mediumTextStyle(
-                            fontSize: FontSize.s16,
-                            color: ColorManager.textColor,
-                            fontFamily: FontConstants.quicksand,
-                          ),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           labelText: AppStrings.kPostcode,
                           controller: _postcodeController,
-                          labelStyle: regularTextStyle(
-                            color: ColorManager.buttonGreyText,
-                            fontFamily: FontConstants.quicksand,
-                            fontSize: FontSize.s20,
-                          ),
                         ),
                         SizedBox(height: AppHeight.h15),
                         AppTextField(
-                          style: mediumTextStyle(
-                            fontSize: FontSize.s16,
-                            color: ColorManager.textColor,
-                            fontFamily: FontConstants.quicksand,
-                          ),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           labelText: AppStrings.kCountryRegion,
                           controller: _countryRegionController,
-                          labelStyle: regularTextStyle(
-                            color: ColorManager.buttonGreyText,
-                            fontFamily: FontConstants.quicksand,
-                            fontSize: FontSize.s20,
-                          ),
                         ),
                       ],
                     ),

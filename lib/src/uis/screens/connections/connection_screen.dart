@@ -39,14 +39,19 @@ class _ConnectionScreenState extends State<ConnectionScreen>
           body: SafeArea(
             child: Column(
               children: [
-                SizedBox(height: AppHeight.h60),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildTextWidget(),
-                    SizedBox(width: AppWidth.w25),
-                    SvgPicture.asset('lib/assets/svg/search.svg'),
-                  ],
+                SizedBox(height: AppHeight.h70),
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildTextWidget(),
+                      SizedBox(width: AppWidth.w25),
+                      SvgPicture.asset('lib/assets/svg/search.svg'),
+                    ],
+                  ),
                 ),
                 SizedBox(height: AppHeight.h20),
                 TabBar(
@@ -105,10 +110,12 @@ class _ConnectionScreenState extends State<ConnectionScreen>
                   ],
                 ),
                 SizedBox(height: AppHeight.h20),
-                connectionCard(() {
-                  AppRoutes.pushNamed(context,
-                      name: AppRoutes.manageConnectionScreen);
-                }),
+                connectionCard(
+                  () {
+                    AppRoutes.pushNamed(context,
+                        name: AppRoutes.manageConnectionScreen);
+                  },
+                ),
                 // SizedBox(height: AppHeight.h100),
                 // Image.asset('lib/assets/images/no_connections.png'),
                 // SizedBox(height: AppHeight.h13),
@@ -152,15 +159,14 @@ class _ConnectionScreenState extends State<ConnectionScreen>
   }
 
   Widget _buildTextWidget() {
-    return Padding(
-      padding: EdgeInsets.only(left: AppPadding.p20),
+    return Flexible(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             AppStrings.kConnections,
             style: mediumTextStyle(
-              fontSize: FontSize.s26,
+              fontSize: FontSize.s24,
               color: ColorManager.titleTextColor,
               fontFamily: FontConstants.rubik,
             ),
@@ -169,7 +175,7 @@ class _ConnectionScreenState extends State<ConnectionScreen>
           Text(
             AppStrings.kConnectionDes,
             style: regularTextStyle(
-              fontSize: FontSize.s14,
+              fontSize: FontSize.s13,
               color: ColorManager.titleTextColor,
               fontFamily: FontConstants.quicksand,
             ),
@@ -180,119 +186,125 @@ class _ConnectionScreenState extends State<ConnectionScreen>
   }
 
   Widget connectionCard(Function()? onTap) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        height: AppHeight.h130,
-        width: AppWidth.w330,
-        padding: EdgeInsets.only(left: AppPadding.p18, right: AppPadding.p18),
-        decoration: BoxDecoration(
-          border: Border.all(color: ColorManager.primaryColor),
-          borderRadius: BorderRadius.circular(AppRadius.r12),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Jason Stamford',
-                      style: semiBoldTextStyle(
-                        fontSize: FontSize.s19,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                    ),
-                    SizedBox(height: AppHeight.h5),
-                    Text(
-                      '4 Documents',
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s16,
-                        color: const Color.fromRGBO(64, 145, 108, 1),
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  width: AppWidth.w55,
-                  child: CircleProgressBar(
-                    backgroundColor: ColorManager.buttonGreyText,
-                    foregroundColor: ColorManager.secondaryColor,
-                    strokeWidth: 5,
-                    value: 3,
-                    child: Center(
-                      child: Text(
-                        '60d \nLeft',
-                        style: regularTextStyle(
-                          fontSize: FontSize.s13,
+    return Padding(
+      padding: EdgeInsets.only(left: AppPadding.p18, right: AppPadding.p18),
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          width: double.infinity,
+          padding: EdgeInsets.only(
+              left: AppPadding.p18,
+              right: AppPadding.p18,
+              top: AppPadding.p10,
+              bottom: AppPadding.p10),
+          decoration: BoxDecoration(
+            border: Border.all(color: ColorManager.primaryColor),
+            borderRadius: BorderRadius.circular(AppRadius.r12),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Jason Stamford',
+                        style: semiBoldTextStyle(
+                          fontSize: FontSize.s19,
                           color: ColorManager.textColor,
                           fontFamily: FontConstants.quicksand,
                         ),
                       ),
-                    ),
+                      SizedBox(height: AppHeight.h5),
+                      Text(
+                        '4 Documents',
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: const Color.fromRGBO(64, 145, 108, 1),
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      ),
+                    ],
                   ),
-                )
-              ],
-            ),
-            const Divider(
-              color: ColorManager.buttonGreyText,
-              thickness: 1,
-            ),
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      AppStrings.kSharedon,
-                      style: regularTextStyle(
-                        fontSize: FontSize.s15,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
+                  SizedBox(
+                    width: AppWidth.w55,
+                    child: CircleProgressBar(
+                      backgroundColor: ColorManager.buttonGreyText,
+                      foregroundColor: ColorManager.secondaryColor,
+                      strokeWidth: 5,
+                      value: 3,
+                      child: Center(
+                        child: Text(
+                          '60d \nLeft',
+                          style: regularTextStyle(
+                            fontSize: FontSize.s13,
+                            color: ColorManager.textColor,
+                            fontFamily: FontConstants.quicksand,
+                          ),
+                        ),
                       ),
                     ),
-                    Text(
-                      '30 July 2022, 12:00:00',
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s15,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
+                  )
+                ],
+              ),
+              const Divider(
+                color: ColorManager.buttonGreyText,
+                thickness: 1,
+              ),
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        AppStrings.kSharedon,
+                        style: regularTextStyle(
+                          fontSize: FontSize.s15,
+                          color: ColorManager.textColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: AppHeight.h10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      AppStrings.kExpiry,
-                      style: regularTextStyle(
-                        fontSize: FontSize.s15,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
+                      Text(
+                        '30 July 2022, 12:00:00',
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s15,
+                          color: ColorManager.textColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
                       ),
-                    ),
-                    Text(
-                      '30 July 2023, 12:00:00',
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s15,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
+                    ],
+                  ),
+                  SizedBox(height: AppHeight.h10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        AppStrings.kExpiry,
+                        style: regularTextStyle(
+                          fontSize: FontSize.s15,
+                          color: ColorManager.textColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(height: AppHeight.h1),
-          ],
+                      Text(
+                        '30 July 2023, 12:00:00',
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s15,
+                          color: ColorManager.textColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: AppHeight.h1),
+            ],
+          ),
         ),
       ),
     );

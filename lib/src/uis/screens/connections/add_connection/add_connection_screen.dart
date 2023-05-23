@@ -29,56 +29,46 @@ class _AddConnectionScreenState extends State<AddConnectionScreen> {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppHeight.h20),
-                  AppbarWidget(onbackTap: () {
-                    Navigator.of(context).pop();
-                  }),
-                  _textWidget(),
-                  SizedBox(height: AppHeight.h30),
-                  AppTextField(
-                    controller: emailAddressController,
-                    labelText: AppStrings.kEmailAddress,
-                    labelStyle: regularTextStyle(
-                      fontSize: FontSize.s20,
-                      color: ColorManager.hintTextColor,
-                      fontFamily: FontConstants.quicksand,
-                    ),
-                  ),
-                  SizedBox(height: AppHeight.h20),
-                  Center(
-                    child: Text(
-                      AppStrings.kOr,
-                      style: regularTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.hintTextColor,
-                        fontFamily: FontConstants.quicksand,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppbarWidget(onbackTap: () {
+                  Navigator.of(context).pop();
+                }),
+                _textWidget(),
+                SizedBox(height: AppHeight.h30),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: Column(
+                    children: [
+                      AppTextField(
+                        controller: emailAddressController,
+                        labelText: AppStrings.kEmailAddress,
                       ),
-                    ),
+                      SizedBox(height: AppHeight.h20),
+                      Center(
+                        child: Text(
+                          AppStrings.kOr,
+                          style: regularTextStyle(
+                            fontSize: FontSize.s16,
+                            color: ColorManager.hintTextColor,
+                            fontFamily: FontConstants.quicksand,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: AppHeight.h20),
+                      AppTextField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        labelText: AppStrings.kiVerifiID,
+                        controller: iverifyIDController,
+                      ),
+                    ],
                   ),
-                  SizedBox(height: AppHeight.h20),
-                  AppTextField(
-                    style: regularTextStyle(
-                      fontSize: FontSize.s16,
-                      color: ColorManager.textColor,
-                      fontFamily: FontConstants.quicksand,
-                    ),
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    labelText: AppStrings.kiVerifiID,
-                    controller: iverifyIDController,
-                    labelStyle: regularTextStyle(
-                      color: ColorManager.buttonGreyText,
-                      fontFamily: FontConstants.quicksand,
-                      fontSize: FontSize.s20,
-                    ),
-                  ),
-                  const Spacer(),
-                  AppElevatedButton(
+                ),
+                const Spacer(),
+                Center(
+                  child: AppElevatedButton(
                     onPressed: () {
                       AppRoutes.pushNamed(context,
                           name: AppRoutes.connectionAddedScreen);
@@ -92,9 +82,9 @@ class _AddConnectionScreenState extends State<AddConnectionScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: AppHeight.h30),
-                ],
-              ),
+                ),
+                SizedBox(height: AppHeight.h30),
+              ],
             ),
           ),
         );
@@ -103,27 +93,30 @@ class _AddConnectionScreenState extends State<AddConnectionScreen> {
   }
 
   Widget _textWidget() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          AppStrings.kAddNewConnection,
-          style: mediumTextStyle(
-            fontSize: FontSize.s24,
-            color: ColorManager.titleTextColor,
-            fontFamily: FontConstants.rubik,
+    return Padding(
+      padding: EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppStrings.kAddNewConnection,
+            style: mediumTextStyle(
+              fontSize: FontSize.s24,
+              color: ColorManager.titleTextColor,
+              fontFamily: FontConstants.rubik,
+            ),
           ),
-        ),
-        SizedBox(height: AppHeight.h3),
-        Text(
-          AppStrings.kAddConnectionDes,
-          style: regularTextStyle(
-            fontSize: FontSize.s14,
-            color: ColorManager.titleTextColor,
-            fontFamily: FontConstants.quicksand,
+          SizedBox(height: AppHeight.h3),
+          Text(
+            AppStrings.kAddConnectionDes,
+            style: regularTextStyle(
+              fontSize: FontSize.s13,
+              color: ColorManager.titleTextColor,
+              fontFamily: FontConstants.quicksand,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

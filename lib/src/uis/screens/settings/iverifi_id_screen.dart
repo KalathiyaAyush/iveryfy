@@ -26,7 +26,6 @@ class IverifiIDScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: AppHeight.h20),
                   AppbarWidget(onbackTap: () {
                     Navigator.of(context).pop();
                   }),
@@ -41,9 +40,7 @@ class IverifiIDScreen extends StatelessWidget {
                   SizedBox(height: AppHeight.h30),
                   Container(
                     width: AppWidth.w330,
-                    height: AppHeight.h55,
-                    padding: EdgeInsets.only(
-                        left: AppPadding.p12, top: AppPadding.p10),
+                    padding: EdgeInsets.only(left: AppPadding.p12),
                     decoration: BoxDecoration(
                       border: Border.all(color: ColorManager.primaryColor),
                       borderRadius: BorderRadius.circular(AppRadius.r6),
@@ -51,26 +48,28 @@ class IverifiIDScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              AppStrings.kiVerifiID,
-                              style: regularTextStyle(
-                                fontSize: FontSize.s14,
-                                color: ColorManager.hintTextColor,
-                                fontFamily: FontConstants.quicksand,
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                AppStrings.kiVerifiID,
+                                style: regularTextStyle(
+                                  fontSize: FontSize.s13,
+                                  color: ColorManager.hintTextColor,
+                                  fontFamily: FontConstants.quicksand,
+                                ),
                               ),
-                            ),
-                            Text(
-                              id,
-                              style: mediumTextStyle(
-                                fontSize: FontSize.s18,
-                                color: ColorManager.textColor,
-                                fontFamily: FontConstants.quicksand,
+                              Text(
+                                id,
+                                style: mediumTextStyle(
+                                  fontSize: FontSize.s17,
+                                  color: ColorManager.textColor,
+                                  fontFamily: FontConstants.quicksand,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         IconButton(
                           onPressed: () async {

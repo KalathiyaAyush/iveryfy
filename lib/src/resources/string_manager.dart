@@ -13,7 +13,7 @@ class AppStrings {
   static const String kiverify = 'iverifi';
   static const String kWelcometoIverifi = 'Welcome to iVerifi';
   static const String kWelcomeDes =
-      'You can choose to login or signup to create a new \naccount';
+      'You can choose to login or signup to create a new account';
   static const String kLogin = 'Login';
   static const String kSignup = 'Signup';
 
@@ -21,9 +21,9 @@ class AppStrings {
   static const String kSignuptoiverifi = 'Signup to iVerifi';
   static const String kLogintoiverifi = 'Login to iVerifi';
   static const String kSignupDescription =
-      'You can choose to signup with social \nmedia account or web3 wallet';
+      'You can choose to signup with social media account or web3 wallet';
   static const String kLoginDescription =
-      'You can choose to login with social media \naccount or web3 wallet';
+      'You can choose to login with social media account or web3 wallet';
   static const String kOTPless = 'OTP less';
   static const String kWhatsapp = 'Whatsapp';
   static const String kWeb3wallet = 'Web3 wallet';
@@ -39,12 +39,12 @@ class AppStrings {
   static const String kiVerifiID = 'iVerifi ID';
   static const String kSetyourPasscode = 'Set your Passcode';
   static const String kSetPasscodeDes =
-      'Choose a 4 digit PIN code to secure \nYour details';
+      'Choose a 4 digit PIN code to secure Your details';
   static const String kConfirmPasscode = 'Confirm Passcode';
 
   //auth screen
   static const String kWelcomeDesc =
-      'To create an account enter your email \naddress';
+      'To create an account enter your email address';
   static const String kEmailAddress = 'Email address';
   static const String kpassword = 'Password';
   static const String kSHOW = 'SHOW';
@@ -56,19 +56,19 @@ class AppStrings {
   //verify email screen
   static const String kCheckYourEmail = 'Check your email';
   static const String kCheckEmailDes =
-      'We have just sent an email to \nexample@gmail.com \nplease confirm by clicking on the link';
+      'We have just sent an email to example@gmail.com please confirm by clicking on the link';
   static const String kOpenEmail = 'Open Email';
   static const String kdidntReceiveEmail = 'Didn\'t receive the email';
 
   //verified email
   static const String kEmailVerified = 'Your email has been verified';
   static const String kEmailVerifiedDes =
-      'Upload, verify and store your credentials \nLet\'s begin!';
+      'Upload, verify and store your credentials Let\'s begin!';
 
   //login pin screen
   static const String kSetMPIN = 'Set a MPIN';
   static const String kSetPinDes =
-      'Choose a 4 digit PIN code to secure \nYour details';
+      'Choose a 4 digit PIN code to secure Your details';
 
   //biometric
   static const String kSetupFingerprint = 'Setup Fingerprint';
@@ -101,24 +101,24 @@ class AppStrings {
   //add profile photo scren
   static const String kAddProfilePhoto = 'Add a Profile Photo';
   static const String kAddProfilePhotoDes =
-      'Upload your best photo as it\'s easier \nto recognise you';
+      'Upload your best photo as it\'s easier to recognise you';
   static const String kGallery = 'Gallery';
   static const String kCamera = 'Camera';
 
   //verify id screen
-  static const String kVerifyIdDes = 'Let\'s start verifying your \nIdentity?';
+  static const String kVerifyIdDes = 'Let\'s start verifying your Identity?';
   static const String kletsStartEKYC = 'Let\'s start e-KYC!';
   static const String kletsStartEKYCdes =
-      'Keep your documents handy so this process can be \ncompleted within few minutes';
+      'Keep your documents handy so this process can be completed within few minutes';
 
   static const String kAddGovernmentID = 'Add Government ID?';
   static const String kAddGovermentIDDes =
       'Select the type of credential you would like to add';
 
   //id passport screen
-  static const String kTakephotoofPassport = 'Take a photo of your \npassport';
+  static const String kTakephotoofPassport = 'Take a photo of your passport';
   static const String kidPassportDes =
-      'Put your passport page in the frame below, make sure it is \nin focus and clear to read before you take the photo';
+      'Put your passport page in the frame below, make sure it is in focus and clear to read before you take the photo';
   static const String kTakePhoto = 'Take photo';
   //passport
   static const String kdate = '12 Jun 2023';
@@ -129,7 +129,7 @@ class AppStrings {
   //verified
   static const String kAwesome = 'Awesome!';
   static const String kVerifiedDes =
-      'You have successfully uploaded your \ndocument. You shall be notified when it \nis verified.';
+      'You have successfully uploaded your document. You shall be notified when it is verified.';
   static const String kGotoHome = 'Go to Home';
   static const String kAddAnotherDocument = 'Add another document';
 
@@ -141,14 +141,14 @@ class AppStrings {
   static const String kExpired = 'Expired';
   static const String kVerified = 'Verified';
   static const String knoActivities =
-      'There are currently no active \nactivities';
+      'There are currently no active activities';
 
   //documents screen
   static const String kMyDocuments = 'My Documents';
   static const String kDocumentsDes =
-      'Here you can find your documents. you can view your \ndocuments\'s details by click on it';
+      'Here you can find your documents. you can view your documents\'s details by click on it';
   static const String knoConnectionFound =
-      'No current connections found. \nPlease add new credential.';
+      'No current connections found. Please add new credential.';
   static const String kPassportDetails = 'Passport Details';
   static const String kSelectTags = 'Select tags';
   static const String kQrCode = 'QR Code';
@@ -179,37 +179,37 @@ class AppStrings {
 
   //connection screen
   static const String kConnectionDes =
-      'Here you can manage your recipients. By adding this \nrecipient, you establish a secure connection between \nboth parties to exchange credentials';
+      'Here you can manage your recipients. By adding this recipient, you establish a secure connection between both parties to exchange credentials';
   static const String kCurrent = 'Current';
   static const String kHistory = 'History';
   static const String kNoConnectionFound =
-      'No current Connections found. \nPlease add new connections.';
+      'No current Connections found. Please add new connections.';
   static const String kSharedon = 'Shared on';
   static const String kExpiry = 'Expiry';
 
   //Add new connection
   static const String kAddNewConnection = 'Add New Connection';
   static const String kAddConnectionDes =
-      'Enter the details of the connections.By adding this \nconnection, you establish a secure connection between \nboth parties to exchange documents';
+      'Enter the details of the connections.By adding this connection, you establish a secure connection between both parties to exchange documents.';
 
   static const String ksuccessfullyAdded = 'Succesfully Added!';
   static const String kConnectionAdded =
-      'example@gmail.com has been added \nas a new connection';
+      'example@gmail.com has been added as a new connection';
 
   static const String kerror = 'Error!';
   static const String kConnectionFailed =
-      'Something went wrong. \nPlease try again';
+      'Something went wrong. Please try again';
   static const String kRetry = 'Retry';
 
   // share doc screen
   static const String kShareDocuments = 'Share Documents';
   static const String kShareDocumentsDes =
-      'Select the document you would like to share \nwith this connection';
+      'Select the document you would like to share with this connection';
 
   // set expiry date screen
   static const String kSetExpiryDate = 'Set Expiry Date';
   static const String kSetExpiryDateDes =
-      'Select the expiry date you would like to set with this \nconnections';
+      'Select the expiry date you would like to set with this connections';
   static const String kNoExpiryDate = 'No expiry date';
   static const String kStandard = 'Standard';
   static const String kSelectyourDuration = 'Select your duration';
@@ -220,18 +220,18 @@ class AppStrings {
   //document sent
   static const String kGreat = 'Great!';
   static const String kDocumenthavebeenSent =
-      'Your documents have been sent to \nMr. Josh Robert';
+      'Your documents have been sent to Mr. Josh Robert';
 
   //manage connection
   static const String kManageConnection = 'Manage Connections';
   static const String kManagerConnectionDes =
-      'You can manage your connection and the documents you \nshared with them here';
+      'You can manage your connection and the documents you shared with them here';
   static const String kName = 'Name';
   static const String kSharedDocuments = 'Shared documents';
   static const String kExtendexpirydate = 'Extend expiry date';
   static const String kEndsharenow = 'End share now';
   static const String kdeleteDocument =
-      'Are you sure you want to \ndelete this document?';
+      'Are you sure you want to delete this document?';
 
   //settings screen
   static const String kProfileDetails = 'Profile Details';

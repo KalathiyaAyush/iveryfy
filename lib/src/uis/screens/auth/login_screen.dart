@@ -55,11 +55,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     SizedBox(height: AppHeight.h30),
                     AppTextField(
-                      style: regularTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
                       validator: (email) {
                         if (email!.isEmpty) {
                           return 'Please enter email address';
@@ -72,19 +67,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       labelText: AppStrings.kEmailAddress,
                       controller: emailAddressController,
-                      labelStyle: regularTextStyle(
-                        color: ColorManager.buttonGreyText,
-                        fontFamily: FontConstants.quicksand,
-                        fontSize: FontSize.s20,
-                      ),
                     ),
                     SizedBox(height: AppHeight.h20),
                     AppTextField(
-                      style: regularTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.textColor,
-                        fontFamily: FontConstants.quicksand,
-                      ),
                       validator: (password) {
                         if (password!.isEmpty) {
                           return 'Please enter password';
@@ -111,11 +96,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       labelText: AppStrings.kpassword,
                       controller: passwordController,
-                      labelStyle: regularTextStyle(
-                        color: ColorManager.buttonGreyText,
-                        fontFamily: FontConstants.quicksand,
-                        fontSize: FontSize.s20,
-                      ),
                     ),
                     SizedBox(height: AppHeight.h40),
                     Column(

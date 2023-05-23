@@ -39,68 +39,84 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppHeight.h20),
-                  AppbarWidget(onbackTap: () {
-                    Navigator.of(context).pop();
-                  }),
-                  Text(
-                    AppStrings.kManageConnection,
-                    style: mediumTextStyle(
-                      fontSize: FontSize.s24,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.rubik,
-                    ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppbarWidget(onbackTap: () {
+                  Navigator.of(context).pop();
+                }),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        AppStrings.kManageConnection,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s24,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.rubik,
+                        ),
+                      ),
+                      SizedBox(height: AppHeight.h4),
+                      Text(
+                        AppStrings.kManagerConnectionDes,
+                        style: regularTextStyle(
+                          fontSize: FontSize.s14,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: AppHeight.h4),
-                  Text(
-                    AppStrings.kManagerConnectionDes,
-                    style: regularTextStyle(
-                      fontSize: FontSize.s14,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.quicksand,
-                    ),
-                  ),
-                  SizedBox(height: AppHeight.h20),
-                  const NameContainer(
-                      name: 'Jason Stamford', email: 'example@gmail.com'),
-                  SizedBox(height: AppHeight.h15),
-                  Container(
-                    height: AppHeight.h135,
-                    width: AppWidth.w330,
-                    padding: EdgeInsets.all(AppPadding.p8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(AppRadius.r4),
-                      border: Border.all(color: ColorManager.primaryColor),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          AppStrings.kShareDocuments,
-                          style: regularTextStyle(
-                            fontSize: FontSize.s14,
-                            color: ColorManager.hintTextColor,
-                            fontFamily: FontConstants.quicksand,
+                ),
+                SizedBox(height: AppHeight.h20),
+                Expanded(
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
+                      const NameContainer(
+                          name: 'Jason Stamford', email: 'example@gmail.com'),
+                      SizedBox(height: AppHeight.h15),
+                      Center(
+                        child: Container(
+                          width: AppWidth.w330,
+                          padding: EdgeInsets.all(AppPadding.p8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(AppRadius.r4),
+                            border:
+                                Border.all(color: ColorManager.primaryColor),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                AppStrings.kShareDocuments,
+                                style: regularTextStyle(
+                                  fontSize: FontSize.s14,
+                                  color: ColorManager.hintTextColor,
+                                  fontFamily: FontConstants.quicksand,
+                                ),
+                              ),
+                              SizedBox(height: AppHeight.h10),
+                              _buildDocCard(AppStrings.kPassport),
+                              SizedBox(height: AppHeight.h8),
+                              _buildDocCard(AppStrings.kDriverLicense),
+                              SizedBox(height: AppHeight.h8),
+                            ],
                           ),
                         ),
-                        SizedBox(height: AppHeight.h10),
-                        _buildDocCard(AppStrings.kPassport),
-                        SizedBox(height: AppHeight.h8),
-                        _buildDocCard(AppStrings.kDriverLicense),
-                        SizedBox(height: AppHeight.h8),
-                      ],
-                    ),
+                      ),
+                      SizedBox(height: AppHeight.h10),
+                      dateContainer(),
+                      SizedBox(height: AppHeight.h10),
+                    ],
                   ),
-                  SizedBox(height: AppHeight.h10),
-                  dateContainer(),
-                  const Spacer(),
-                  AppElevatedButton(
+                ),
+                // const Spacer(),
+                Center(
+                  child: AppElevatedButton(
                     onPressed: () {},
                     child: Text(
                       AppStrings.kExtendexpirydate,
@@ -111,8 +127,10 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: AppHeight.h15),
-                  AppOutlinedButton(
+                ),
+                SizedBox(height: AppHeight.h15),
+                Center(
+                  child: AppOutlinedButton(
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -188,9 +206,9 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                     },
                     data: AppStrings.kEndsharenow,
                   ),
-                  SizedBox(height: AppHeight.h20),
-                ],
-              ),
+                ),
+                SizedBox(height: AppHeight.h20),
+              ],
             ),
           ),
         );
@@ -232,8 +250,7 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
 
   Widget _buildDocCard(String data) {
     return Container(
-      height: AppHeight.h40,
-      width: AppWidth.w330,
+      width: double.infinity,
       padding: EdgeInsets.only(left: AppPadding.p10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppRadius.r4),
@@ -269,77 +286,78 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
   }
 
   Widget dateContainer() {
-    return Container(
-      height: AppHeight.h100,
-      width: AppWidth.w330,
-      padding: EdgeInsets.only(
-          left: AppPadding.p20,
-          right: AppPadding.p20,
-          top: AppPadding.p20,
-          bottom: AppPadding.p10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppRadius.r4),
-        border: Border.all(color: ColorManager.primaryColor),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                AppStrings.kSharedon,
-                style: regularTextStyle(
-                  fontSize: FontSize.s15,
-                  color: ColorManager.hintTextColor,
-                  fontFamily: FontConstants.quicksand,
+    return Center(
+      child: Container(
+        width: AppWidth.w330,
+        padding: EdgeInsets.only(
+            left: AppPadding.p20,
+            right: AppPadding.p20,
+            top: AppPadding.p20,
+            bottom: AppPadding.p10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(AppRadius.r4),
+          border: Border.all(color: ColorManager.primaryColor),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  AppStrings.kSharedon,
+                  style: regularTextStyle(
+                    fontSize: FontSize.s15,
+                    color: ColorManager.hintTextColor,
+                    fontFamily: FontConstants.quicksand,
+                  ),
                 ),
-              ),
-              Text(
-                '30 July 2022, 12:00:00',
-                style: mediumTextStyle(
-                  fontSize: FontSize.s15,
-                  color: ColorManager.textColor,
-                  fontFamily: FontConstants.quicksand,
+                Text(
+                  '30 July 2022, 12:00:00',
+                  style: mediumTextStyle(
+                    fontSize: FontSize.s15,
+                    color: ColorManager.textColor,
+                    fontFamily: FontConstants.quicksand,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: AppHeight.h10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                AppStrings.kExpiry,
-                style: regularTextStyle(
-                  fontSize: FontSize.s15,
-                  color: ColorManager.hintTextColor,
-                  fontFamily: FontConstants.quicksand,
-                ),
-              ),
-              Text(
-                '30 July 2023, 12:00:00',
-                style: mediumTextStyle(
-                  fontSize: FontSize.s15,
-                  color: ColorManager.textColor,
-                  fontFamily: FontConstants.quicksand,
-                ),
-              ),
-            ],
-          ),
-          const Divider(
-            color: ColorManager.primaryColor,
-            thickness: 2,
-          ),
-          Text(
-            '6o Day\'s left',
-            style: regularTextStyle(
-              fontSize: FontSize.s16,
-              color: const Color.fromRGBO(255, 59, 48, 1),
-              fontFamily: FontConstants.quicksand,
+              ],
             ),
-          ),
-        ],
+            SizedBox(height: AppHeight.h10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  AppStrings.kExpiry,
+                  style: regularTextStyle(
+                    fontSize: FontSize.s15,
+                    color: ColorManager.hintTextColor,
+                    fontFamily: FontConstants.quicksand,
+                  ),
+                ),
+                Text(
+                  '30 July 2023, 12:00:00',
+                  style: mediumTextStyle(
+                    fontSize: FontSize.s15,
+                    color: ColorManager.textColor,
+                    fontFamily: FontConstants.quicksand,
+                  ),
+                ),
+              ],
+            ),
+            const Divider(
+              color: ColorManager.primaryColor,
+              thickness: 2,
+            ),
+            Text(
+              '6o Day\'s left',
+              style: regularTextStyle(
+                fontSize: FontSize.s16,
+                color: const Color.fromRGBO(255, 59, 48, 1),
+                fontFamily: FontConstants.quicksand,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

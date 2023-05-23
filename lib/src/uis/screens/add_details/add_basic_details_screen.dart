@@ -48,99 +48,39 @@ class _AddBasicDetailsScreenState extends State<AddBasicDetailsScreen> {
                   Column(
                     children: [
                       AppTextField(
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s16,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
-                        ),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         labelText: AppStrings.kFirstName,
                         controller: _firstNameController,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
-                          fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
-                        ),
                       ),
                       SizedBox(height: AppHeight.h15),
                       AppTextField(
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s16,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
-                        ),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         labelText: AppStrings.kLastName,
                         controller: _lastNameController,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
-                          fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
-                        ),
                       ),
                       SizedBox(height: AppHeight.h15),
                       AppTextField(
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s16,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
-                        ),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         labelText: AppStrings.kDateofBirth,
                         controller: _dateofBirthController,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
-                          fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
-                        ),
                       ),
                       SizedBox(height: AppHeight.h15),
                       AppTextField(
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s16,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
-                        ),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         labelText: AppStrings.kNationality,
                         controller: _nationalitynController,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
-                          fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
-                        ),
                       ),
                       SizedBox(height: AppHeight.h15),
                       AppTextField(
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s16,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
-                        ),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         labelText: AppStrings.kPhoneNumber,
                         controller: _phoneNumberController,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
-                          fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
-                        ),
                       ),
                       SizedBox(height: AppHeight.h15),
                       AppTextField(
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s16,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
-                        ),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         labelText: AppStrings.kNIN,
                         controller: _ninController,
-                        labelStyle: regularTextStyle(
-                          color: ColorManager.buttonGreyText,
-                          fontFamily: FontConstants.quicksand,
-                          fontSize: FontSize.s20,
-                        ),
                       ),
                     ],
                   ),

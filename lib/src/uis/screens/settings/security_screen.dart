@@ -20,17 +20,16 @@ class SecurityScreen extends StatelessWidget {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppHeight.h20),
-                  AppbarWidget(onbackTap: () {
-                    Navigator.of(context).pop();
-                  }),
-                  Text(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppbarWidget(onbackTap: () {
+                  Navigator.of(context).pop();
+                }),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: Text(
                     AppStrings.kSecurity,
                     style: mediumTextStyle(
                       fontSize: FontSize.s24,
@@ -38,28 +37,28 @@ class SecurityScreen extends StatelessWidget {
                       fontFamily: FontConstants.rubik,
                     ),
                   ),
-                  SizedBox(height: AppHeight.h10),
-                  const SettingView(
-                    assetName: 'lib/assets/svg/settings/security.svg',
-                    asset: 'lib/assets/svg/greater_than_black.svg',
-                    title: AppStrings.kChangepin,
-                  ),
-                  SettingSwitchView(
-                    assetName: 'lib/assets/svg/settings/faceID.svg',
-                    asset: 'lib/assets/svg/greater_than_black.svg',
-                    title: AppStrings.kFaceID,
-                    value: true,
-                    onToggle: (val) {},
-                  ),
-                  SettingSwitchView(
-                    assetName: 'lib/assets/svg/settings/fingerprint.svg',
-                    asset: 'lib/assets/svg/greater_than_black.svg',
-                    title: AppStrings.kFingerprint,
-                    value: true,
-                    onToggle: (val) {},
-                  ),
-                ],
-              ),
+                ),
+                SizedBox(height: AppHeight.h10),
+                const SettingView(
+                  assetName: 'lib/assets/svg/settings/security.svg',
+                  asset: 'lib/assets/svg/greater_than_black.svg',
+                  title: AppStrings.kChangepin,
+                ),
+                SettingSwitchView(
+                  assetName: 'lib/assets/svg/settings/faceID.svg',
+                  asset: 'lib/assets/svg/greater_than_black.svg',
+                  title: AppStrings.kFaceID,
+                  value: true,
+                  onToggle: (val) {},
+                ),
+                SettingSwitchView(
+                  assetName: 'lib/assets/svg/settings/fingerprint.svg',
+                  asset: 'lib/assets/svg/greater_than_black.svg',
+                  title: AppStrings.kFingerprint,
+                  value: true,
+                  onToggle: (val) {},
+                ),
+              ],
             ),
           ),
         );

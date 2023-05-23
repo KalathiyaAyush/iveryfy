@@ -25,27 +25,49 @@ class SettingSwitchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: AppPadding.p15),
+      padding: EdgeInsets.only(
+          bottom: AppPadding.p15, left: AppPadding.p20, right: AppPadding.p22),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
-              SizedBox(
-                height: AppHeight.h42,
+              Container(
                 width: AppWidth.w45,
-                child: NeumorphicButton(
-                  onPressed: () {},
-                  style: NeumorphicStyle(
-                    shape: NeumorphicShape.flat,
+                height: AppHeight.h40,
+                decoration: BoxDecoration(
                     color: ColorManager.scaffoldBg,
-                    boxShape: NeumorphicBoxShape.roundRect(
-                      BorderRadius.circular(AppRadius.r25),
-                    ),
+                    borderRadius: BorderRadius.circular(AppRadius.r20),
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 8.0,
+                        spreadRadius: 2.0,
+                        offset: Offset(5.0, 5.0),
+                        color: Color.fromRGBO(39, 34, 70, 0.1),
+                      ),
+                    ]),
+                child: Center(
+                  child: SvgPicture.asset(
+                    assetName,
+                    height: AppHeight.h20,
                   ),
-                  child: SvgPicture.asset(assetName),
                 ),
               ),
+              // SizedBox(
+              //   height: AppHeight.h42,
+              //   width: AppWidth.w45,
+              //   child: NeumorphicButton(
+              //     onPressed: () {},
+              //     style: NeumorphicStyle(
+              //       shape: NeumorphicShape.flat,
+              //       color: ColorManager.scaffoldBg,
+              //       boxShape: NeumorphicBoxShape.roundRect(
+              //         BorderRadius.circular(AppRadius.r25),
+              //       ),
+              //     ),
+              //     child: SvgPicture.asset(assetName),
+              //   ),
+              // ),
               SizedBox(width: AppWidth.w15),
               Text(
                 title,

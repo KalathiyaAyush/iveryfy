@@ -70,7 +70,7 @@ class _MyDocumentScreenState extends State<MyDocumentScreen> {
                   Text(
                     AppStrings.kDocumentsDes,
                     style: mediumTextStyle(
-                      fontSize: FontSize.s14,
+                      fontSize: FontSize.s13,
                       color: ColorManager.titleTextColor,
                       fontFamily: FontConstants.quicksand,
                     ),
@@ -79,56 +79,59 @@ class _MyDocumentScreenState extends State<MyDocumentScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: AppWidth.w280,
-                        height: AppHeight.h40,
-                        padding: EdgeInsets.only(
-                            left: AppPadding.p12,
-                            right: AppPadding.p12,
-                            bottom: AppPadding.p7),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: ColorManager.primaryColor),
-                          borderRadius: BorderRadius.circular(AppRadius.r12),
-                        ),
-                        child: DropdownButtonFormField(
-                          style: regularTextStyle(
-                            fontSize: FontSize.s15,
-                            color: ColorManager.textColor,
-                            fontFamily: FontConstants.quicksand,
+                      Flexible(
+                        child: Container(
+                          height: AppHeight.h40,
+                          padding: EdgeInsets.only(
+                              left: AppPadding.p12, right: AppPadding.p12),
+                          decoration: BoxDecoration(
+                            border:
+                                Border.all(color: ColorManager.primaryColor),
+                            borderRadius: BorderRadius.circular(AppRadius.r12),
                           ),
-                          icon: SvgPicture.asset('lib/assets/svg/dropdown.svg'),
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: AppStrings.kAll,
-                            hintStyle: regularTextStyle(
+                          child: DropdownButtonFormField(
+                            style: regularTextStyle(
                               fontSize: FontSize.s15,
-                              color: ColorManager.buttonGreyText,
+                              color: ColorManager.textColor,
                               fontFamily: FontConstants.quicksand,
                             ),
+                            icon:
+                                SvgPicture.asset('lib/assets/svg/dropdown.svg'),
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: AppStrings.kAll,
+                              hintStyle: regularTextStyle(
+                                fontSize: FontSize.s15,
+                                color: ColorManager.buttonGreyText,
+                                fontFamily: FontConstants.quicksand,
+                              ),
+                            ),
+                            items: const [
+                              DropdownMenuItem(
+                                  value: AppStrings.kIDProof,
+                                  child: Text(AppStrings.kIDProof)),
+                              DropdownMenuItem(
+                                  value: AppStrings.kTravel,
+                                  child: Text(AppStrings.kTravel)),
+                              DropdownMenuItem(
+                                  value: AppStrings.kPersonal,
+                                  child: Text(AppStrings.kPersonal)),
+                              DropdownMenuItem(
+                                  value: AppStrings.kInsurance,
+                                  child: Text(AppStrings.kInsurance)),
+                              DropdownMenuItem(
+                                  value: AppStrings.kEducation,
+                                  child: Text(AppStrings.kEducation)),
+                            ],
+                            onChanged: (value) {},
                           ),
-                          items: const [
-                            DropdownMenuItem(
-                                value: AppStrings.kIDProof,
-                                child: Text(AppStrings.kIDProof)),
-                            DropdownMenuItem(
-                                value: AppStrings.kTravel,
-                                child: Text(AppStrings.kTravel)),
-                            DropdownMenuItem(
-                                value: AppStrings.kPersonal,
-                                child: Text(AppStrings.kPersonal)),
-                            DropdownMenuItem(
-                                value: AppStrings.kInsurance,
-                                child: Text(AppStrings.kInsurance)),
-                            DropdownMenuItem(
-                                value: AppStrings.kEducation,
-                                child: Text(AppStrings.kEducation)),
-                          ],
-                          onChanged: (value) {},
                         ),
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: SvgPicture.asset('lib/assets/svg/drop_down.svg'),
+                        icon: SvgPicture.asset(
+                          'lib/assets/svg/drop_down.svg',
+                        ),
                       ),
                     ],
                   ),

@@ -13,7 +13,7 @@ class AppbarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: AppPadding.p10),
+      padding: EdgeInsets.only(bottom: AppPadding.p10, left: AppPadding.p20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

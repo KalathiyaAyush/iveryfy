@@ -22,26 +22,35 @@ class WelcomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-            Image.asset(ImageAssets.welcomeIcon),
-            SizedBox(height: AppHeight.h20),
             Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  AppStrings.kWelcometoIverifi,
-                  style: mediumTextStyle(
-                    fontSize: FontSize.s22,
-                    color: ColorManager.titleTextColor,
-                    fontFamily: FontConstants.rubik,
-                  ),
-                ),
-                SizedBox(height: AppHeight.h5),
-                Text(
-                  AppStrings.kWelcomeDes,
-                  textAlign: TextAlign.center,
-                  style: regularTextStyle(
-                    fontSize: FontSize.s15,
-                    color: ColorManager.titleTextColor,
-                    fontFamily: FontConstants.quicksand,
+                Image.asset(ImageAssets.welcomeIcon),
+                SizedBox(height: AppHeight.h20),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p15, right: AppPadding.p15),
+                  child: Column(
+                    children: [
+                      Text(
+                        AppStrings.kWelcometoIverifi,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s22,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.rubik,
+                        ),
+                      ),
+                      SizedBox(height: AppHeight.h5),
+                      Text(
+                        AppStrings.kWelcomeDes,
+                        textAlign: TextAlign.center,
+                        style: regularTextStyle(
+                          fontSize: FontSize.s15,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

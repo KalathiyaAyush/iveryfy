@@ -31,123 +31,139 @@ class _ShareDocumentScreenState extends State<ShareDocumentScreen> {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppHeight.h20),
-                  AppbarWidget(onbackTap: () {
-                    Navigator.of(context).pop();
-                  }),
-                  const AppTitleText(
-                    title: AppStrings.kShareDocuments,
-                    titleDes: AppStrings.kShareDocumentsDes,
-                  ),
-                  SizedBox(height: AppHeight.h20),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: ColorManager.primaryColor),
-                        borderRadius: BorderRadius.circular(AppRadius.r6)),
-                    child: CheckboxListTile(
-                      contentPadding: EdgeInsets.zero,
-                      controlAffinity: ListTileControlAffinity.leading,
-                      activeColor: ColorManager.secondaryColor,
-                      side: const BorderSide(color: ColorManager.primaryColor),
-                      title: Text(
-                        AppStrings.kPassport,
-                        style: mediumTextStyle(
-                          color: ColorManager.titleTextColor,
-                          fontFamily: FontConstants.quicksand,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppbarWidget(onbackTap: () {
+                  Navigator.of(context).pop();
+                }),
+                const AppTitleText(
+                  title: AppStrings.kShareDocuments,
+                  titleDes: AppStrings.kShareDocumentsDes,
+                ),
+                SizedBox(height: AppHeight.h20),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: AppHeight.h50,
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(color: ColorManager.primaryColor),
+                            borderRadius: BorderRadius.circular(AppRadius.r6)),
+                        child: CheckboxListTile(
+                          contentPadding: EdgeInsets.zero,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          activeColor: ColorManager.secondaryColor,
+                          side: const BorderSide(
+                              color: ColorManager.primaryColor),
+                          title: Text(
+                            AppStrings.kPassport,
+                            style: mediumTextStyle(
+                              color: ColorManager.titleTextColor,
+                              fontFamily: FontConstants.quicksand,
+                            ),
+                          ),
+                          value: passport,
+                          onChanged: (value) {
+                            setState(() {
+                              passport = value!;
+                            });
+                          },
                         ),
                       ),
-                      value: passport,
-                      onChanged: (value) {
-                        setState(() {
-                          passport = value!;
-                        });
-                      },
-                    ),
-                  ),
-                  SizedBox(height: AppHeight.h15),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: ColorManager.primaryColor),
-                        borderRadius: BorderRadius.circular(AppRadius.r6)),
-                    child: CheckboxListTile(
-                      contentPadding: EdgeInsets.zero,
-                      controlAffinity: ListTileControlAffinity.leading,
-                      activeColor: ColorManager.secondaryColor,
-                      side: const BorderSide(color: ColorManager.primaryColor),
-                      title: Text(
-                        AppStrings.kDriverLicense,
-                        style: mediumTextStyle(
-                          color: ColorManager.titleTextColor,
-                          fontFamily: FontConstants.quicksand,
+                      SizedBox(height: AppHeight.h15),
+                      Container(
+                        height: AppHeight.h50,
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(color: ColorManager.primaryColor),
+                            borderRadius: BorderRadius.circular(AppRadius.r6)),
+                        child: CheckboxListTile(
+                          contentPadding: EdgeInsets.zero,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          activeColor: ColorManager.secondaryColor,
+                          side: const BorderSide(
+                              color: ColorManager.primaryColor),
+                          title: Text(
+                            AppStrings.kDriverLicense,
+                            style: mediumTextStyle(
+                              color: ColorManager.titleTextColor,
+                              fontFamily: FontConstants.quicksand,
+                            ),
+                          ),
+                          value: dlicence,
+                          onChanged: (value) {
+                            setState(() {
+                              dlicence = value!;
+                            });
+                          },
                         ),
                       ),
-                      value: dlicence,
-                      onChanged: (value) {
-                        setState(() {
-                          dlicence = value!;
-                        });
-                      },
-                    ),
-                  ),
-                  SizedBox(height: AppHeight.h15),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: ColorManager.primaryColor),
-                        borderRadius: BorderRadius.circular(AppRadius.r6)),
-                    child: CheckboxListTile(
-                      contentPadding: EdgeInsets.zero,
-                      controlAffinity: ListTileControlAffinity.leading,
-                      activeColor: ColorManager.secondaryColor,
-                      side: const BorderSide(color: ColorManager.primaryColor),
-                      title: Text(
-                        AppStrings.kProofofAddress,
-                        style: mediumTextStyle(
-                          color: ColorManager.titleTextColor,
-                          fontFamily: FontConstants.quicksand,
+                      SizedBox(height: AppHeight.h15),
+                      Container(
+                        height: AppHeight.h50,
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(color: ColorManager.primaryColor),
+                            borderRadius: BorderRadius.circular(AppRadius.r6)),
+                        child: CheckboxListTile(
+                          contentPadding: EdgeInsets.zero,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          activeColor: ColorManager.secondaryColor,
+                          side: const BorderSide(
+                              color: ColorManager.primaryColor),
+                          title: Text(
+                            AppStrings.kProofofAddress,
+                            style: mediumTextStyle(
+                              color: ColorManager.titleTextColor,
+                              fontFamily: FontConstants.quicksand,
+                            ),
+                          ),
+                          value: addProof,
+                          onChanged: (value) {
+                            setState(() {
+                              addProof = value!;
+                            });
+                          },
                         ),
                       ),
-                      value: addProof,
-                      onChanged: (value) {
-                        setState(() {
-                          addProof = value!;
-                        });
-                      },
-                    ),
-                  ),
-                  SizedBox(height: AppHeight.h15),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: ColorManager.primaryColor),
-                        borderRadius: BorderRadius.circular(AppRadius.r6)),
-                    child: CheckboxListTile(
-                      contentPadding: EdgeInsets.zero,
-                      controlAffinity: ListTileControlAffinity.leading,
-                      activeColor: ColorManager.secondaryColor,
-                      dense: true,
-                      side: const BorderSide(color: ColorManager.primaryColor),
-                      title: Text(
-                        AppStrings.kRighttoWork,
-                        style: mediumTextStyle(
-                          color: ColorManager.titleTextColor,
-                          fontFamily: FontConstants.quicksand,
+                      SizedBox(height: AppHeight.h15),
+                      Container(
+                        height: AppHeight.h50,
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(color: ColorManager.primaryColor),
+                            borderRadius: BorderRadius.circular(AppRadius.r6)),
+                        child: CheckboxListTile(
+                          contentPadding: EdgeInsets.zero,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          activeColor: ColorManager.secondaryColor,
+                          side: const BorderSide(
+                              color: ColorManager.primaryColor),
+                          title: Text(
+                            AppStrings.kRighttoWork,
+                            style: mediumTextStyle(
+                              color: ColorManager.titleTextColor,
+                              fontFamily: FontConstants.quicksand,
+                            ),
+                          ),
+                          value: righttoWork,
+                          onChanged: (value) {
+                            setState(() {
+                              righttoWork = value!;
+                            });
+                          },
                         ),
                       ),
-                      value: righttoWork,
-                      onChanged: (value) {
-                        setState(() {
-                          righttoWork = value!;
-                        });
-                      },
-                    ),
+                    ],
                   ),
-                  const Spacer(),
-                  AppElevatedButton(
+                ),
+                const Spacer(),
+                Center(
+                  child: AppElevatedButton(
                     onPressed: () {
                       AppRoutes.pushNamed(context,
                           name: AppRoutes.setExpiryDateScreen);
@@ -156,16 +172,14 @@ class _ShareDocumentScreenState extends State<ShareDocumentScreen> {
                       AppStrings.kNext,
                       style: semiBoldTextStyle(
                         fontSize: FontSize.s16,
-                        color: passport == true
-                            ? ColorManager.scaffoldBg
-                            : ColorManager.buttonGreyText,
+                        color: ColorManager.scaffoldBg,
                         fontFamily: FontConstants.quicksand,
                       ),
                     ),
                   ),
-                  SizedBox(height: AppHeight.h30),
-                ],
-              ),
+                ),
+                SizedBox(height: AppHeight.h30),
+              ],
             ),
           ),
         );

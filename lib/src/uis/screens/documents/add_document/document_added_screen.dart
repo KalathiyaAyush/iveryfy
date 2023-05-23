@@ -26,22 +26,30 @@ class DocumentAddedScreen extends StatelessWidget {
                   const Spacer(),
                   Image.asset('lib/assets/images/verified.png'),
                   SizedBox(height: AppHeight.h25),
-                  Text(
-                    AppStrings.kAwesome,
-                    style: mediumTextStyle(
-                      fontSize: FontSize.s22,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.rubik,
-                    ),
-                  ),
-                  SizedBox(height: AppHeight.h8),
-                  Text(
-                    AppStrings.kVerifiedDes,
-                    textAlign: TextAlign.center,
-                    style: regularTextStyle(
-                      fontSize: FontSize.s18,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.quicksand,
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: AppPadding.p20, right: AppPadding.p20),
+                    child: Column(
+                      children: [
+                        Text(
+                          AppStrings.kAwesome,
+                          style: mediumTextStyle(
+                            fontSize: FontSize.s22,
+                            color: ColorManager.titleTextColor,
+                            fontFamily: FontConstants.rubik,
+                          ),
+                        ),
+                        SizedBox(height: AppHeight.h8),
+                        Text(
+                          AppStrings.kVerifiedDes,
+                          textAlign: TextAlign.center,
+                          style: regularTextStyle(
+                            fontSize: FontSize.s18,
+                            color: ColorManager.titleTextColor,
+                            fontFamily: FontConstants.quicksand,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const Spacer(),

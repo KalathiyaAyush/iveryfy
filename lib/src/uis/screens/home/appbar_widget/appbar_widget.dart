@@ -12,55 +12,58 @@ class AppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Hi Josh',
-                  style: mediumTextStyle(
-                    fontSize: FontSize.s24,
-                    color: ColorManager.titleTextColor,
-                    fontFamily: FontConstants.rubik,
+    return Padding(
+      padding: EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Hi Josh',
+                    style: mediumTextStyle(
+                      fontSize: FontSize.s24,
+                      color: ColorManager.titleTextColor,
+                      fontFamily: FontConstants.rubik,
+                    ),
                   ),
-                ),
-                SizedBox(height: AppHeight.h5),
-                Text(
-                  'Good Morning',
-                  style: mediumTextStyle(
-                    fontSize: FontSize.s16,
-                    color: ColorManager.titleTextColor,
-                    fontFamily: FontConstants.quicksand,
+                  SizedBox(height: AppHeight.h5),
+                  Text(
+                    'Good Morning',
+                    style: mediumTextStyle(
+                      fontSize: FontSize.s13,
+                      color: ColorManager.titleTextColor,
+                      fontFamily: FontConstants.quicksand,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            CircleAvatar(
-              child: Image.asset(ImageAssets.profilePicIcon),
-            ),
-          ],
-        ),
-        SizedBox(height: AppHeight.h20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            _buildCard(
-              const Color.fromRGBO(8, 131, 149, 1),
-              '06',
-              AppStrings.kDocuments,
-            ),
-            _buildCard(
-              const Color.fromRGBO(145, 127, 179, 1),
-              '06',
-              AppStrings.kConnections,
-            ),
-          ],
-        ),
-      ],
+                ],
+              ),
+              CircleAvatar(
+                child: Image.asset(ImageAssets.profilePicIcon),
+              ),
+            ],
+          ),
+          SizedBox(height: AppHeight.h20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _buildCard(
+                const Color.fromRGBO(8, 131, 149, 1),
+                '06',
+                AppStrings.kDocuments,
+              ),
+              _buildCard(
+                const Color.fromRGBO(145, 127, 179, 1),
+                '06',
+                AppStrings.kConnections,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

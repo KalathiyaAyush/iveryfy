@@ -15,30 +15,38 @@ class SignupSuccessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-        child: Column(
-          children: [
-            const Spacer(),
-            Image.asset(ImageAssets.emailVerifiedIcon),
-            Text(
-              AppStrings.kAwesome,
-              style: mediumTextStyle(
-                fontSize: FontSize.s20,
-                color: ColorManager.titleTextColor,
-                fontFamily: FontConstants.rubik,
-              ),
+      body: Column(
+        children: [
+          const Spacer(),
+          Image.asset(ImageAssets.emailVerifiedIcon),
+          Padding(
+            padding:
+                EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
+            child: Column(
+              children: [
+                Text(
+                  AppStrings.kAwesome,
+                  style: mediumTextStyle(
+                    fontSize: FontSize.s20,
+                    color: ColorManager.titleTextColor,
+                    fontFamily: FontConstants.rubik,
+                  ),
+                ),
+                Text(
+                  AppStrings.kSignupSuccessDes,
+                  textAlign: TextAlign.center,
+                  style: regularTextStyle(
+                    fontSize: FontSize.s14,
+                    color: ColorManager.titleTextColor,
+                    fontFamily: FontConstants.quicksand,
+                  ),
+                ),
+              ],
             ),
-            Text(
-              AppStrings.kSignupSuccessDes,
-              style: regularTextStyle(
-                fontSize: FontSize.s14,
-                color: ColorManager.titleTextColor,
-                fontFamily: FontConstants.quicksand,
-              ),
-            ),
-            const Spacer(),
-            AppElevatedButton(
+          ),
+          const Spacer(),
+          Center(
+            child: AppElevatedButton(
               onPressed: () {
                 AppRoutes.pushNamed(
                   context,
@@ -54,9 +62,9 @@ class SignupSuccessScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: AppHeight.h30),
-          ],
-        ),
+          ),
+          SizedBox(height: AppHeight.h30),
+        ],
       ),
     );
   }

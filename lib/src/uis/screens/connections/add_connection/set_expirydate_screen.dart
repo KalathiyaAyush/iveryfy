@@ -34,73 +34,79 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppHeight.h20),
-                  AppbarWidget(onbackTap: () {
-                    Navigator.of(context).pop();
-                  }),
-                  _buildText(),
-                  SizedBox(height: AppHeight.h30),
-                  Container(
-                    height: AppHeight.h50,
-                    width: AppWidth.w330,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: ColorManager.primaryColor),
-                        borderRadius: BorderRadius.circular(AppRadius.r8)),
-                    child: RadioListTile(
-                      activeColor: ColorManager.secondaryColor,
-                      title: Text(
-                        AppStrings.kNoExpiryDate,
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s18,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppbarWidget(onbackTap: () {
+                  Navigator.of(context).pop();
+                }),
+                _buildText(),
+                SizedBox(height: AppHeight.h30),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(color: ColorManager.primaryColor),
+                            borderRadius: BorderRadius.circular(AppRadius.r8)),
+                        child: RadioListTile(
+                          activeColor: ColorManager.secondaryColor,
+                          title: Text(
+                            AppStrings.kNoExpiryDate,
+                            style: mediumTextStyle(
+                              fontSize: FontSize.s18,
+                              color: ColorManager.textColor,
+                              fontFamily: FontConstants.quicksand,
+                            ),
+                          ),
+                          value: value,
+                          groupValue: radioValue,
+                          onChanged: (value) {
+                            setState(() {
+                              radioValue = value.toString();
+                            });
+                          },
                         ),
                       ),
-                      value: value,
-                      groupValue: radioValue,
-                      onChanged: (value) {
-                        setState(() {
-                          radioValue = value.toString();
-                        });
-                      },
-                    ),
-                  ),
-                  SizedBox(height: AppHeight.h15),
-                  Container(
-                    height: AppHeight.h50,
-                    width: AppWidth.w330,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: ColorManager.primaryColor),
-                      borderRadius: BorderRadius.circular(AppRadius.r8),
-                    ),
-                    child: RadioListTile(
-                      activeColor: ColorManager.secondaryColor,
-                      title: Text(
-                        AppStrings.kStandard,
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s18,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
+                      SizedBox(height: AppHeight.h15),
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: ColorManager.primaryColor),
+                          borderRadius: BorderRadius.circular(AppRadius.r8),
+                        ),
+                        child: RadioListTile(
+                          activeColor: ColorManager.secondaryColor,
+                          title: Text(
+                            AppStrings.kStandard,
+                            style: mediumTextStyle(
+                              fontSize: FontSize.s18,
+                              color: ColorManager.textColor,
+                              fontFamily: FontConstants.quicksand,
+                            ),
+                          ),
+                          value: 'Standard',
+                          groupValue: radioValue,
+                          onChanged: (value) {
+                            setState(() {
+                              radioValue = value.toString();
+                            });
+                          },
                         ),
                       ),
-                      value: 'Standard',
-                      groupValue: radioValue,
-                      onChanged: (value) {
-                        setState(() {
-                          radioValue = value.toString();
-                        });
-                      },
-                    ),
+                    ],
                   ),
-                  SizedBox(height: AppHeight.h20),
-                  radioValue == 'Standard'
-                      ? Column(
+                ),
+                SizedBox(height: AppHeight.h20),
+                radioValue == 'Standard'
+                    ? Padding(
+                        padding: EdgeInsets.only(
+                            left: AppPadding.p20, right: AppPadding.p20),
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -159,16 +165,15 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
                                   },
                                 )),
                           ],
-                        )
-                      : Container(),
-                  SizedBox(height: AppHeight.h10),
-                  dropdownValue == 'Custom'
-                      ? AppTextField(
-                          style: mediumTextStyle(
-                            fontSize: FontSize.s16,
-                            color: ColorManager.textColor,
-                            fontFamily: FontConstants.quicksand,
-                          ),
+                        ),
+                      )
+                    : Container(),
+                SizedBox(height: AppHeight.h10),
+                dropdownValue == 'Custom'
+                    ? Padding(
+                        padding: EdgeInsets.only(
+                            left: AppPadding.p20, right: AppPadding.p20),
+                        child: AppTextField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: _expiryDateController,
                           suffixIcon: IconButton(
@@ -181,15 +186,12 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
                             ),
                           ),
                           labelText: AppStrings.kExpiryDate,
-                          labelStyle: regularTextStyle(
-                            color: ColorManager.buttonGreyText,
-                            fontFamily: FontConstants.quicksand,
-                            fontSize: FontSize.s20,
-                          ),
-                        )
-                      : Container(),
-                  const Spacer(),
-                  AppElevatedButton(
+                        ),
+                      )
+                    : Container(),
+                const Spacer(),
+                Center(
+                  child: AppElevatedButton(
                     onPressed: () {
                       AppRoutes.pushNamed(
                         context,
@@ -205,9 +207,9 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: AppHeight.h20),
-                ],
-              ),
+                ),
+                SizedBox(height: AppHeight.h20),
+              ],
             ),
           ),
         );
@@ -248,27 +250,30 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
   }
 
   Widget _buildText() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          AppStrings.kSetExpiryDate,
-          style: semiBoldTextStyle(
-            fontSize: FontSize.s24,
-            color: ColorManager.titleTextColor,
-            fontFamily: FontConstants.rubik,
+    return Padding(
+      padding: EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppStrings.kSetExpiryDate,
+            style: semiBoldTextStyle(
+              fontSize: FontSize.s24,
+              color: ColorManager.titleTextColor,
+              fontFamily: FontConstants.rubik,
+            ),
           ),
-        ),
-        SizedBox(height: AppHeight.h4),
-        Text(
-          AppStrings.kSetExpiryDateDes,
-          style: regularTextStyle(
-            fontSize: FontSize.s15,
-            color: ColorManager.titleTextColor,
-            fontFamily: FontConstants.quicksand,
+          SizedBox(height: AppHeight.h4),
+          Text(
+            AppStrings.kSetExpiryDateDes,
+            style: regularTextStyle(
+              fontSize: FontSize.s13,
+              color: ColorManager.titleTextColor,
+              fontFamily: FontConstants.quicksand,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

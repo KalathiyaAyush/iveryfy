@@ -30,23 +30,27 @@ class _EnterYourPasscodeState extends State<EnterYourPasscode> {
             SizedBox(height: AppHeight.h50),
             Image.asset(ImageAssets.securityIcon),
             SizedBox(height: AppHeight.h15),
-            Text(
-              AppStrings.kEnteryourPasscode,
-              style: mediumTextStyle(
-                fontSize: FontSize.s24,
-                color: ColorManager.titleTextColor,
-                fontFamily: FontConstants.rubik,
-              ),
-            ),
-            SizedBox(height: AppHeight.h3),
-            Text(
-              AppStrings.kSetPasscodeDes,
-              textAlign: TextAlign.center,
-              style: regularTextStyle(
-                fontSize: FontSize.s16,
-                color: ColorManager.titleTextColor,
-                fontFamily: FontConstants.quicksand,
-              ),
+            Column(
+              children: [
+                Text(
+                  AppStrings.kEnteryourPasscode,
+                  style: mediumTextStyle(
+                    fontSize: FontSize.s22,
+                    color: ColorManager.titleTextColor,
+                    fontFamily: FontConstants.rubik,
+                  ),
+                ),
+                SizedBox(height: AppHeight.h3),
+                Text(
+                  AppStrings.kSetPasscodeDes,
+                  textAlign: TextAlign.center,
+                  style: regularTextStyle(
+                    fontSize: FontSize.s13,
+                    color: ColorManager.titleTextColor,
+                    fontFamily: FontConstants.quicksand,
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: AppHeight.h20),
             Pinput(

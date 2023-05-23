@@ -28,18 +28,16 @@ class VerifyIdScreen extends StatelessWidget {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppHeight.h20),
-                  AppbarWidget(onbackTap: () {
-                    _backTap(context);
-                  }),
-                  SizedBox(height: AppHeight.h10),
-                  Text(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppbarWidget(onbackTap: () {
+                  _backTap(context);
+                }),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: Text(
                     AppStrings.kVerifyIdDes,
                     style: mediumTextStyle(
                       fontSize: FontSize.s25,
@@ -47,38 +45,40 @@ class VerifyIdScreen extends StatelessWidget {
                       fontFamily: FontConstants.rubik,
                     ),
                   ),
-                  SizedBox(height: AppHeight.h90),
-                  Center(
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          ImageAssets.verifyIDIcon,
-                          fit: BoxFit.cover,
+                ),
+                SizedBox(height: AppHeight.h90),
+                Center(
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        ImageAssets.verifyIDIcon,
+                        fit: BoxFit.cover,
+                      ),
+                      Text(
+                        AppStrings.kletsStartEKYC,
+                        textAlign: TextAlign.center,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s20,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.rubik,
                         ),
-                        Text(
-                          AppStrings.kletsStartEKYC,
-                          textAlign: TextAlign.center,
-                          style: mediumTextStyle(
-                            fontSize: FontSize.s20,
-                            color: ColorManager.titleTextColor,
-                            fontFamily: FontConstants.rubik,
-                          ),
+                      ),
+                      SizedBox(height: AppHeight.h3),
+                      Text(
+                        AppStrings.kletsStartEKYCdes,
+                        textAlign: TextAlign.center,
+                        style: regularTextStyle(
+                          fontSize: FontSize.s14,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.quicksand,
                         ),
-                        SizedBox(height: AppHeight.h3),
-                        Text(
-                          AppStrings.kletsStartEKYCdes,
-                          textAlign: TextAlign.center,
-                          style: regularTextStyle(
-                            fontSize: FontSize.s14,
-                            color: ColorManager.titleTextColor,
-                            fontFamily: FontConstants.quicksand,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  const Spacer(),
-                  AppElevatedButton(
+                ),
+                const Spacer(),
+                Center(
+                  child: AppElevatedButton(
                     onPressed: () {
                       AppRoutes.pushNamed(
                         context,
@@ -94,9 +94,9 @@ class VerifyIdScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: AppHeight.h30),
-                ],
-              ),
+                ),
+                SizedBox(height: AppHeight.h30),
+              ],
             ),
           ),
         );

@@ -13,72 +13,79 @@ class NameContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: AppWidth.w330,
-          height: AppHeight.h55,
-          padding: EdgeInsets.only(left: AppPadding.p12, top: AppPadding.p10),
-          decoration: BoxDecoration(
-            border: Border.all(color: ColorManager.primaryColor),
-            borderRadius: BorderRadius.circular(AppRadius.r6),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                AppStrings.kName,
-                style: regularTextStyle(
-                  fontSize: FontSize.s14,
-                  color: ColorManager.hintTextColor,
-                  fontFamily: FontConstants.quicksand,
+    return Padding(
+      padding: EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
+      child: Column(
+        children: [
+          Container(
+            width: AppWidth.w330,
+            height: AppHeight.h55,
+            padding: EdgeInsets.only(left: AppPadding.p12, top: AppPadding.p10),
+            decoration: BoxDecoration(
+              border: Border.all(color: ColorManager.primaryColor),
+              borderRadius: BorderRadius.circular(AppRadius.r6),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppStrings.kName,
+                  style: regularTextStyle(
+                    fontSize: FontSize.s13,
+                    color: ColorManager.hintTextColor,
+                    fontFamily: FontConstants.quicksand,
+                  ),
                 ),
-              ),
-              SizedBox(height: AppHeight.h3),
-              Text(
-                name,
-                style: mediumTextStyle(
-                  fontSize: FontSize.s18,
-                  color: ColorManager.textColor,
-                  fontFamily: FontConstants.quicksand,
+                SizedBox(height: AppHeight.h3),
+                Flexible(
+                  child: Text(
+                    name,
+                    style: mediumTextStyle(
+                      fontSize: FontSize.s16,
+                      color: ColorManager.textColor,
+                      fontFamily: FontConstants.quicksand,
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        SizedBox(height: AppHeight.h15),
-        Container(
-          width: AppWidth.w330,
-          height: AppHeight.h55,
-          padding: EdgeInsets.only(left: AppPadding.p12, top: AppPadding.p10),
-          decoration: BoxDecoration(
-            border: Border.all(color: ColorManager.primaryColor),
-            borderRadius: BorderRadius.circular(AppRadius.r6),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                AppStrings.kEmailAddress,
-                style: regularTextStyle(
-                  fontSize: FontSize.s14,
-                  color: ColorManager.hintTextColor,
-                  fontFamily: FontConstants.quicksand,
+          SizedBox(height: AppHeight.h15),
+          Container(
+            width: AppWidth.w330,
+            height: AppHeight.h55,
+            padding: EdgeInsets.only(left: AppPadding.p12, top: AppPadding.p10),
+            decoration: BoxDecoration(
+              border: Border.all(color: ColorManager.primaryColor),
+              borderRadius: BorderRadius.circular(AppRadius.r6),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppStrings.kEmailAddress,
+                  style: regularTextStyle(
+                    fontSize: FontSize.s13,
+                    color: ColorManager.hintTextColor,
+                    fontFamily: FontConstants.quicksand,
+                  ),
                 ),
-              ),
-              SizedBox(height: AppHeight.h3),
-              Text(
-                email,
-                style: mediumTextStyle(
-                  fontSize: FontSize.s18,
-                  color: ColorManager.textColor,
-                  fontFamily: FontConstants.quicksand,
+                SizedBox(height: AppHeight.h3),
+                Flexible(
+                  child: Text(
+                    email,
+                    style: mediumTextStyle(
+                      fontSize: FontSize.s16,
+                      color: ColorManager.textColor,
+                      fontFamily: FontConstants.quicksand,
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

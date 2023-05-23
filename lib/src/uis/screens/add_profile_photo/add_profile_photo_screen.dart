@@ -109,76 +109,72 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppHeight.h15),
-                  AppbarWidget(
-                    onbackTap: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                  const AppTitleText(
-                    title: AppStrings.kAddProfilePhoto,
-                    titleDes: AppStrings.kAddProfilePhotoDes,
-                  ),
-                  SizedBox(height: AppHeight.h100),
-                  Center(
-                    child: Stack(
-                      children: [
-                        Container(
-                          clipBehavior: Clip.antiAlias,
-                          height: AppHeight.h180,
-                          width: AppWidth.w200,
-                          decoration: BoxDecoration(
-                            color: ColorManager.primaryColor,
-                            borderRadius: BorderRadius.circular(AppRadius.r120),
-                          ),
-                          child: imageFile == null
-                              ? Center(
-                                  child:
-                                      SvgPicture.asset(ImageAssets.imageIcon),
-                                )
-                              : Image.file(
-                                  File(imageFile!.path),
-                                  fit: BoxFit.cover,
-                                ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppbarWidget(
+                  onbackTap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                const AppTitleText(
+                  title: AppStrings.kAddProfilePhoto,
+                  titleDes: AppStrings.kAddProfilePhotoDes,
+                ),
+                SizedBox(height: AppHeight.h100),
+                Center(
+                  child: Stack(
+                    children: [
+                      Container(
+                        clipBehavior: Clip.antiAlias,
+                        height: AppHeight.h180,
+                        width: AppWidth.w200,
+                        decoration: BoxDecoration(
+                          color: ColorManager.primaryColor,
+                          borderRadius: BorderRadius.circular(AppRadius.r120),
                         ),
-                        Positioned(
-                          top: AppSize.s160,
-                          left: AppSize.s140,
-                          child: imageFile == null
-                              ? Container(
-                                  height: AppHeight.h40,
-                                  width: AppWidth.w40,
-                                  decoration: const BoxDecoration(
-                                    color: ColorManager.scaffoldBg,
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color.fromRGBO(0, 0, 0, 0.09),
-                                        blurRadius: 25.0,
-                                      )
-                                    ],
+                        child: imageFile == null
+                            ? Center(
+                                child: SvgPicture.asset(ImageAssets.imageIcon),
+                              )
+                            : Image.file(
+                                File(imageFile!.path),
+                                fit: BoxFit.cover,
+                              ),
+                      ),
+                      Positioned(
+                        top: AppSize.s160,
+                        left: AppSize.s140,
+                        child: imageFile == null
+                            ? Container(
+                                height: AppHeight.h40,
+                                width: AppWidth.w40,
+                                decoration: const BoxDecoration(
+                                  color: ColorManager.scaffoldBg,
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color.fromRGBO(0, 0, 0, 0.09),
+                                      blurRadius: 25.0,
+                                    )
+                                  ],
+                                ),
+                                child: Center(
+                                  child: IconButton(
+                                    onPressed: _showImagePickerSheet,
+                                    icon: SvgPicture.asset(
+                                        ImageAssets.cameraIcon),
                                   ),
-                                  child: Center(
-                                    child: IconButton(
-                                      onPressed: _showImagePickerSheet,
-                                      icon: SvgPicture.asset(
-                                          ImageAssets.cameraIcon),
-                                    ),
-                                  ),
-                                )
-                              : Container(),
-                        )
-                      ],
-                    ),
+                                ),
+                              )
+                            : Container(),
+                      )
+                    ],
                   ),
-                  const Spacer(),
-                  AppElevatedButton(
+                ),
+                const Spacer(),
+                Center(
+                  child: AppElevatedButton(
                     onPressed: () {},
                     child: Text(
                       AppStrings.kNext,
@@ -189,27 +185,27 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                       ),
                     ),
                   ),
-                  SizedBox(height: AppHeight.h5),
-                  Center(
-                    child: AppTextButton(
-                        onPressed: () {
-                          AppRoutes.pushNamed(
-                            context,
-                            name: AppRoutes.idVerificationScreen,
-                          );
-                        },
-                        child: Text(
-                          AppStrings.kSkipForNow,
-                          style: regularTextStyle(
-                            fontSize: FontSize.s16,
-                            color: ColorManager.titleTextColor,
-                            fontFamily: FontConstants.quicksand,
-                          ),
-                        )),
-                  ),
-                  SizedBox(height: AppHeight.h10),
-                ],
-              ),
+                ),
+                SizedBox(height: AppHeight.h5),
+                Center(
+                  child: AppTextButton(
+                      onPressed: () {
+                        AppRoutes.pushNamed(
+                          context,
+                          name: AppRoutes.idVerificationScreen,
+                        );
+                      },
+                      child: Text(
+                        AppStrings.kSkipForNow,
+                        style: regularTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      )),
+                ),
+                SizedBox(height: AppHeight.h10),
+              ],
             ),
           ),
         );

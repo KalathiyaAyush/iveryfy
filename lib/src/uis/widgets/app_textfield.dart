@@ -17,10 +17,8 @@ class AppTextField extends StatelessWidget {
   final Color? suffixIconColor;
   final String? suffixText;
   final TextStyle? suffixStyle;
-  final TextStyle? style;
   final String? labelText;
   final InputBorder? border;
-  final TextStyle? labelStyle;
   final String? hintText;
   final TextStyle? hintStyle;
   final String? initialValue;
@@ -49,10 +47,8 @@ class AppTextField extends StatelessWidget {
     this.suffixIconColor,
     this.suffixText,
     this.suffixStyle,
-    this.style,
     this.labelText,
     this.border,
-    this.labelStyle,
     this.hintText,
     this.hintStyle,
     this.initialValue,
@@ -73,9 +69,8 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: AppHeight.h55,
-      width: AppWidth.w90Percent,
-      padding: EdgeInsets.only(top: AppPadding.p8),
+      height: AppHeight.h50,
+      width: double.infinity,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppRadius.r6),
           border: Border.all(
@@ -90,12 +85,11 @@ class AppTextField extends StatelessWidget {
         controller: controller,
         obscureText: obscureText,
         maxLines: maxLine,
-        style: style ??
-            regularTextStyle(
-              fontSize: FontSize.s14,
-              color: ColorManager.textColor,
-              fontFamily: FontConstants.quicksand,
-            ),
+        style: mediumTextStyle(
+          fontSize: FontSize.s16,
+          color: ColorManager.textColor,
+          fontFamily: FontConstants.quicksand,
+        ),
         keyboardType: keyboardType,
         validator: validator,
         onSaved: onSaved,
@@ -112,10 +106,16 @@ class AppTextField extends StatelessWidget {
           suffixText: suffixText,
           suffixStyle: suffixStyle,
           labelText: labelText,
-          labelStyle: labelStyle,
+          labelStyle: regularTextStyle(
+            color: ColorManager.buttonGreyText,
+            fontFamily: FontConstants.quicksand,
+            fontSize: FontSize.s16,
+          ),
           border: border ?? InputBorder.none,
-          contentPadding:
-              EdgeInsets.only(left: AppPadding.p12, top: AppPadding.p10),
+          contentPadding: EdgeInsets.only(
+              left: AppPadding.p12,
+              top: AppPadding.p12,
+              bottom: AppPadding.p10),
         ),
       ),
     );
