@@ -54,12 +54,14 @@ class SigninScreen extends StatelessWidget {
                       SvgPicture.asset(ImageAssets.whatsappIcon,
                           height: AppHeight.h25),
                       SizedBox(width: AppWidth.w10),
-                      Text(
-                        AppStrings.kWhatsapp,
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s17,
-                          color: ColorManager.hintTextColor,
-                          fontFamily: FontConstants.quicksand,
+                      Flexible(
+                        child: Text(
+                          AppStrings.kWhatsapp,
+                          style: mediumTextStyle(
+                            fontSize: FontSize.s17,
+                            color: ColorManager.hintTextColor,
+                            fontFamily: FontConstants.quicksand,
+                          ),
                         ),
                       ),
                     ],
@@ -145,12 +147,14 @@ class SigninScreen extends StatelessWidget {
             children: [
               SvgPicture.asset(assetName),
               SizedBox(width: AppWidth.w10),
-              Text(
-                socialMedianame,
-                style: mediumTextStyle(
-                  fontSize: FontSize.s17,
-                  color: ColorManager.hintTextColor,
-                  fontFamily: FontConstants.quicksand,
+              Flexible(
+                child: Text(
+                  socialMedianame,
+                  style: mediumTextStyle(
+                    fontSize: FontSize.s17,
+                    color: ColorManager.hintTextColor,
+                    fontFamily: FontConstants.quicksand,
+                  ),
                 ),
               ),
             ],

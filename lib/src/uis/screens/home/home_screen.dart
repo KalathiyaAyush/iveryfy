@@ -205,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SvgPicture.asset(
-              'lib/assets/svg/clock.svg',
+              ImageAssets.clockIcon,
               height: AppHeight.h22,
             ),
             SizedBox(width: AppWidth.w5),

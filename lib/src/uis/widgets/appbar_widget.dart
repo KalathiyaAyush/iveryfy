@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
 
 import '/src/resources/value_manager.dart';
 
@@ -19,7 +20,7 @@ class AppbarWidget extends StatelessWidget {
         children: [
           InkWell(
             onTap: onbackTap,
-            child: SvgPicture.asset('lib/assets/svg/back_arrow.svg'),
+            child: SvgPicture.asset(ImageAssets.backArrowIcon),
           ),
           IconButton(
             onPressed: onPressed,

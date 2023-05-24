@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:circle_progress_bar/circle_progress_bar.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
@@ -49,7 +50,7 @@ class _ConnectionScreenState extends State<ConnectionScreen>
                     children: [
                       _buildTextWidget(),
                       SizedBox(width: AppWidth.w25),
-                      SvgPicture.asset('lib/assets/svg/search.svg'),
+                      SvgPicture.asset(ImageAssets.searchIcon),
                     ],
                   ),
                 ),
@@ -117,7 +118,7 @@ class _ConnectionScreenState extends State<ConnectionScreen>
                   },
                 ),
                 // SizedBox(height: AppHeight.h100),
-                // Image.asset('lib/assets/images/no_connections.png'),
+                //  Image.asset(ImageAssets.noConecctions),
                 // SizedBox(height: AppHeight.h13),
                 // Text(
                 //   AppStrings.knoConnectionFound,
@@ -147,8 +148,7 @@ class _ConnectionScreenState extends State<ConnectionScreen>
                     AppRoutes.pushNamed(context,
                         name: AppRoutes.addNewConnectionScreen);
                   },
-                  icon: Icon(Icons.add,
-                      color: ColorManager.scaffoldBg, size: AppSize.s30),
+                  icon: const Icon(Icons.add, color: ColorManager.scaffoldBg),
                 ),
               ),
             ),
@@ -208,27 +208,29 @@ class _ConnectionScreenState extends State<ConnectionScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Jason Stamford',
-                        style: semiBoldTextStyle(
-                          fontSize: FontSize.s19,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
+                  Flexible(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Jason Stamford',
+                          style: semiBoldTextStyle(
+                            fontSize: FontSize.s19,
+                            color: ColorManager.textColor,
+                            fontFamily: FontConstants.quicksand,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: AppHeight.h5),
-                      Text(
-                        '4 Documents',
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s16,
-                          color: const Color.fromRGBO(64, 145, 108, 1),
-                          fontFamily: FontConstants.quicksand,
+                        SizedBox(height: AppHeight.h5),
+                        Text(
+                          '4 Documents',
+                          style: mediumTextStyle(
+                            fontSize: FontSize.s16,
+                            color: const Color.fromRGBO(64, 145, 108, 1),
+                            fontFamily: FontConstants.quicksand,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   SizedBox(
                     width: AppWidth.w55,
@@ -268,12 +270,14 @@ class _ConnectionScreenState extends State<ConnectionScreen>
                           fontFamily: FontConstants.quicksand,
                         ),
                       ),
-                      Text(
-                        '30 July 2022, 12:00:00',
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s15,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
+                      Flexible(
+                        child: Text(
+                          '30 July 2022, 12:00:00',
+                          style: mediumTextStyle(
+                            fontSize: FontSize.s15,
+                            color: ColorManager.textColor,
+                            fontFamily: FontConstants.quicksand,
+                          ),
                         ),
                       ),
                     ],
@@ -290,12 +294,14 @@ class _ConnectionScreenState extends State<ConnectionScreen>
                           fontFamily: FontConstants.quicksand,
                         ),
                       ),
-                      Text(
-                        '30 July 2023, 12:00:00',
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s15,
-                          color: ColorManager.textColor,
-                          fontFamily: FontConstants.quicksand,
+                      Flexible(
+                        child: Text(
+                          '30 July 2023, 12:00:00',
+                          style: mediumTextStyle(
+                            fontSize: FontSize.s15,
+                            color: ColorManager.textColor,
+                            fontFamily: FontConstants.quicksand,
+                          ),
                         ),
                       ),
                     ],

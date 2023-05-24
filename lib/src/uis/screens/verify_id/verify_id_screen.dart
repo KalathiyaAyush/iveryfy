@@ -54,23 +54,31 @@ class VerifyIdScreen extends StatelessWidget {
                         ImageAssets.verifyIDIcon,
                         fit: BoxFit.cover,
                       ),
-                      Text(
-                        AppStrings.kletsStartEKYC,
-                        textAlign: TextAlign.center,
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s20,
-                          color: ColorManager.titleTextColor,
-                          fontFamily: FontConstants.rubik,
-                        ),
-                      ),
-                      SizedBox(height: AppHeight.h3),
-                      Text(
-                        AppStrings.kletsStartEKYCdes,
-                        textAlign: TextAlign.center,
-                        style: regularTextStyle(
-                          fontSize: FontSize.s14,
-                          color: ColorManager.titleTextColor,
-                          fontFamily: FontConstants.quicksand,
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: AppPadding.p20, right: AppPadding.p20),
+                        child: Column(
+                          children: [
+                            Text(
+                              AppStrings.kletsStartEKYC,
+                              textAlign: TextAlign.center,
+                              style: mediumTextStyle(
+                                fontSize: FontSize.s20,
+                                color: ColorManager.titleTextColor,
+                                fontFamily: FontConstants.rubik,
+                              ),
+                            ),
+                            SizedBox(height: AppHeight.h3),
+                            Text(
+                              AppStrings.kletsStartEKYCdes,
+                              textAlign: TextAlign.center,
+                              style: regularTextStyle(
+                                fontSize: FontSize.s14,
+                                color: ColorManager.titleTextColor,
+                                fontFamily: FontConstants.quicksand,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],

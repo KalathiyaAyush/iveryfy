@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
@@ -121,7 +122,7 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                     child: Text(
                       AppStrings.kExtendexpirydate,
                       style: regularTextStyle(
-                        fontSize: FontSize.s16,
+                        fontSize: FontSize.s18,
                         color: ColorManager.scaffoldBg,
                         fontFamily: FontConstants.quicksand,
                       ),
@@ -145,7 +146,7 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Image.asset('lib/assets/images/delete.png'),
+                                    Image.asset(ImageAssets.deleteDoc),
                                     SizedBox(height: AppHeight.h15),
                                     Text(
                                       AppStrings.kdeleteDocument,
@@ -165,7 +166,9 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                                           height: AppHeight.h42,
                                           width: AppWidth.w110,
                                           child: OutlinedButton(
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
                                               child: Text(
                                                 AppStrings.kNo,
                                                 style: mediumTextStyle(
@@ -262,7 +265,7 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
           Row(
             children: [
               SvgPicture.asset(
-                'lib/assets/svg/pass.svg',
+                ImageAssets.passIcon,
                 height: AppHeight.h25,
               ),
               SizedBox(width: AppWidth.w8),
@@ -278,7 +281,7 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
           ),
           IconButton(
             onPressed: () {},
-            icon: SvgPicture.asset('lib/assets/svg/delete.svg'),
+            icon: SvgPicture.asset(ImageAssets.deleteIcon),
           ),
         ],
       ),
@@ -312,12 +315,14 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                     fontFamily: FontConstants.quicksand,
                   ),
                 ),
-                Text(
-                  '30 July 2022, 12:00:00',
-                  style: mediumTextStyle(
-                    fontSize: FontSize.s15,
-                    color: ColorManager.textColor,
-                    fontFamily: FontConstants.quicksand,
+                Flexible(
+                  child: Text(
+                    '30 July 2022, 12:00:00',
+                    style: mediumTextStyle(
+                      fontSize: FontSize.s15,
+                      color: ColorManager.textColor,
+                      fontFamily: FontConstants.quicksand,
+                    ),
                   ),
                 ),
               ],
@@ -334,12 +339,14 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                     fontFamily: FontConstants.quicksand,
                   ),
                 ),
-                Text(
-                  '30 July 2023, 12:00:00',
-                  style: mediumTextStyle(
-                    fontSize: FontSize.s15,
-                    color: ColorManager.textColor,
-                    fontFamily: FontConstants.quicksand,
+                Flexible(
+                  child: Text(
+                    '30 July 2023, 12:00:00',
+                    style: mediumTextStyle(
+                      fontSize: FontSize.s15,
+                      color: ColorManager.textColor,
+                      fontFamily: FontConstants.quicksand,
+                    ),
                   ),
                 ),
               ],

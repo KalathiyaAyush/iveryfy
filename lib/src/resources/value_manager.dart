@@ -61,6 +61,7 @@ class AppSize {
   static double get s100 => 100.sp;
   static double get s120 => 120.sp;
   static double get s130 => 130.sp;
+  static double get s135 => 135.sp;
   static double get s140 => 140.sp;
   static double get s150 => 150.sp;
   static double get s160 => 160.sp;
@@ -184,6 +185,8 @@ class AppHeight {
   static double get h135 => 135.h;
   static double get h140 => 140.h;
   static double get h150 => 150.h;
+  static double get h160 => 160.h;
+  static double get h170 => 170.h;
   static double get h180 => 180.h;
   static double get h200 => 200.h;
   static double get h230 => 230.h;

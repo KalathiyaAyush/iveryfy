@@ -1,8 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iverify/src/resources/routes_manager.dart';
-import 'package:iverify/src/uis/screens/settings/widget/setting_switch_view.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
@@ -10,7 +9,9 @@ import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
 import '/src/resources/string_manager.dart';
 
+import '/src/resources/routes_manager.dart';
 import '/src/uis/screens/settings/widget/setting_view.dart';
+import '/src/uis/screens/settings/widget/setting_switch_view.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -97,8 +98,8 @@ class SettingsScreen extends StatelessWidget {
                     shrinkWrap: true,
                     children: [
                       SettingView(
-                        assetName: 'lib/assets/svg/settings/profile.svg',
-                        asset: 'lib/assets/svg/greater_than_black.svg',
+                        assetName: ImageAssets.profileIcon,
+                        asset: ImageAssets.graterthanIcon,
                         title: AppStrings.kProfile,
                         onTap: () {
                           AppRoutes.pushNamed(context,
@@ -106,15 +107,15 @@ class SettingsScreen extends StatelessWidget {
                         },
                       ),
                       SettingSwitchView(
-                        assetName: 'lib/assets/svg/settings/notification.svg',
-                        asset: 'lib/assets/svg/greater_than_black.svg',
+                        assetName: ImageAssets.notificationIcon,
+                        asset: '',
                         title: AppStrings.kNotification,
                         value: true,
                         onToggle: (val) {},
                       ),
                       SettingView(
-                        assetName: 'lib/assets/svg/settings/security.svg',
-                        asset: 'lib/assets/svg/greater_than_black.svg',
+                        assetName: ImageAssets.security,
+                        asset: ImageAssets.graterthanIcon,
                         title: AppStrings.kSecurity,
                         onTap: () {
                           AppRoutes.pushNamed(context,
@@ -122,8 +123,8 @@ class SettingsScreen extends StatelessWidget {
                         },
                       ),
                       SettingView(
-                        assetName: 'lib/assets/svg/settings/iverifiID.svg',
-                        asset: 'lib/assets/svg/greater_than_black.svg',
+                        assetName: ImageAssets.iverifiIDIcon,
+                        asset: ImageAssets.graterthanIcon,
                         title: AppStrings.kYouriVerifiID,
                         onTap: () {
                           AppRoutes.pushNamed(context,
@@ -131,33 +132,32 @@ class SettingsScreen extends StatelessWidget {
                         },
                       ),
                       const SettingView(
-                        assetName: 'lib/assets/svg/settings/acc_recovery.svg',
-                        asset: 'lib/assets/svg/greater_than_black.svg',
+                        assetName: ImageAssets.accRecoveryIcon,
+                        asset: ImageAssets.graterthanIcon,
                         title: AppStrings.kAccountRecoveryPhrase,
                       ),
                       const SettingView(
-                        assetName: 'lib/assets/svg/settings/payment.svg',
-                        asset: 'lib/assets/svg/greater_than_black.svg',
+                        assetName: ImageAssets.paymentIcon,
+                        asset: ImageAssets.graterthanIcon,
                         title: AppStrings.kPaymentMethod,
                       ),
                       const SettingView(
-                        assetName: 'lib/assets/svg/settings/privacy.svg',
-                        asset: 'lib/assets/svg/greater_than_black.svg',
+                        assetName: ImageAssets.privacyIcon,
+                        asset: ImageAssets.graterthanIcon,
                         title: AppStrings.kPrivacyPolicy,
                       ),
                       const SettingView(
-                        assetName:
-                            'lib/assets/svg/settings/terms_of_services.svg',
-                        asset: 'lib/assets/svg/greater_than_black.svg',
+                        assetName: ImageAssets.termsOfService,
+                        asset: ImageAssets.graterthanIcon,
                         title: AppStrings.kTermsofService,
                       ),
                       const SettingView(
-                        assetName: 'lib/assets/svg/settings/delete_s.svg',
-                        asset: 'lib/assets/svg/greater_than_black.svg',
+                        assetName: ImageAssets.deleteSvgIcon,
+                        asset: ImageAssets.graterthanIcon,
                         title: AppStrings.kDeleteAccount,
                       ),
                       const SettingView(
-                        assetName: 'lib/assets/svg/settings/logout.svg',
+                        assetName: ImageAssets.logoutIcon,
                         asset: '',
                         title: AppStrings.kLogout,
                       ),

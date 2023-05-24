@@ -48,7 +48,6 @@ class _ShareDocumentScreenState extends State<ShareDocumentScreen> {
                   child: Column(
                     children: [
                       Container(
-                        height: AppHeight.h50,
                         decoration: BoxDecoration(
                             border:
                                 Border.all(color: ColorManager.primaryColor),
@@ -76,7 +75,6 @@ class _ShareDocumentScreenState extends State<ShareDocumentScreen> {
                       ),
                       SizedBox(height: AppHeight.h15),
                       Container(
-                        height: AppHeight.h50,
                         decoration: BoxDecoration(
                             border:
                                 Border.all(color: ColorManager.primaryColor),
@@ -104,7 +102,6 @@ class _ShareDocumentScreenState extends State<ShareDocumentScreen> {
                       ),
                       SizedBox(height: AppHeight.h15),
                       Container(
-                        height: AppHeight.h50,
                         decoration: BoxDecoration(
                             border:
                                 Border.all(color: ColorManager.primaryColor),
@@ -132,7 +129,6 @@ class _ShareDocumentScreenState extends State<ShareDocumentScreen> {
                       ),
                       SizedBox(height: AppHeight.h15),
                       Container(
-                        height: AppHeight.h50,
                         decoration: BoxDecoration(
                             border:
                                 Border.all(color: ColorManager.primaryColor),

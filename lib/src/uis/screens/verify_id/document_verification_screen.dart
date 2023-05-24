@@ -24,24 +24,32 @@ class DocumentVerificationScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  Image.asset(ImageAssets.verifiedIcon),
-                  SizedBox(height: AppHeight.h25),
-                  Text(
-                    AppStrings.kAwesome,
-                    style: mediumTextStyle(
-                      fontSize: FontSize.s20,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.rubik,
-                    ),
-                  ),
-                  SizedBox(height: AppHeight.h8),
-                  Text(
-                    AppStrings.kVerifiedDes,
-                    textAlign: TextAlign.center,
-                    style: regularTextStyle(
-                      fontSize: FontSize.s18,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.quicksand,
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: AppPadding.p15, right: AppPadding.p15),
+                    child: Column(
+                      children: [
+                        Image.asset(ImageAssets.verifiedIcon),
+                        SizedBox(height: AppHeight.h25),
+                        Text(
+                          AppStrings.kAwesome,
+                          style: mediumTextStyle(
+                            fontSize: FontSize.s20,
+                            color: ColorManager.titleTextColor,
+                            fontFamily: FontConstants.rubik,
+                          ),
+                        ),
+                        SizedBox(height: AppHeight.h8),
+                        Text(
+                          AppStrings.kVerifiedDes,
+                          textAlign: TextAlign.center,
+                          style: regularTextStyle(
+                            fontSize: FontSize.s18,
+                            color: ColorManager.titleTextColor,
+                            fontFamily: FontConstants.quicksand,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const Spacer(),

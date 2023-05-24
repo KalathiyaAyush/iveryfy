@@ -3,6 +3,9 @@ const String kSvgPath = 'lib/assets/svg';
 const String kLottiePath = 'lib/assets/lottie_json';
 
 class ImageAssets {
+  //custom widgets
+  static const backArrowIcon = "$kSvgPath/back_arrow.svg";
+
   //splash screen
   static const splashIcon = "$kSvgPath/splash_icon.svg";
 
@@ -46,4 +49,37 @@ class ImageAssets {
   //home
   static const errorIcon = "$kImagesPath/error.png";
   static const profilePicIcon = "$kImagesPath/profile_picture.png";
+  static const clockIcon = "$kSvgPath/clock.svg";
+
+  //document screen
+  static const dropdownIcon = "$kSvgPath/dropdown.svg";
+  static const dropdownIcon2 = "$kSvgPath/drop_down.svg";
+  static const passportIcon = "$kSvgPath/pass_black.svg";
+  static const documentsIcon = "$kImagesPath/documents.png";
+
+  //connection screen
+  static const searchIcon = "$kSvgPath/search.svg";
+  static const passIcon = "$kSvgPath/pass.svg";
+  static const deleteIcon = "$kSvgPath/delete.svg";
+  static const calendarIcon = "$kSvgPath/calendar.svg";
+  static const noConecctions = "$kImagesPath/no_connections.png";
+  static const deleteDoc = "$kImagesPath/delete.png";
+  static const connectionAddedIcon = "$kImagesPath/connection_added.png";
+  static const connectionFailedIcon = "$kImagesPath/cancel.png";
+
+  //settings
+  static const graterthanIcon = "$kSvgPath/greater_than_black.svg";
+  static const profileIcon = "$kSvgPath/settings/profile.svg";
+  static const notificationIcon = "$kSvgPath/settings/notification.svg";
+  static const security = "$kSvgPath/settings/security.svg";
+  static const iverifiIDIcon = "$kSvgPath/settings/iverifiID.svg";
+  static const accRecoveryIcon = "$kSvgPath/settings/acc_recovery.svg";
+  static const paymentIcon = "$kSvgPath/settings/payment.svg";
+  static const privacyIcon = "$kSvgPath/settings/privacy.svg";
+  static const termsOfService = "$kSvgPath/settings/terms_of_services.svg";
+  static const deleteSvgIcon = "$kSvgPath/settings/delete_s.svg";
+  static const logoutIcon = "$kSvgPath/settings/logout.svg";
+  static const editIcon = "$kSvgPath/settings/edit.svg";
+  static const faceidIcon = "$kSvgPath/settings/faceID.svg";
+  static const fingerPrintSvgIcon = "$kSvgPath/settings/fingerprint.svg";
 }

@@ -127,8 +127,8 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                     children: [
                       Container(
                         clipBehavior: Clip.antiAlias,
-                        height: AppHeight.h180,
-                        width: AppWidth.w200,
+                        height: AppHeight.h160,
+                        width: AppWidth.w180,
                         decoration: BoxDecoration(
                           color: ColorManager.primaryColor,
                           borderRadius: BorderRadius.circular(AppRadius.r120),
@@ -143,8 +143,8 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                               ),
                       ),
                       Positioned(
-                        top: AppSize.s160,
-                        left: AppSize.s140,
+                        top: AppSize.s135,
+                        left: AppSize.s120,
                         child: imageFile == null
                             ? Container(
                                 height: AppHeight.h40,

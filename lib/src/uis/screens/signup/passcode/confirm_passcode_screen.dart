@@ -43,7 +43,7 @@ class _ConfirmPasscodeSignupState extends State<ConfirmPasscodeSignup> {
               AppStrings.kSetPasscodeDes,
               textAlign: TextAlign.center,
               style: regularTextStyle(
-                fontSize: FontSize.s16,
+                fontSize: FontSize.s13,
                 color: ColorManager.titleTextColor,
                 fontFamily: FontConstants.quicksand,
               ),

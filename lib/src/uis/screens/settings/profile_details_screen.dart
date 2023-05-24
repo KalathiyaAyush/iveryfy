@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
 import 'package:iverify/src/uis/screens/settings/widget/custom_field.dart';
 
 import '/src/resources/font_manager.dart';
@@ -36,7 +37,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                     onbackTap: () {
                       Navigator.of(context).pop();
                     },
-                    icon: SvgPicture.asset('lib/assets/svg/settings/edit.svg'),
+                    icon: SvgPicture.asset(ImageAssets.editIcon),
                     onPressed: () {
                       AppRoutes.pushNamed(context,
                           name: AppRoutes.editProfileDetailScreen);

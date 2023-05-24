@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
 import 'package:iverify/src/resources/routes_manager.dart';
 
 import '/src/resources/font_manager.dart';
@@ -24,7 +25,7 @@ class ConnectionAddedScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  Image.asset('lib/assets/images/connection_added.png'),
+                  Image.asset(ImageAssets.connectionAddedIcon),
                   SizedBox(height: AppHeight.h20),
                   Padding(
                     padding: EdgeInsets.only(

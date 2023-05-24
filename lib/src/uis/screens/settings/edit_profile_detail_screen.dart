@@ -2,14 +2,14 @@
 
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:iverify/src/uis/widgets/app_elevatedbutton.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/value_manager.dart';
@@ -19,6 +19,7 @@ import '/src/resources/string_manager.dart';
 
 import '/src/uis/widgets/app_textfield.dart';
 import '/src/uis/widgets/appbar_widget.dart';
+import '/src/uis/widgets/app_elevatedbutton.dart';
 
 class EditProfileDetailScreen extends StatefulWidget {
   const EditProfileDetailScreen({super.key});
@@ -180,7 +181,7 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
                                   child: IconButton(
                                     onPressed: _showImagePickerSheet,
                                     icon: SvgPicture.asset(
-                                        'lib/assets/svg/camera.svg'),
+                                        ImageAssets.cameraIcon),
                                   ),
                                 ),
                               ),
@@ -219,7 +220,7 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
                                     _selectDate(context);
                                   },
                                   icon: SvgPicture.asset(
-                                      'lib/assets/svg/calendar.svg',
+                                      ImageAssets.calendarIcon,
                                       height: AppHeight.h16),
                                 ),
                               ),

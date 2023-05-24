@@ -1,6 +1,7 @@
 // ignore_for_file: unused_field, unused_element
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '/src/resources/font_manager.dart';
@@ -29,19 +30,11 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
     AppStrings.kInsurance,
     AppStrings.kEducation,
   ];
-  void _showMultiSelect() async {
-    final List<String>? results = await showDialog(
-      context: context,
-      builder: (context) {
-        return MutliSelect(tagsList: tagsList);
-      },
-    );
-
-    if (results != null) {
-      setState(() {
-        _selectedItems = results;
-      });
-    }
+  bool isDropdownOpen = false;
+  void _showMultiSelect() {
+    setState(() {
+      isDropdownOpen = !isDropdownOpen;
+    });
   }
 
   void _itemChange(String tagValue, bool isSelected) {
@@ -57,6 +50,7 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -91,125 +85,134 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
             ),
           ),
           SizedBox(height: AppHeight.h20),
-          Center(
-            child: Column(
+          Expanded(
+            child: ListView(
+              // shrinkWrap: true,
               children: [
-                Text(
-                  AppStrings.kQrCode,
-                  style: mediumTextStyle(
-                    fontSize: FontSize.s16,
-                    color: ColorManager.titleTextColor,
-                    fontFamily: FontConstants.rubik,
-                  ),
-                ),
-                QrImageView(
-                  data: 'Happy Codding!!',
-                  version: QrVersions.auto,
-                  size: AppSize.s150,
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: AppHeight.h25),
-          Padding(
-            padding:
-                EdgeInsets.only(right: AppPadding.p10, left: AppPadding.p15),
-            child: DocumentCard(
-              onTap: () {},
-              // assetName: 'lib/assets/svg/arrow.svg',
-              children: _selectedItems
-                  .map(
-                    (e) => Padding(
-                      padding: EdgeInsets.only(right: AppPadding.p3),
-                      child: Container(
-                        width: AppWidth.w43,
-                        height: AppHeight.h16,
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(235, 235, 235, 1),
-                          borderRadius: BorderRadius.circular(AppRadius.r10),
-                        ),
-                        child: Center(
-                          child: Text(
-                            e,
-                            style: regularTextStyle(
-                              fontSize: FontSize.s10,
-                              color: ColorManager.titleTextColor,
-                              fontFamily: FontConstants.quicksand,
-                            ),
-                          ),
+                Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        AppStrings.kQrCode,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.rubik,
                         ),
                       ),
-                    ),
-                  )
-                  .toList(),
+                      QrImageView(
+                        data: 'Happy Codding!!',
+                        version: QrVersions.auto,
+                        size: AppSize.s150,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: AppHeight.h25),
+                Padding(
+                  padding: EdgeInsets.only(
+                      right: AppPadding.p10, left: AppPadding.p15),
+                  child: DocumentCard(
+                    onTap: () {},
+                    assetName: 'lib/assets/svg/arrow.svg',
+                    children: _selectedItems
+                        .map(
+                          (e) => Padding(
+                            padding: EdgeInsets.only(right: AppPadding.p3),
+                            child: Container(
+                              width: AppWidth.w43,
+                              height: AppHeight.h16,
+                              decoration: BoxDecoration(
+                                color: const Color.fromRGBO(235, 235, 235, 1),
+                                borderRadius:
+                                    BorderRadius.circular(AppRadius.r10),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  e,
+                                  style: regularTextStyle(
+                                    fontSize: FontSize.s10,
+                                    color: ColorManager.titleTextColor,
+                                    fontFamily: FontConstants.quicksand,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ),
+                SizedBox(height: AppHeight.h10),
+                Container(
+                  width: AppWidth.w330,
+                  height: AppHeight.h45,
+                  padding: EdgeInsets.only(left: AppPadding.p15),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: ColorManager.primaryColor),
+                    borderRadius: BorderRadius.circular(AppRadius.r6),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(
+                        child: TextFormField(
+                          enabled: false,
+                          controller: TextEditingController(
+                              text: _selectedItems.join(" & ")),
+                          decoration: const InputDecoration(
+                              labelText: AppStrings.kSelectTags),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: _showMultiSelect,
+                        icon: SvgPicture.asset('lib/assets/svg/dropdown.svg'),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: AppHeight.h5),
+                isDropdownOpen
+                    ? Column(
+                        children: [
+                          Container(
+                            width: AppWidth.w330,
+                            height: AppHeight.h180,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color:
+                                      const Color.fromRGBO(227, 227, 227, 1)),
+                              borderRadius: BorderRadius.circular(AppRadius.r6),
+                            ),
+                            child: ListView(
+                              shrinkWrap: true,
+                              children: tagsList
+                                  .map(
+                                    (tag) => CheckboxListTile(
+                                      title: Text(tag),
+                                      dense: true,
+                                      side: const BorderSide(
+                                          color: ColorManager.primaryColor),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 0),
+                                      controlAffinity:
+                                          ListTileControlAffinity.leading,
+                                      activeColor: ColorManager.secondaryColor,
+                                      value: _selectedItems.contains(tag),
+                                      onChanged: (isChecked) =>
+                                          _itemChange(tag, isChecked!),
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                          ),
+                        ],
+                      )
+                    : Container(),
+              ],
             ),
-          ),
-          SizedBox(height: AppHeight.h10),
-          // Container(
-          //   width: AppWidth.w330,
-          //   height: AppHeight.h45,
-          //   padding: EdgeInsets.only(left: AppPadding.p15),
-          //   decoration: BoxDecoration(
-          //     border: Border.all(color: ColorManager.primaryColor),
-          //     borderRadius: BorderRadius.circular(AppRadius.r6),
-          //   ),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         crossAxisAlignment: CrossAxisAlignment.start,
-          //         children: [
-          //           Text(
-          //             AppStrings.kSelectTags,
-          //             style: regularTextStyle(
-          //               fontSize: FontSize.s16,
-          //               color: ColorManager.buttonGreyText,
-          //               fontFamily: FontConstants.quicksand,
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //       IconButton(
-          //         onPressed: _showMultiSelect,
-          //         icon: SvgPicture.asset('lib/assets/svg/dropdown.svg'),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          SizedBox(height: AppHeight.h5),
-          Column(
-            children: const [
-              // Container(
-              //   width: AppWidth.w330,
-              //   height: AppHeight.h180,
-              //   decoration: BoxDecoration(
-              //     border: Border.all(
-              //         color: const Color.fromRGBO(227, 227, 227, 1)),
-              //     borderRadius: BorderRadius.circular(AppRadius.r6),
-              //   ),
-              //   child: ListView(
-              //     shrinkWrap: true,
-              //     children: tagsList
-              //         .map(
-              //           (tag) => CheckboxListTile(
-              //             dense: true,
-              //             side: const BorderSide(
-              //                 color: ColorManager.primaryColor),
-              //             contentPadding:
-              //                 const EdgeInsets.symmetric(horizontal: 0),
-              //             controlAffinity: ListTileControlAffinity.leading,
-              //             activeColor: ColorManager.secondaryColor,
-              //             value: _selectedItems.contains(tag),
-              //             onChanged: (isChecked) =>
-              //                 _itemChange(tag, isChecked!),
-              //           ),
-              //         )
-              //         .toList(),
-              //   ),
-              // ),
-            ],
-          ),
+          )
         ],
       ),
     );

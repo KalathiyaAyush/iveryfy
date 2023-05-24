@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
 import 'package:iverify/src/resources/routes_manager.dart';
 import 'package:iverify/src/uis/widgets/app_textfield.dart';
 
@@ -181,7 +182,7 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
                               _selectDate(context);
                             },
                             icon: SvgPicture.asset(
-                              'lib/assets/svg/calendar.svg',
+                              ImageAssets.calendarIcon,
                               height: AppHeight.h15,
                             ),
                           ),

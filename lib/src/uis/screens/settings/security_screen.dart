@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
@@ -40,20 +41,20 @@ class SecurityScreen extends StatelessWidget {
                 ),
                 SizedBox(height: AppHeight.h10),
                 const SettingView(
-                  assetName: 'lib/assets/svg/settings/security.svg',
-                  asset: 'lib/assets/svg/greater_than_black.svg',
+                  assetName: ImageAssets.security,
+                  asset: ImageAssets.graterthanIcon,
                   title: AppStrings.kChangepin,
                 ),
                 SettingSwitchView(
-                  assetName: 'lib/assets/svg/settings/faceID.svg',
-                  asset: 'lib/assets/svg/greater_than_black.svg',
+                  assetName: ImageAssets.faceidIcon,
+                  asset: '',
                   title: AppStrings.kFaceID,
                   value: true,
                   onToggle: (val) {},
                 ),
                 SettingSwitchView(
-                  assetName: 'lib/assets/svg/settings/fingerprint.svg',
-                  asset: 'lib/assets/svg/greater_than_black.svg',
+                  assetName: ImageAssets.fingerPrintSvgIcon,
+                  asset: '',
                   title: AppStrings.kFingerprint,
                   value: true,
                   onToggle: (val) {},

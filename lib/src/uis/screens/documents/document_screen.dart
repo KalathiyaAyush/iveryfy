@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iverify/src/uis/screens/documents/widgets/document_card.dart';
-import 'package:iverify/src/uis/screens/documents/widgets/multi_select.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
@@ -12,6 +12,8 @@ import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
 import '/src/resources/routes_manager.dart';
 import '/src/resources/string_manager.dart';
+import '/src/uis/screens/documents/widgets/multi_select.dart';
+import '/src/uis/screens/documents/widgets/document_card.dart';
 
 class MyDocumentScreen extends StatefulWidget {
   const MyDocumentScreen({super.key});
@@ -51,62 +53,69 @@ class _MyDocumentScreenState extends State<MyDocumentScreen> {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p15, right: AppPadding.p15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: AppHeight.h70),
-                  Text(
-                    AppStrings.kMyDocuments,
-                    style: mediumTextStyle(
-                      fontSize: FontSize.s24,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.rubik,
-                    ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p15,
+                      right: AppPadding.p15,
+                      bottom: AppPadding.p15,
+                      top: AppPadding.p70),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        AppStrings.kMyDocuments,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s24,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.rubik,
+                        ),
+                      ),
+                      SizedBox(height: AppHeight.h5),
+                      Text(
+                        AppStrings.kDocumentsDes,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s13,
+                          color: ColorManager.titleTextColor,
+                          fontFamily: FontConstants.quicksand,
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: AppHeight.h5),
-                  Text(
-                    AppStrings.kDocumentsDes,
-                    style: mediumTextStyle(
-                      fontSize: FontSize.s13,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.quicksand,
-                    ),
-                  ),
-                  SizedBox(height: AppHeight.h15),
-                  Row(
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: AppPadding.p15),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(
                         child: Container(
                           height: AppHeight.h40,
-                          padding: EdgeInsets.only(
-                              left: AppPadding.p12, right: AppPadding.p12),
+                          padding: EdgeInsets.only(right: AppPadding.p12),
                           decoration: BoxDecoration(
                             border:
                                 Border.all(color: ColorManager.primaryColor),
                             borderRadius: BorderRadius.circular(AppRadius.r12),
                           ),
-                          child: DropdownButtonFormField(
+                          child: DropdownButton2(
+                            alignment: AlignmentDirectional.center,
+                            underline: Container(),
+                            isExpanded: true,
                             style: regularTextStyle(
                               fontSize: FontSize.s15,
                               color: ColorManager.textColor,
                               fontFamily: FontConstants.quicksand,
                             ),
-                            icon:
-                                SvgPicture.asset('lib/assets/svg/dropdown.svg'),
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: AppStrings.kAll,
-                              hintStyle: regularTextStyle(
-                                fontSize: FontSize.s15,
-                                color: ColorManager.buttonGreyText,
-                                fontFamily: FontConstants.quicksand,
-                              ),
-                            ),
+                            iconStyleData: IconStyleData(
+                                icon: SvgPicture.asset(
+                                    'lib/assets/svg/dropdown.svg')),
+                            value: AppStrings.kAll,
                             items: const [
+                              DropdownMenuItem(
+                                  value: AppStrings.kAll,
+                                  child: Text(AppStrings.kAll)),
                               DropdownMenuItem(
                                   value: AppStrings.kIDProof,
                                   child: Text(AppStrings.kIDProof)),
@@ -129,38 +138,40 @@ class _MyDocumentScreenState extends State<MyDocumentScreen> {
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: SvgPicture.asset(
-                          'lib/assets/svg/drop_down.svg',
-                        ),
+                        icon: SvgPicture.asset(ImageAssets.dropdownIcon2),
                       ),
                     ],
                   ),
-                  SizedBox(height: AppHeight.h20),
-                  Center(
-                    child: Column(
-                      children: [
-                        // SizedBox(height: AppHeight.h100),
-                        // Image.asset('lib/assets/images/documents.png'),
-                        // Text(
-                        //   AppStrings.knoConnectionFound,
-                        //   textAlign: TextAlign.center,
-                        //   style: regularTextStyle(
-                        //     fontSize: FontSize.s14,
-                        //     color: ColorManager.hintTextColor,
-                        //     fontFamily: FontConstants.quicksand,
-                        //   ),
-                        // ),
-                        DocumentCard(
-                          onTap: () {
-                            AppRoutes.pushNamed(context,
-                                name: AppRoutes.passportDetailScreen);
-                          },
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                SizedBox(height: AppHeight.h20),
+                Expanded(
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: 10,
+                      padding: EdgeInsets.only(
+                          right: AppPadding.p15,
+                          left: AppPadding.p15,
+                          bottom: AppPadding.p50),
+                      itemBuilder: (context, index) =>
+                          // SizedBox(height: AppHeight.h100),
+                          // Image.asset(ImageAssets.documentsIcon),
+                          // Text(
+                          //   AppStrings.knoConnectionFound,
+                          //   textAlign: TextAlign.center,
+                          //   style: regularTextStyle(
+                          //     fontSize: FontSize.s14,
+                          //     color: ColorManager.hintTextColor,
+                          //     fontFamily: FontConstants.quicksand,
+                          //   ),
+                          // ),
+                          DocumentCard(
+                            onTap: () {
+                              AppRoutes.pushNamed(context,
+                                  name: AppRoutes.passportDetailScreen);
+                            },
+                          )),
+                ),
+              ],
             ),
           ),
           floatingActionButton: Padding(
@@ -173,15 +184,13 @@ class _MyDocumentScreenState extends State<MyDocumentScreen> {
                 color: ColorManager.textColor,
                 shape: BoxShape.circle,
               ),
-              child: Center(
-                child: IconButton(
-                  onPressed: () {
-                    AppRoutes.pushNamed(context,
-                        name: AppRoutes.addDocumentScreen);
-                  },
-                  icon: Icon(Icons.add,
-                      color: ColorManager.scaffoldBg, size: AppSize.s30),
-                ),
+              child: IconButton(
+                padding: EdgeInsets.zero,
+                onPressed: () {
+                  AppRoutes.pushNamed(context,
+                      name: AppRoutes.addDocumentScreen);
+                },
+                icon: const Icon(Icons.add, color: ColorManager.scaffoldBg),
               ),
             ),
           ),
