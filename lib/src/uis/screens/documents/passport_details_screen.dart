@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iverify/src/resources/routes_manager.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '/src/resources/font_manager.dart';
@@ -54,7 +55,7 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: AppHeight.h30),
+          SizedBox(height: AppHeight.h20),
           AppbarWidget(onbackTap: () {
             Navigator.of(context).pop();
           }),
@@ -113,7 +114,10 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
                   padding: EdgeInsets.only(
                       right: AppPadding.p10, left: AppPadding.p15),
                   child: DocumentCard(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed(AppRoutes.myDocumentsScreen);
+                    },
                     assetName: 'lib/assets/svg/arrow.svg',
                     children: _selectedItems
                         .map(
@@ -144,70 +148,91 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
                   ),
                 ),
                 SizedBox(height: AppHeight.h10),
-                Container(
-                  width: AppWidth.w330,
-                  height: AppHeight.h45,
-                  padding: EdgeInsets.only(left: AppPadding.p15),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: ColorManager.primaryColor),
-                    borderRadius: BorderRadius.circular(AppRadius.r6),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                        child: TextFormField(
-                          enabled: false,
-                          controller: TextEditingController(
-                              text: _selectedItems.join(" & ")),
-                          decoration: const InputDecoration(
-                              labelText: AppStrings.kSelectTags),
+                Padding(
+                  padding: EdgeInsets.only(
+                      right: AppPadding.p15, left: AppPadding.p15),
+                  child: Container(
+                    width: AppWidth.w330,
+                    height: AppHeight.h45,
+                    padding: EdgeInsets.only(left: AppPadding.p15),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: ColorManager.primaryColor),
+                      borderRadius: BorderRadius.circular(AppRadius.r6),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          child: TextFormField(
+                            style: regularTextStyle(
+                              fontSize: FontSize.s14,
+                              color: ColorManager.textColor,
+                              fontFamily: FontConstants.quicksand,
+                            ),
+                            enabled: false,
+                            controller: TextEditingController(
+                                text: _selectedItems.join(" & ")),
+                            decoration: const InputDecoration(
+                              labelText: AppStrings.kSelectTags,
+                              border: InputBorder.none,
+                            ),
+                          ),
                         ),
-                      ),
-                      IconButton(
-                        onPressed: _showMultiSelect,
-                        icon: SvgPicture.asset('lib/assets/svg/dropdown.svg'),
-                      ),
-                    ],
+                        IconButton(
+                          onPressed: _showMultiSelect,
+                          icon: SvgPicture.asset('lib/assets/svg/dropdown.svg'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: AppHeight.h5),
                 isDropdownOpen
-                    ? Column(
-                        children: [
-                          Container(
-                            width: AppWidth.w330,
-                            height: AppHeight.h180,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color:
-                                      const Color.fromRGBO(227, 227, 227, 1)),
-                              borderRadius: BorderRadius.circular(AppRadius.r6),
+                    ? Padding(
+                        padding: EdgeInsets.only(bottom: AppPadding.p10),
+                        child: Column(
+                          children: [
+                            Container(
+                              width: AppWidth.w330,
+                              height: AppHeight.h180,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color:
+                                        const Color.fromRGBO(227, 227, 227, 1)),
+                                borderRadius:
+                                    BorderRadius.circular(AppRadius.r6),
+                              ),
+                              child: MediaQuery.removePadding(
+                                context: context,
+                                removeBottom: true,
+                                removeTop: true,
+                                child: ListView(
+                                  shrinkWrap: true,
+                                  children: tagsList
+                                      .map(
+                                        (tag) => CheckboxListTile(
+                                          title: Text(tag),
+                                          dense: true,
+                                          side: const BorderSide(
+                                              color: ColorManager.primaryColor),
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 0),
+                                          controlAffinity:
+                                              ListTileControlAffinity.leading,
+                                          activeColor:
+                                              ColorManager.secondaryColor,
+                                          value: _selectedItems.contains(tag),
+                                          onChanged: (isChecked) =>
+                                              _itemChange(tag, isChecked!),
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
+                              ),
                             ),
-                            child: ListView(
-                              shrinkWrap: true,
-                              children: tagsList
-                                  .map(
-                                    (tag) => CheckboxListTile(
-                                      title: Text(tag),
-                                      dense: true,
-                                      side: const BorderSide(
-                                          color: ColorManager.primaryColor),
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                              horizontal: 0),
-                                      controlAffinity:
-                                          ListTileControlAffinity.leading,
-                                      activeColor: ColorManager.secondaryColor,
-                                      value: _selectedItems.contains(tag),
-                                      onChanged: (isChecked) =>
-                                          _itemChange(tag, isChecked!),
-                                    ),
-                                  )
-                                  .toList(),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       )
                     : Container(),
               ],

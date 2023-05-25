@@ -40,6 +40,7 @@ class _BottomNavigationbarScreenState extends State<BottomNavigationbarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorManager.scaffoldBg,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -58,7 +59,8 @@ class _BottomNavigationbarScreenState extends State<BottomNavigationbarScreen> {
               boxShadow: const [
                 BoxShadow(
                   color: Color.fromRGBO(39, 34, 70, 0.1),
-                  blurRadius: 20,
+                  blurRadius: 12,
+                  offset: Offset(0, 8),
                 ),
               ]),
           child: Row(

@@ -46,59 +46,61 @@ class VerifyIdScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: AppHeight.h90),
-                Center(
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        ImageAssets.verifyIDIcon,
-                        fit: BoxFit.cover,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: AppPadding.p20, right: AppPadding.p20),
-                        child: Column(
-                          children: [
-                            Text(
-                              AppStrings.kletsStartEKYC,
-                              textAlign: TextAlign.center,
-                              style: mediumTextStyle(
-                                fontSize: FontSize.s20,
-                                color: ColorManager.titleTextColor,
-                                fontFamily: FontConstants.rubik,
-                              ),
+                const Spacer(),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      ImageAssets.verifyIDIcon,
+                      fit: BoxFit.cover,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: AppPadding.p20, right: AppPadding.p20),
+                      child: Column(
+                        children: [
+                          Text(
+                            AppStrings.kletsStartEKYC,
+                            textAlign: TextAlign.center,
+                            style: mediumTextStyle(
+                              fontSize: FontSize.s20,
+                              color: ColorManager.titleTextColor,
+                              fontFamily: FontConstants.rubik,
                             ),
-                            SizedBox(height: AppHeight.h3),
-                            Text(
-                              AppStrings.kletsStartEKYCdes,
-                              textAlign: TextAlign.center,
-                              style: regularTextStyle(
-                                fontSize: FontSize.s14,
-                                color: ColorManager.titleTextColor,
-                                fontFamily: FontConstants.quicksand,
-                              ),
+                          ),
+                          SizedBox(height: AppHeight.h3),
+                          Text(
+                            AppStrings.kletsStartEKYCdes,
+                            textAlign: TextAlign.center,
+                            style: regularTextStyle(
+                              fontSize: FontSize.s14,
+                              color: ColorManager.titleTextColor,
+                              fontFamily: FontConstants.quicksand,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 const Spacer(),
                 Center(
-                  child: AppElevatedButton(
-                    onPressed: () {
-                      AppRoutes.pushNamed(
-                        context,
-                        name: AppRoutes.documentUploadedScreen,
-                      );
-                    },
-                    child: Text(
-                      AppStrings.kcontinue,
-                      style: mediumTextStyle(
-                        fontSize: FontSize.s16,
-                        color: ColorManager.scaffoldBg,
-                        fontFamily: FontConstants.quicksand,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: AppPadding.p30),
+                    child: AppElevatedButton(
+                      onPressed: () {
+                        AppRoutes.pushNamed(
+                          context,
+                          name: AppRoutes.documentUploadedScreen,
+                        );
+                      },
+                      child: Text(
+                        AppStrings.kcontinue,
+                        style: mediumTextStyle(
+                          fontSize: FontSize.s16,
+                          color: ColorManager.scaffoldBg,
+                          fontFamily: FontConstants.quicksand,
+                        ),
                       ),
                     ),
                   ),

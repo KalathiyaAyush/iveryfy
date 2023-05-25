@@ -29,6 +29,7 @@ class AppPadding {
   static double get p30 => 30.sp;
   static double get p40 => 40.sp;
   static double get p50 => 50.sp;
+  static double get p60 => 60.sp;
   static double get p70 => 70.sp;
   static double get p80 => 80.sp;
   static double get p100 => 100.sp;
@@ -56,9 +57,13 @@ class AppSize {
   static double get s40 => 40.sp;
   static double get s50 => 50.sp;
   static double get s60 => 60.sp;
+  static double get s70 => 70.sp;
+  static double get s75 => 75.sp;
   static double get s80 => 80.sp;
+  static double get s85 => 85.sp;
   static double get s90 => 90.sp;
   static double get s100 => 100.sp;
+  static double get s110 => 110.sp;
   static double get s120 => 120.sp;
   static double get s130 => 130.sp;
   static double get s135 => 135.sp;
@@ -88,12 +93,18 @@ class AppRadius {
   static double get r40 => 40.r;
   static double get r50 => 50.r;
   static double get r60 => 60.r;
+  static double get r63 => 63.r;
+  static double get r65 => 65.r;
+  static double get r68 => 68.r;
   static double get r70 => 70.r;
+  static double get r73 => 73.r;
+  static double get r75 => 75.r;
   static double get r80 => 80.r;
   static double get r90 => 90.r;
   static double get r100 => 100.r;
   static double get r110 => 110.r;
   static double get r120 => 120.r;
+  static double get r150 => 150.r;
 }
 
 class AppWidth {
@@ -189,6 +200,7 @@ class AppHeight {
   static double get h170 => 170.h;
   static double get h180 => 180.h;
   static double get h200 => 200.h;
+  static double get h210 => 210.h;
   static double get h230 => 230.h;
   static double get h250 => 250.h;
   static double get h280 => 280.h;

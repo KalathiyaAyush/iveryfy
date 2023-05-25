@@ -20,8 +20,6 @@ class DocumentCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: AppPadding.p10),
       child: Container(
-        // height: AppHeight.h100,
-        clipBehavior: Clip.hardEdge,
         width: double.infinity,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppRadius.r8),
@@ -36,7 +34,9 @@ class DocumentCard extends StatelessWidget {
                   offset: Offset(0, 4))
             ]),
         child: Material(
+          borderRadius: BorderRadius.circular(AppRadius.r8),
           child: InkWell(
+            borderRadius: BorderRadius.circular(AppRadius.r8),
             onTap: onTap,
             child: Column(
               mainAxisSize: MainAxisSize.min,

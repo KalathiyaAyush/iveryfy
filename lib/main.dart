@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iverify/src/resources/color_manager.dart';
 import '/src/resources/routes_manager.dart';
 
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
@@ -14,6 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (_, __) => MaterialApp(
+        theme: ThemeData(
+          scaffoldBackgroundColor: ColorManager.scaffoldBg,
+        ),
+        color: Colors.red,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
         navigatorObservers: [routeObserver],

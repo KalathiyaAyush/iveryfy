@@ -28,6 +28,7 @@ class _AddConnectionScreenState extends State<AddConnectionScreen> {
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
+          backgroundColor: ColorManager.scaffoldBg,
           body: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

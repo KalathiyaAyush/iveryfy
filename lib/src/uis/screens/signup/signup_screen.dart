@@ -51,8 +51,8 @@ class SignupScreen extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      SvgPicture.asset(ImageAssets.whatsappIcon,
-                          height: AppHeight.h25),
+                      Image.asset(ImageAssets.whatsappIcon,
+                          height: AppHeight.h32),
                       SizedBox(width: AppWidth.w10),
                       Text(
                         AppStrings.kWhatsapp,

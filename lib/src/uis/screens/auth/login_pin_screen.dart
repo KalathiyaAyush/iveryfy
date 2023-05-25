@@ -26,6 +26,7 @@ class _LoginPinScreenState extends State<LoginPinScreen> {
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
+          backgroundColor: ColorManager.scaffoldBg,
           body: SafeArea(
             child: Column(
               children: [

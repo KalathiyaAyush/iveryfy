@@ -22,6 +22,7 @@ class FaceBiometricScreen extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
+          backgroundColor: ColorManager.scaffoldBg,
           body: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

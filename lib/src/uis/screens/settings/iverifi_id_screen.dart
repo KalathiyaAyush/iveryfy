@@ -20,16 +20,16 @@ class IverifiIDScreen extends StatelessWidget {
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AppbarWidget(onbackTap: () {
-                    Navigator.of(context).pop();
-                  }),
-                  Text(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppbarWidget(onbackTap: () {
+                  Navigator.of(context).pop();
+                }),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: Text(
                     AppStrings.kYouriVerifiID,
                     style: mediumTextStyle(
                       fontSize: FontSize.s24,
@@ -37,8 +37,12 @@ class IverifiIDScreen extends StatelessWidget {
                       fontFamily: FontConstants.rubik,
                     ),
                   ),
-                  SizedBox(height: AppHeight.h30),
-                  Container(
+                ),
+                SizedBox(height: AppHeight.h30),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppPadding.p20, right: AppPadding.p20),
+                  child: Container(
                     width: AppWidth.w330,
                     padding: EdgeInsets.only(left: AppPadding.p12),
                     decoration: BoxDecoration(
@@ -84,8 +88,8 @@ class IverifiIDScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );

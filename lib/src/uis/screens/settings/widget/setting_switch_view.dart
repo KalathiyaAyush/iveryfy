@@ -26,67 +26,53 @@ class SettingSwitchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          bottom: AppPadding.p15, left: AppPadding.p20, right: AppPadding.p22),
+          bottom: AppPadding.p12, left: AppPadding.p20, right: AppPadding.p22),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
               Container(
-                width: AppWidth.w45,
-                height: AppHeight.h40,
                 decoration: BoxDecoration(
                     color: ColorManager.scaffoldBg,
-                    borderRadius: BorderRadius.circular(AppRadius.r20),
+                    borderRadius: BorderRadius.circular(AppRadius.r30),
                     boxShadow: const [
                       BoxShadow(
-                        blurRadius: 8.0,
-                        spreadRadius: 2.0,
-                        offset: Offset(5.0, 5.0),
+                        blurRadius: 12,
+                        offset: Offset(0, 4),
                         color: Color.fromRGBO(39, 34, 70, 0.1),
                       ),
                     ]),
                 child: Center(
-                  child: SvgPicture.asset(
-                    assetName,
-                    height: AppHeight.h20,
+                  child: CircleAvatar(
+                    radius: AppRadius.r23,
+                    backgroundColor: ColorManager.scaffoldBg,
+                    child: SvgPicture.asset(
+                      assetName,
+                      height: AppHeight.h20,
+                    ),
                   ),
                 ),
               ),
-              // SizedBox(
-              //   height: AppHeight.h42,
-              //   width: AppWidth.w45,
-              //   child: NeumorphicButton(
-              //     onPressed: () {},
-              //     style: NeumorphicStyle(
-              //       shape: NeumorphicShape.flat,
-              //       color: ColorManager.scaffoldBg,
-              //       boxShape: NeumorphicBoxShape.roundRect(
-              //         BorderRadius.circular(AppRadius.r25),
-              //       ),
-              //     ),
-              //     child: SvgPicture.asset(assetName),
-              //   ),
-              // ),
               SizedBox(width: AppWidth.w15),
               Text(
                 title,
                 style: mediumTextStyle(
-                  fontSize: FontSize.s18,
+                  fontSize: FontSize.s16,
                   color: ColorManager.titleTextColor,
                   fontFamily: FontConstants.quicksand,
                 ),
               ),
             ],
           ),
-          FlutterSwitch(
-            width: AppWidth.w52,
-            height: AppHeight.h24,
-            toggleSize: AppSize.s18,
-            value: value,
-            onToggle: onToggle,
-            activeColor: ColorManager.secondaryColor,
-            inactiveColor: ColorManager.primaryColor,
+          Transform.scale(
+            scale: 0.7,
+            child: FlutterSwitch(
+              value: value,
+              onToggle: onToggle,
+              activeColor: ColorManager.secondaryColor,
+              inactiveColor: ColorManager.primaryColor,
+            ),
           ),
         ],
       ),

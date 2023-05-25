@@ -20,156 +20,163 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      builder: (context, child) {
-        return Scaffold(
-          body: SafeArea(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: AppHeight.h70),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: AppPadding.p20, right: AppPadding.p22),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        AppStrings.kSettings,
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s26,
-                          color: ColorManager.titleTextColor,
-                          fontFamily: FontConstants.rubik,
-                        ),
-                      ),
-                      SizedBox(height: AppHeight.h20),
-                      Container(
-                        width: AppWidth.w330,
-                        padding: EdgeInsets.only(left: AppPadding.p12),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: ColorManager.primaryColor),
-                          borderRadius: BorderRadius.circular(AppRadius.r6),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    AppStrings.kiVerifiID,
-                                    style: regularTextStyle(
-                                      fontSize: FontSize.s14,
-                                      color: ColorManager.hintTextColor,
-                                      fontFamily: FontConstants.quicksand,
-                                    ),
-                                  ),
-                                  Text(
-                                    id,
-                                    style: mediumTextStyle(
-                                      fontSize: FontSize.s18,
-                                      color: ColorManager.textColor,
-                                      fontFamily: FontConstants.quicksand,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () async {
-                                await Clipboard.setData(
-                                    ClipboardData(text: id));
-                              },
-                              icon: const Icon(
-                                Icons.copy,
-                                color: ColorManager.hintTextColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: AppHeight.h15),
-                Flexible(
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: [
-                      SettingView(
-                        assetName: ImageAssets.profileIcon,
-                        asset: ImageAssets.graterthanIcon,
-                        title: AppStrings.kProfile,
-                        onTap: () {
-                          AppRoutes.pushNamed(context,
-                              name: AppRoutes.profileDetailScreen);
-                        },
-                      ),
-                      SettingSwitchView(
-                        assetName: ImageAssets.notificationIcon,
-                        asset: '',
-                        title: AppStrings.kNotification,
-                        value: true,
-                        onToggle: (val) {},
-                      ),
-                      SettingView(
-                        assetName: ImageAssets.security,
-                        asset: ImageAssets.graterthanIcon,
-                        title: AppStrings.kSecurity,
-                        onTap: () {
-                          AppRoutes.pushNamed(context,
-                              name: AppRoutes.securityScreen);
-                        },
-                      ),
-                      SettingView(
-                        assetName: ImageAssets.iverifiIDIcon,
-                        asset: ImageAssets.graterthanIcon,
-                        title: AppStrings.kYouriVerifiID,
-                        onTap: () {
-                          AppRoutes.pushNamed(context,
-                              name: AppRoutes.iVerifiIDScreen);
-                        },
-                      ),
-                      const SettingView(
-                        assetName: ImageAssets.accRecoveryIcon,
-                        asset: ImageAssets.graterthanIcon,
-                        title: AppStrings.kAccountRecoveryPhrase,
-                      ),
-                      const SettingView(
-                        assetName: ImageAssets.paymentIcon,
-                        asset: ImageAssets.graterthanIcon,
-                        title: AppStrings.kPaymentMethod,
-                      ),
-                      const SettingView(
-                        assetName: ImageAssets.privacyIcon,
-                        asset: ImageAssets.graterthanIcon,
-                        title: AppStrings.kPrivacyPolicy,
-                      ),
-                      const SettingView(
-                        assetName: ImageAssets.termsOfService,
-                        asset: ImageAssets.graterthanIcon,
-                        title: AppStrings.kTermsofService,
-                      ),
-                      const SettingView(
-                        assetName: ImageAssets.deleteSvgIcon,
-                        asset: ImageAssets.graterthanIcon,
-                        title: AppStrings.kDeleteAccount,
-                      ),
-                      const SettingView(
-                        assetName: ImageAssets.logoutIcon,
-                        asset: '',
-                        title: AppStrings.kLogout,
-                      ),
-                      SizedBox(height: AppHeight.h65),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
+    return WillPopScope(
+      onWillPop: () async {
+        Navigator.of(context).pushNamed(AppRoutes.bottomNavigationScreen);
+        return false;
       },
+      child: ScreenUtilInit(
+        builder: (context, child) {
+          return Scaffold(
+            backgroundColor: ColorManager.scaffoldBg,
+            body: SafeArea(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: AppHeight.h70),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: AppPadding.p20, right: AppPadding.p22),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          AppStrings.kSettings,
+                          style: mediumTextStyle(
+                            fontSize: FontSize.s26,
+                            color: ColorManager.titleTextColor,
+                            fontFamily: FontConstants.rubik,
+                          ),
+                        ),
+                        SizedBox(height: AppHeight.h20),
+                        Container(
+                          width: AppWidth.w330,
+                          padding: EdgeInsets.only(left: AppPadding.p12),
+                          decoration: BoxDecoration(
+                            border:
+                                Border.all(color: ColorManager.primaryColor),
+                            borderRadius: BorderRadius.circular(AppRadius.r6),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Flexible(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      AppStrings.kiVerifiID,
+                                      style: regularTextStyle(
+                                        fontSize: FontSize.s14,
+                                        color: ColorManager.hintTextColor,
+                                        fontFamily: FontConstants.quicksand,
+                                      ),
+                                    ),
+                                    Text(
+                                      id,
+                                      style: mediumTextStyle(
+                                        fontSize: FontSize.s18,
+                                        color: ColorManager.textColor,
+                                        fontFamily: FontConstants.quicksand,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () async {
+                                  await Clipboard.setData(
+                                      ClipboardData(text: id));
+                                },
+                                icon: const Icon(
+                                  Icons.copy,
+                                  color: ColorManager.hintTextColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Flexible(
+                    child: ListView(
+                      shrinkWrap: true,
+                      children: [
+                        SettingView(
+                          assetName: ImageAssets.profileIcon,
+                          asset: ImageAssets.graterthanIcon,
+                          title: AppStrings.kProfile,
+                          onTap: () {
+                            AppRoutes.pushNamed(context,
+                                name: AppRoutes.profileDetailScreen);
+                          },
+                        ),
+                        SettingSwitchView(
+                          assetName: ImageAssets.notificationIcon,
+                          asset: '',
+                          title: AppStrings.kNotification,
+                          value: true,
+                          onToggle: (val) {},
+                        ),
+                        SettingView(
+                          assetName: ImageAssets.security,
+                          asset: ImageAssets.graterthanIcon,
+                          title: AppStrings.kSecurity,
+                          onTap: () {
+                            AppRoutes.pushNamed(context,
+                                name: AppRoutes.securityScreen);
+                          },
+                        ),
+                        SettingView(
+                          assetName: ImageAssets.iverifiIDIcon,
+                          asset: ImageAssets.graterthanIcon,
+                          title: AppStrings.kYouriVerifiID,
+                          onTap: () {
+                            AppRoutes.pushNamed(context,
+                                name: AppRoutes.iVerifiIDScreen);
+                          },
+                        ),
+                        const SettingView(
+                          assetName: ImageAssets.accRecoveryIcon,
+                          asset: ImageAssets.graterthanIcon,
+                          title: AppStrings.kAccountRecoveryPhrase,
+                        ),
+                        const SettingView(
+                          assetName: ImageAssets.paymentIcon,
+                          asset: ImageAssets.graterthanIcon,
+                          title: AppStrings.kPaymentMethod,
+                        ),
+                        const SettingView(
+                          assetName: ImageAssets.privacyIcon,
+                          asset: ImageAssets.graterthanIcon,
+                          title: AppStrings.kPrivacyPolicy,
+                        ),
+                        const SettingView(
+                          assetName: ImageAssets.termsOfService,
+                          asset: ImageAssets.graterthanIcon,
+                          title: AppStrings.kTermsofService,
+                        ),
+                        const SettingView(
+                          assetName: ImageAssets.deleteSvgIcon,
+                          asset: ImageAssets.graterthanIcon,
+                          title: AppStrings.kDeleteAccount,
+                        ),
+                        const SettingView(
+                          assetName: ImageAssets.logoutIcon,
+                          asset: '',
+                          title: AppStrings.kLogout,
+                        ),
+                        SizedBox(height: AppHeight.h65),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

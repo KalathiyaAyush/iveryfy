@@ -32,6 +32,7 @@ class _AddBasicDetailsScreenState extends State<AddBasicDetailsScreen> {
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
+          backgroundColor: ColorManager.scaffoldBg,
           body: SafeArea(
             child: Padding(
               padding:

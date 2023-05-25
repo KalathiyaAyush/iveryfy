@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,8 +15,16 @@ import '/src/uis/widgets/appbar_widget.dart';
 import '/src/uis/widgets/app_title_text.dart';
 import '/src/uis/widgets/app_elevatedbutton.dart';
 
-class AddDocumentScreen extends StatelessWidget {
+class AddDocumentScreen extends StatefulWidget {
   const AddDocumentScreen({super.key});
+
+  @override
+  State<AddDocumentScreen> createState() => _AddDocumentScreenState();
+}
+
+class _AddDocumentScreenState extends State<AddDocumentScreen> {
+  bool selected = false;
+  List<String> docList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +35,9 @@ class AddDocumentScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: AppHeight.h20),
-              AppbarWidget(onbackTap: () {}),
+              AppbarWidget(onbackTap: () {
+                Navigator.of(context).pop();
+              }),
               const AppTitleText(
                 title: AppStrings.kAddNewDocuments,
                 titleDes: AppStrings.kAddDocumentDes,
@@ -93,6 +105,7 @@ class AddDocumentScreen extends StatelessWidget {
             SvgPicture.asset(
               'lib/assets/svg/pass.svg',
               height: AppHeight.h35,
+              color: ColorManager.primaryColor,
             ),
             SizedBox(width: AppWidth.w10),
             Column(

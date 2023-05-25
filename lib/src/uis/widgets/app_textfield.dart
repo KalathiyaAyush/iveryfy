@@ -69,10 +69,9 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: AppHeight.h50,
       width: double.infinity,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppRadius.r6),
+          borderRadius: BorderRadius.circular(AppRadius.r8),
           border: Border.all(
             color: ColorManager.primaryColor,
           )),
@@ -112,10 +111,8 @@ class AppTextField extends StatelessWidget {
             fontSize: FontSize.s16,
           ),
           border: border ?? InputBorder.none,
-          contentPadding: EdgeInsets.only(
-              left: AppPadding.p12,
-              top: AppPadding.p12,
-              bottom: AppPadding.p10),
+          contentPadding: EdgeInsets.symmetric(
+              vertical: AppPadding.p12, horizontal: AppPadding.p15),
         ),
       ),
     );

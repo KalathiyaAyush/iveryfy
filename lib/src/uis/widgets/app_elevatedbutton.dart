@@ -15,7 +15,7 @@ class AppElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: AppHeight.h45,
+      height: AppHeight.h50,
       width: AppWidth.w90Percent,
       child: ElevatedButton(
         onPressed: onPressed,

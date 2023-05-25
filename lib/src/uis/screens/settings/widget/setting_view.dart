@@ -23,54 +23,58 @@ class SettingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          bottom: AppPadding.p15, left: AppPadding.p20, right: AppPadding.p10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Row(
-              children: [
-                Container(
-                  width: AppWidth.w45,
-                  height: AppHeight.h40,
-                  decoration: BoxDecoration(
-                      color: ColorManager.scaffoldBg,
-                      borderRadius: BorderRadius.circular(AppRadius.r20),
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 8.0,
-                          spreadRadius: 2.0,
-                          offset: Offset(5.0, 5.0),
-                          color: Color.fromRGBO(39, 34, 70, 0.1),
+          bottom: AppPadding.p12,
+          left: AppPadding.p20,
+          right: AppPadding.p30,
+          top: AppPadding.p15),
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        color: ColorManager.scaffoldBg,
+                        borderRadius: BorderRadius.circular(AppRadius.r30),
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 12,
+                            offset: Offset(0, 4),
+                            color: Color.fromRGBO(39, 34, 70, 0.1),
+                          ),
+                        ]),
+                    child: Center(
+                      child: CircleAvatar(
+                        radius: AppRadius.r23,
+                        backgroundColor: ColorManager.scaffoldBg,
+                        child: SvgPicture.asset(
+                          assetName,
+                          height: AppHeight.h20,
                         ),
-                      ]),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      assetName,
-                      height: AppHeight.h20,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(width: AppWidth.w15),
-                Text(
-                  title,
-                  style: mediumTextStyle(
-                    fontSize: FontSize.s16,
-                    color: ColorManager.titleTextColor,
-                    fontFamily: FontConstants.quicksand,
+                  SizedBox(width: AppWidth.w15),
+                  Text(
+                    title,
+                    style: mediumTextStyle(
+                      fontSize: FontSize.s16,
+                      color: ColorManager.titleTextColor,
+                      fontFamily: FontConstants.quicksand,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          IconButton(
-            onPressed: onTap,
-            icon: SvgPicture.asset(
+            SvgPicture.asset(
               asset,
               height: AppHeight.h13,
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

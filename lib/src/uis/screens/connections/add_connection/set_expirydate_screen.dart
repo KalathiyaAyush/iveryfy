@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -34,6 +35,7 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
+          backgroundColor: ColorManager.scaffoldBg,
           body: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,6 +57,8 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
                                 Border.all(color: ColorManager.primaryColor),
                             borderRadius: BorderRadius.circular(AppRadius.r8)),
                         child: RadioListTile(
+                          visualDensity: const VisualDensity(horizontal: -4.0),
+                          contentPadding: EdgeInsets.zero,
                           activeColor: ColorManager.secondaryColor,
                           title: Text(
                             AppStrings.kNoExpiryDate,
@@ -81,6 +85,8 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
                           borderRadius: BorderRadius.circular(AppRadius.r8),
                         ),
                         child: RadioListTile(
+                          visualDensity: const VisualDensity(horizontal: -4.0),
+                          contentPadding: EdgeInsets.zero,
                           activeColor: ColorManager.secondaryColor,
                           title: Text(
                             AppStrings.kStandard,
@@ -120,28 +126,28 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
                             ),
                             SizedBox(height: AppHeight.h10),
                             Container(
-                                padding: EdgeInsets.only(
-                                    left: AppPadding.p12,
-                                    right: AppPadding.p12),
+                                width: double.infinity,
+                                height: AppHeight.h45,
+                                padding: EdgeInsets.only(right: AppPadding.p12),
                                 decoration: BoxDecoration(
                                   border: Border.all(
-                                      color: ColorManager.buttonGreyText),
+                                      color: ColorManager.primaryColor),
                                   borderRadius:
                                       BorderRadius.circular(AppRadius.r8),
                                 ),
-                                child: DropdownButtonFormField(
+                                child: DropdownButton2(
+                                  isExpanded: true,
                                   value: dropdownValue,
-                                  icon: SvgPicture.asset(
-                                      'lib/assets/svg/dropdown.svg'),
-                                  decoration: InputDecoration(
-                                    hintText: AppStrings.kSelectDuration,
-                                    labelText: AppStrings.kDuration,
-                                    labelStyle: regularTextStyle(
-                                      fontSize: FontSize.s15,
-                                      color: ColorManager.buttonGreyText,
-                                      fontFamily: FontConstants.quicksand,
-                                    ),
-                                    border: InputBorder.none,
+                                  alignment: AlignmentDirectional.center,
+                                  underline: Container(),
+                                  style: regularTextStyle(
+                                    fontSize: FontSize.s15,
+                                    color: ColorManager.textColor,
+                                    fontFamily: FontConstants.quicksand,
+                                  ),
+                                  iconStyleData: IconStyleData(
+                                    icon: SvgPicture.asset(
+                                        'lib/assets/svg/dropdown.svg'),
                                   ),
                                   items: const [
                                     DropdownMenuItem(
@@ -175,7 +181,9 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
                         padding: EdgeInsets.only(
                             left: AppPadding.p20, right: AppPadding.p20),
                         child: AppTextField(
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          isEnabled: false,
+
+                          // autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: _expiryDateController,
                           suffixIcon: IconButton(
                             onPressed: () {

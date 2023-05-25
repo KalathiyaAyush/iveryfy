@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,67 +40,78 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      builder: (context, child) {
-        return Scaffold(
-          body: SafeArea(
-            child: Column(
-              children: [
-                SizedBox(height: AppHeight.h70),
-                const AppBarWidget(),
-                SizedBox(height: AppHeight.h20),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: AppPadding.p20, right: AppPadding.p20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        AppStrings.kActivities,
-                        style: mediumTextStyle(
-                          fontSize: FontSize.s18,
-                          color: ColorManager.titleTextColor,
-                          fontFamily: FontConstants.rubik,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: AppHeight.h15),
-                activitiesButtons(),
-                SizedBox(height: AppHeight.h15),
-                cardList.isEmpty
-                    ? Column(
-                        children: [
-                          SizedBox(height: AppHeight.h60),
-                          Image.asset(ImageAssets.errorIcon),
-                          SizedBox(height: AppHeight.h10),
-                          Text(
-                            AppStrings.knoActivities,
-                            textAlign: TextAlign.center,
-                            style: regularTextStyle(
-                              fontSize: FontSize.s15,
-                              color: ColorManager.hintTextColor,
-                              fontFamily: FontConstants.quicksand,
-                            ),
-                          ),
-                        ],
-                      )
-                    : Expanded(
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: cardList.length,
-                          itemBuilder: (context, index) {
-                            return homeUserCard();
-                          },
-                        ),
-                      ),
-                SizedBox(height: AppHeight.h40),
-              ],
-            ),
-          ),
-        );
+    return WillPopScope(
+      onWillPop: () async {
+        var presscount = 0;
+        presscount++;
+        if (presscount == 1) {
+          exit(0);
+        }
+        return false;
       },
+      child: ScreenUtilInit(
+        builder: (context, child) {
+          return Scaffold(
+            backgroundColor: ColorManager.scaffoldBg,
+            body: SafeArea(
+              child: Column(
+                children: [
+                  SizedBox(height: AppHeight.h70),
+                  const AppBarWidget(),
+                  SizedBox(height: AppHeight.h20),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: AppPadding.p20, right: AppPadding.p20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          AppStrings.kActivities,
+                          style: mediumTextStyle(
+                            fontSize: FontSize.s18,
+                            color: ColorManager.titleTextColor,
+                            fontFamily: FontConstants.rubik,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: AppHeight.h15),
+                  activitiesButtons(),
+                  SizedBox(height: AppHeight.h15),
+                  cardList.isEmpty
+                      ? Column(
+                          children: [
+                            SizedBox(height: AppHeight.h60),
+                            Image.asset(ImageAssets.errorIcon),
+                            SizedBox(height: AppHeight.h10),
+                            Text(
+                              AppStrings.knoActivities,
+                              textAlign: TextAlign.center,
+                              style: regularTextStyle(
+                                fontSize: FontSize.s15,
+                                color: ColorManager.hintTextColor,
+                                fontFamily: FontConstants.quicksand,
+                              ),
+                            ),
+                          ],
+                        )
+                      : Expanded(
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: cardList.length,
+                            itemBuilder: (context, index) {
+                              return homeUserCard();
+                            },
+                          ),
+                        ),
+                  SizedBox(height: AppHeight.h40),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 

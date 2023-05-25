@@ -112,6 +112,8 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final imageSize = MediaQuery.of(context).size.width * 0.40;
+
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
@@ -135,7 +137,7 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
                   ),
                 ),
                 SizedBox(height: AppHeight.h30),
-                Expanded(
+                Flexible(
                   child: ListView(
                     shrinkWrap: true,
                     children: [
@@ -143,28 +145,29 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
                         child: Stack(
                           children: [
                             Container(
-                              clipBehavior: Clip.antiAlias,
-                              height: AppHeight.h120,
-                              width: AppWidth.w130,
+                              height: imageSize,
+                              width: imageSize,
+                              clipBehavior: Clip.hardEdge,
                               decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: imageFile == null
-                                    ? Border.all(
-                                        width: AppWidth.w4,
-                                        color: ColorManager.secondaryColor,
-                                      )
-                                    : Border.all(),
+                                borderRadius: BorderRadius.circular(imageSize),
+                                border: Border.all(
+                                    color: ColorManager.secondaryColor,
+                                    width: AppWidth.w5),
                               ),
                               child: imageFile != null
-                                  ? Image.file(
-                                      File(imageFile!.path),
-                                      fit: BoxFit.cover,
+                                  ? ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.circular(imageSize),
+                                      child: Image.file(
+                                        File(imageFile!.path),
+                                        fit: BoxFit.cover,
+                                      ),
                                     )
                                   : const Text(''),
                             ),
                             Positioned(
-                              top: AppSize.s90,
-                              left: AppSize.s90,
+                              bottom: 0,
+                              right: 0,
                               child: Container(
                                 height: AppHeight.h40,
                                 width: AppWidth.w40,
@@ -173,9 +176,12 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
                                     shape: BoxShape.circle,
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Color.fromRGBO(0, 0, 0, 0.09),
-                                        blurRadius: 25.0,
-                                      ),
+                                          color: Color.fromRGBO(0, 0, 0, 0.09),
+                                          blurRadius: 4.69,
+                                          offset: Offset(
+                                            0,
+                                            1.56,
+                                          )),
                                     ]),
                                 child: Center(
                                   child: IconButton(

@@ -13,7 +13,7 @@ class ImageAssets {
   static const welcomeIcon = "$kImagesPath/welcome_icon.png";
 
   //login, sign up
-  static const whatsappIcon = "$kSvgPath/whatsapp.svg";
+  static const whatsappIcon = "$kImagesPath/whatsApp.png";
   static const googleIcon = "$kSvgPath/google.svg";
   static const metamaskIcon = "$kImagesPath/metamask.png";
 

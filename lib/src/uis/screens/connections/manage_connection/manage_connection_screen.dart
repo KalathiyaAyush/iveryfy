@@ -112,105 +112,109 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                       SizedBox(height: AppHeight.h10),
                       dateContainer(),
                       SizedBox(height: AppHeight.h10),
+                      Center(
+                        child: AppElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            AppStrings.kExtendexpirydate,
+                            style: regularTextStyle(
+                              fontSize: FontSize.s18,
+                              color: ColorManager.scaffoldBg,
+                              fontFamily: FontConstants.quicksand,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: AppHeight.h15),
+                      Center(
+                        child: AppOutlinedButton(
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(AppRadius.r20),
+                                    ),
+                                    content: SizedBox(
+                                      width: AppWidth.w330,
+                                      height: AppHeight.h210,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Image.asset(
+                                              ImageAssets.deleteDoc,
+                                            ),
+                                          ),
+                                          Text(
+                                            AppStrings.kdeleteDocument,
+                                            textAlign: TextAlign.center,
+                                            style: semiBoldTextStyle(
+                                              fontSize: FontSize.s20,
+                                              color: ColorManager.textColor,
+                                              fontFamily:
+                                                  FontConstants.quicksand,
+                                            ),
+                                          ),
+                                          SizedBox(height: AppHeight.h15),
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: OutlinedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: Text(
+                                                      AppStrings.kNo,
+                                                      style: mediumTextStyle(
+                                                        fontSize: FontSize.s17,
+                                                        color: ColorManager
+                                                            .buttonGreyText,
+                                                        fontFamily:
+                                                            FontConstants
+                                                                .quicksand,
+                                                      ),
+                                                    )),
+                                              ),
+                                              SizedBox(width: AppWidth.w10),
+                                              Expanded(
+                                                child: ElevatedButton(
+                                                    onPressed: () {},
+                                                    style: ElevatedButton.styleFrom(
+                                                        backgroundColor:
+                                                            ColorManager
+                                                                .secondaryColor),
+                                                    child: Text(
+                                                      AppStrings.kyes,
+                                                      style: mediumTextStyle(
+                                                        fontSize: FontSize.s17,
+                                                        color: ColorManager
+                                                            .scaffoldBg,
+                                                        fontFamily:
+                                                            FontConstants
+                                                                .quicksand,
+                                                      ),
+                                                    )),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ));
+                              },
+                            );
+                          },
+                          data: AppStrings.kEndsharenow,
+                        ),
+                      ),
+                      SizedBox(height: AppHeight.h20),
                     ],
                   ),
                 ),
-                // const Spacer(),
-                Center(
-                  child: AppElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      AppStrings.kExtendexpirydate,
-                      style: regularTextStyle(
-                        fontSize: FontSize.s18,
-                        color: ColorManager.scaffoldBg,
-                        fontFamily: FontConstants.quicksand,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: AppHeight.h15),
-                Center(
-                  child: AppOutlinedButton(
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(AppRadius.r20)),
-                              content: SizedBox(
-                                width: AppWidth.w330,
-                                height: AppHeight.h180,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Image.asset(ImageAssets.deleteDoc),
-                                    SizedBox(height: AppHeight.h15),
-                                    Text(
-                                      AppStrings.kdeleteDocument,
-                                      textAlign: TextAlign.center,
-                                      style: semiBoldTextStyle(
-                                        fontSize: FontSize.s20,
-                                        color: ColorManager.textColor,
-                                        fontFamily: FontConstants.quicksand,
-                                      ),
-                                    ),
-                                    const Spacer(),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        SizedBox(
-                                          height: AppHeight.h42,
-                                          width: AppWidth.w110,
-                                          child: OutlinedButton(
-                                              onPressed: () {
-                                                Navigator.of(context).pop();
-                                              },
-                                              child: Text(
-                                                AppStrings.kNo,
-                                                style: mediumTextStyle(
-                                                  fontSize: FontSize.s17,
-                                                  color: ColorManager
-                                                      .buttonGreyText,
-                                                  fontFamily:
-                                                      FontConstants.quicksand,
-                                                ),
-                                              )),
-                                        ),
-                                        SizedBox(
-                                          height: AppHeight.h42,
-                                          width: AppWidth.w110,
-                                          child: ElevatedButton(
-                                              onPressed: () {},
-                                              style: ElevatedButton.styleFrom(
-                                                  backgroundColor: ColorManager
-                                                      .secondaryColor),
-                                              child: Text(
-                                                AppStrings.kyes,
-                                                style: mediumTextStyle(
-                                                  fontSize: FontSize.s17,
-                                                  color:
-                                                      ColorManager.scaffoldBg,
-                                                  fontFamily:
-                                                      FontConstants.quicksand,
-                                                ),
-                                              )),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ));
-                        },
-                      );
-                    },
-                    data: AppStrings.kEndsharenow,
-                  ),
-                ),
-                SizedBox(height: AppHeight.h20),
               ],
             ),
           ),
@@ -289,81 +293,84 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
   }
 
   Widget dateContainer() {
-    return Center(
-      child: Container(
-        width: AppWidth.w330,
-        padding: EdgeInsets.only(
-            left: AppPadding.p20,
-            right: AppPadding.p20,
-            top: AppPadding.p20,
-            bottom: AppPadding.p10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppRadius.r4),
-          border: Border.all(color: ColorManager.primaryColor),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  AppStrings.kSharedon,
-                  style: regularTextStyle(
-                    fontSize: FontSize.s15,
-                    color: ColorManager.hintTextColor,
-                    fontFamily: FontConstants.quicksand,
-                  ),
-                ),
-                Flexible(
-                  child: Text(
-                    '30 July 2022, 12:00:00',
-                    style: mediumTextStyle(
+    return Padding(
+      padding: EdgeInsets.only(bottom: AppPadding.p40),
+      child: Center(
+        child: Container(
+          width: AppWidth.w330,
+          padding: EdgeInsets.only(
+              left: AppPadding.p20,
+              right: AppPadding.p20,
+              top: AppPadding.p20,
+              bottom: AppPadding.p10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppRadius.r4),
+            border: Border.all(color: ColorManager.primaryColor),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppStrings.kSharedon,
+                    style: regularTextStyle(
                       fontSize: FontSize.s15,
-                      color: ColorManager.textColor,
+                      color: ColorManager.hintTextColor,
                       fontFamily: FontConstants.quicksand,
                     ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: AppHeight.h10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  AppStrings.kExpiry,
-                  style: regularTextStyle(
-                    fontSize: FontSize.s15,
-                    color: ColorManager.hintTextColor,
-                    fontFamily: FontConstants.quicksand,
-                  ),
-                ),
-                Flexible(
-                  child: Text(
-                    '30 July 2023, 12:00:00',
-                    style: mediumTextStyle(
-                      fontSize: FontSize.s15,
-                      color: ColorManager.textColor,
-                      fontFamily: FontConstants.quicksand,
+                  Flexible(
+                    child: Text(
+                      '30 July 2022, 12:00:00',
+                      style: mediumTextStyle(
+                        fontSize: FontSize.s15,
+                        color: ColorManager.textColor,
+                        fontFamily: FontConstants.quicksand,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            const Divider(
-              color: ColorManager.primaryColor,
-              thickness: 2,
-            ),
-            Text(
-              '6o Day\'s left',
-              style: regularTextStyle(
-                fontSize: FontSize.s16,
-                color: const Color.fromRGBO(255, 59, 48, 1),
-                fontFamily: FontConstants.quicksand,
+                ],
               ),
-            ),
-          ],
+              SizedBox(height: AppHeight.h10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppStrings.kExpiry,
+                    style: regularTextStyle(
+                      fontSize: FontSize.s15,
+                      color: ColorManager.hintTextColor,
+                      fontFamily: FontConstants.quicksand,
+                    ),
+                  ),
+                  Flexible(
+                    child: Text(
+                      '30 July 2023, 12:00:00',
+                      style: mediumTextStyle(
+                        fontSize: FontSize.s15,
+                        color: ColorManager.textColor,
+                        fontFamily: FontConstants.quicksand,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(
+                color: ColorManager.primaryColor,
+                thickness: 2,
+              ),
+              Text(
+                '6o Day\'s left',
+                style: regularTextStyle(
+                  fontSize: FontSize.s16,
+                  color: const Color.fromRGBO(255, 59, 48, 1),
+                  fontFamily: FontConstants.quicksand,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

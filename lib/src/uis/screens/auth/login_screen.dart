@@ -39,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
+          backgroundColor: ColorManager.scaffoldBg,
           body: SafeArea(
             child: Padding(
               padding:

@@ -19,6 +19,7 @@ class ConnectionFailedScreen extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
+          backgroundColor: ColorManager.scaffoldBg,
           body: SafeArea(
             child: Center(
               child: Column(
