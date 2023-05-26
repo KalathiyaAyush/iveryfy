@@ -2,18 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iverify/src/resources/assets_manager.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:iverify/src/uis/screens/documents/widgets/custom_dropdown.dart';
-import 'package:iverify/src/uis/widgets/app_iconbutton.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
 import '/src/resources/routes_manager.dart';
+import '/src/resources/assets_manager.dart';
 import '/src/resources/string_manager.dart';
+import '/src/uis/widgets/app_iconbutton.dart';
 import '/src/uis/screens/documents/widgets/multi_select.dart';
 import '/src/uis/screens/documents/widgets/document_card.dart';
 
@@ -52,6 +51,9 @@ class _MyDocumentScreenState extends State<MyDocumentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Orientation height = MediaQuery.of(context).orientation;
+
+    print(height);
     return WillPopScope(
       onWillPop: () async {
         Navigator.of(context).pushNamed(AppRoutes.bottomNavigationScreen);
@@ -118,8 +120,9 @@ class _MyDocumentScreenState extends State<MyDocumentScreen> {
                                   fontFamily: FontConstants.quicksand,
                                 ),
                                 iconStyleData: IconStyleData(
-                                    icon: SvgPicture.asset(
-                                        'lib/assets/svg/dropdown.svg')),
+                                  icon: SvgPicture.asset(
+                                      ImageAssets.dropdownIcon),
+                                ),
                                 value: dropdownvalue,
                                 items: const [
                                   DropdownMenuItem(
@@ -154,6 +157,8 @@ class _MyDocumentScreenState extends State<MyDocumentScreen> {
                             child: Container(
                               padding: EdgeInsets.only(
                                   left: AppPadding.p20, right: AppPadding.p2),
+                              decoration: const BoxDecoration(
+                                  color: ColorManager.scaffoldBg),
                               child:
                                   SvgPicture.asset(ImageAssets.dropdownIcon2),
                             ),

@@ -1,17 +1,17 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import 'package:iverify/src/resources/assets_manager.dart';
-import 'package:iverify/src/resources/routes_manager.dart';
-import 'package:iverify/src/uis/widgets/app_textfield.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/color_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
 import '/src/resources/string_manager.dart';
+import '/src/resources/assets_manager.dart';
+import '/src/resources/routes_manager.dart';
+import '/src/uis/widgets/app_textfield.dart';
 import '/src/uis/widgets/appbar_widget.dart';
 
 import '/src/uis/widgets/app_elevatedbutton.dart';
@@ -182,8 +182,6 @@ class _SetExpirydateScreenState extends State<SetExpirydateScreen> {
                             left: AppPadding.p20, right: AppPadding.p20),
                         child: AppTextField(
                           isEnabled: false,
-
-                          // autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: _expiryDateController,
                           suffixIcon: IconButton(
                             onPressed: () {

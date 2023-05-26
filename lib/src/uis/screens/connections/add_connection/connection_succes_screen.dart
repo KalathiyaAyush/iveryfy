@@ -28,22 +28,30 @@ class ConnectionSuccessScreen extends StatelessWidget {
                   const Spacer(),
                   Image.asset(ImageAssets.verifiedIcon),
                   SizedBox(height: AppHeight.h20),
-                  Text(
-                    AppStrings.kGreat,
-                    style: mediumTextStyle(
-                      fontSize: FontSize.s22,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.rubik,
-                    ),
-                  ),
-                  SizedBox(height: AppHeight.h5),
-                  Text(
-                    AppStrings.kDocumenthavebeenSent,
-                    textAlign: TextAlign.center,
-                    style: regularTextStyle(
-                      fontSize: FontSize.s18,
-                      color: ColorManager.titleTextColor,
-                      fontFamily: FontConstants.quicksand,
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: AppPadding.p20, right: AppPadding.p20),
+                    child: Column(
+                      children: [
+                        Text(
+                          AppStrings.kGreat,
+                          style: mediumTextStyle(
+                            fontSize: FontSize.s22,
+                            color: ColorManager.titleTextColor,
+                            fontFamily: FontConstants.rubik,
+                          ),
+                        ),
+                        SizedBox(height: AppHeight.h5),
+                        Text(
+                          AppStrings.kDocumenthavebeenSent,
+                          textAlign: TextAlign.center,
+                          style: regularTextStyle(
+                            fontSize: FontSize.s18,
+                            color: ColorManager.titleTextColor,
+                            fontFamily: FontConstants.quicksand,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const Spacer(),

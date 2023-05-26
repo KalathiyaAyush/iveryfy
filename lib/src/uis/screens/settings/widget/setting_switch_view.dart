@@ -26,7 +26,7 @@ class SettingSwitchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          bottom: AppPadding.p12, left: AppPadding.p20, right: AppPadding.p22),
+          left: AppPadding.p20, right: AppPadding.p20, top: AppPadding.p12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

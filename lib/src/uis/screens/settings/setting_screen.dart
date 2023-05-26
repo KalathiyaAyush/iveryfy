@@ -103,6 +103,7 @@ class SettingsScreen extends StatelessWidget {
                     child: ListView(
                       shrinkWrap: true,
                       children: [
+                        SizedBox(height: AppHeight.h3),
                         SettingView(
                           assetName: ImageAssets.profileIcon,
                           asset: ImageAssets.graterthanIcon,

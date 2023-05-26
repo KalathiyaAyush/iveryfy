@@ -86,12 +86,14 @@ class AppBarWidget extends StatelessWidget {
               fontFamily: FontConstants.rubik,
             ),
           ),
-          Text(
-            data,
-            style: regularTextStyle(
-              fontSize: FontSize.s18,
-              color: ColorManager.scaffoldBg,
-              fontFamily: FontConstants.quicksand,
+          Flexible(
+            child: Text(
+              data,
+              style: regularTextStyle(
+                fontSize: FontSize.s18,
+                color: ColorManager.scaffoldBg,
+                fontFamily: FontConstants.quicksand,
+              ),
             ),
           ),
         ],

@@ -105,6 +105,8 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
 
   @override
   Widget build(BuildContext context) {
+    final imageSize = MediaQuery.of(context).size.width * 0.55;
+
     return ScreenUtilInit(
       builder: (context, child) {
         return Scaffold(
@@ -128,53 +130,51 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                 Stack(
                   children: [
                     Center(
-                      child: CircleAvatar(
-                        radius: AppRadius.r90,
-                        child: Container(
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            color: ColorManager.primaryColor,
-                            borderRadius: BorderRadius.circular(AppRadius.r100),
-                          ),
-                          child: imageFile == null
-                              ? Center(
-                                  child:
-                                      SvgPicture.asset(ImageAssets.imageIcon),
-                                )
-                              : Image.file(
+                      child: Container(
+                        height: imageSize,
+                        width: imageSize,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(imageSize),
+                          color: ColorManager.primaryColor,
+                        ),
+                        child: imageFile != null
+                            ? ClipRRect(
+                                borderRadius: BorderRadius.circular(imageSize),
+                                child: Image.file(
                                   File(imageFile!.path),
                                   fit: BoxFit.cover,
                                 ),
-                        ),
+                              )
+                            : Center(
+                                child: SvgPicture.asset(ImageAssets.imageIcon),
+                              ),
                       ),
                     ),
                     Positioned(
-                      top: AppSize.s130,
-                      right: AppSize.s110,
-                      child: imageFile == null
-                          ? Container(
-                              height: AppHeight.h40,
-                              width: AppWidth.w40,
-                              decoration: const BoxDecoration(
-                                color: ColorManager.scaffoldBg,
-                                shape: BoxShape.circle,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(0, 0, 0, 0.09),
-                                    blurRadius: 25.0,
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: IconButton(
-                                  onPressed: _showImagePickerSheet,
-                                  icon:
-                                      SvgPicture.asset(ImageAssets.cameraIcon),
-                                ),
-                              ),
-                            )
-                          : Container(),
-                    )
+                        bottom: AppSize.s10,
+                        right: AppSize.s100,
+                        child: Container(
+                          height: AppHeight.h40,
+                          width: AppWidth.w40,
+                          decoration: const BoxDecoration(
+                            color: ColorManager.scaffoldBg,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.09),
+                                blurRadius: 4.69,
+                                offset: Offset(0, 1.56),
+                              )
+                            ],
+                          ),
+                          child: Center(
+                            child: IconButton(
+                              onPressed: _showImagePickerSheet,
+                              icon: SvgPicture.asset(ImageAssets.cameraIcon),
+                            ),
+                          ),
+                        )),
                   ],
                 ),
                 const Spacer(),

@@ -23,10 +23,7 @@ class SettingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          bottom: AppPadding.p12,
-          left: AppPadding.p20,
-          right: AppPadding.p30,
-          top: AppPadding.p15),
+          left: AppPadding.p20, right: AppPadding.p30, top: AppPadding.p12),
       child: InkWell(
         onTap: onTap,
         child: Row(

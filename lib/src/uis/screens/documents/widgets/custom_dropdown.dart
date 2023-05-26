@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iverify/src/resources/color_manager.dart';
-import 'package:iverify/src/resources/value_manager.dart';
+import '/src/resources/font_manager.dart';
+import '/src/resources/color_manager.dart';
+import '/src/resources/style_manager.dart';
+import '/src/resources/value_manager.dart';
+import '/src/resources/string_manager.dart';
 
 class CustomDropdown extends StatefulWidget {
   const CustomDropdown({super.key});
@@ -10,10 +13,28 @@ class CustomDropdown extends StatefulWidget {
 }
 
 class _CustomDropdownState extends State<CustomDropdown> {
+  final List<String> _selectedItems = [];
+
   bool all = false;
   bool verified = false;
   bool inProgress = false;
   bool rejected = false;
+
+  final List<String> dropdownList = [
+    AppStrings.kAll,
+    AppStrings.kVerified,
+    AppStrings.kinProgress,
+    AppStrings.kRejected,
+  ];
+  void _itemChange(String tagValue, bool ischecked) {
+    setState(() {
+      if (ischecked) {
+        _selectedItems.add(tagValue);
+      } else {
+        _selectedItems.remove(tagValue);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,20 +52,43 @@ class _CustomDropdownState extends State<CustomDropdown> {
           ),
         ],
       ),
-      child: Column(
+      child: Row(
         children: [
-          Row(
-            children: [
-              CheckboxListTile(
-                value: all,
-                onChanged: (value) {
-                  setState(() {
-                    all = value!;
-                  });
-                },
-              )
-            ],
-          ),
+          Expanded(
+            child: MediaQuery.removePadding(
+              context: context,
+              removeTop: true,
+              removeBottom: true,
+              child: ListView(
+                shrinkWrap: true,
+                children: dropdownList
+                    .map((dTag) => CheckboxListTile(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          dense: true,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          activeColor: ColorManager.secondaryColor,
+                          side: const BorderSide(
+                              color: ColorManager.primaryColor),
+                          contentPadding: EdgeInsets.zero,
+                          title: Text(
+                            dTag,
+                            style: regularTextStyle(
+                              fontSize: FontSize.s16,
+                              color: ColorManager.textColor,
+                              fontFamily: FontConstants.quicksand,
+                            ),
+                          ),
+                          value: _selectedItems.contains(dTag),
+                          onChanged: (isChecked) {
+                            _itemChange(dTag, isChecked!);
+                          },
+                        ))
+                    .toList(),
+              ),
+            ),
+          )
         ],
       ),
     );

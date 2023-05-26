@@ -54,6 +54,9 @@ class _ShareDocumentScreenState extends State<ShareDocumentScreen> {
                                 Border.all(color: ColorManager.primaryColor),
                             borderRadius: BorderRadius.circular(AppRadius.r6)),
                         child: CheckboxListTile(
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(AppRadius.r6)),
                           contentPadding: EdgeInsets.zero,
                           controlAffinity: ListTileControlAffinity.leading,
                           activeColor: ColorManager.secondaryColor,

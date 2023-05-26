@@ -133,18 +133,21 @@ class SigninScreen extends StatelessWidget {
       String socialMedianame, String assetName, Function()? onTap) {
     return Padding(
       padding: EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-      child: Container(
-        clipBehavior: Clip.hardEdge,
-        height: AppHeight.h55,
-        width: double.infinity,
-        padding: EdgeInsets.only(left: AppPadding.p12, right: AppPadding.p10),
-        decoration: BoxDecoration(
+      child: Material(
+        color: ColorManager.scaffoldBg,
+        child: InkWell(
           borderRadius: BorderRadius.circular(AppRadius.r15),
-          border: Border.all(color: ColorManager.primaryColor),
-        ),
-        child: Material(
-          child: InkWell(
-            onTap: onTap,
+          onTap: onTap,
+          child: Container(
+            clipBehavior: Clip.hardEdge,
+            height: AppHeight.h55,
+            width: double.infinity,
+            padding:
+                EdgeInsets.only(left: AppPadding.p12, right: AppPadding.p10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppRadius.r15),
+              border: Border.all(color: ColorManager.primaryColor),
+            ),
             child: Row(
               children: [
                 SvgPicture.asset(assetName),

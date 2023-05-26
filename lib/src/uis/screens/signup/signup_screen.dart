@@ -131,29 +131,34 @@ class SignupScreen extends StatelessWidget {
       String socialMedianame, String assetName, Function()? onTap) {
     return Padding(
       padding: EdgeInsets.only(left: AppPadding.p20, right: AppPadding.p20),
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          height: AppHeight.h55,
-          width: double.infinity,
-          padding: EdgeInsets.only(left: AppPadding.p15, right: AppPadding.p10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(AppRadius.r15),
-            border: Border.all(color: ColorManager.primaryColor),
-          ),
-          child: Row(
-            children: [
-              SvgPicture.asset(assetName),
-              SizedBox(width: AppWidth.w10),
-              Text(
-                socialMedianame,
-                style: mediumTextStyle(
-                  fontSize: FontSize.s17,
-                  color: ColorManager.hintTextColor,
-                  fontFamily: FontConstants.quicksand,
+      child: Material(
+        color: ColorManager.scaffoldBg,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(AppRadius.r15),
+          onTap: onTap,
+          child: Container(
+            height: AppHeight.h55,
+            width: double.infinity,
+            padding:
+                EdgeInsets.only(left: AppPadding.p15, right: AppPadding.p10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppRadius.r15),
+              border: Border.all(color: ColorManager.primaryColor),
+            ),
+            child: Row(
+              children: [
+                SvgPicture.asset(assetName),
+                SizedBox(width: AppWidth.w10),
+                Text(
+                  socialMedianame,
+                  style: mediumTextStyle(
+                    fontSize: FontSize.s17,
+                    color: ColorManager.hintTextColor,
+                    fontFamily: FontConstants.quicksand,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

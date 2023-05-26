@@ -29,6 +29,7 @@ class NameContainer extends StatelessWidget {
               Flexible(
                 child: TextFormField(
                   initialValue: name,
+                  enabled: false,
                   decoration: InputDecoration(
                       labelText: AppStrings.kName,
                       border: InputBorder.none,
@@ -59,6 +60,7 @@ class NameContainer extends StatelessWidget {
               Flexible(
                 child: TextFormField(
                   initialValue: email,
+                  enabled: false,
                   decoration: InputDecoration(
                       labelText: AppStrings.kEmailAddress,
                       border: InputBorder.none,

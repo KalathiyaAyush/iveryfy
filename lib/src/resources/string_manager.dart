@@ -157,6 +157,8 @@ class AppStrings {
   static const String kPersonal = 'Personal';
   static const String kInsurance = 'Insurance';
   static const String kEducation = 'Education';
+  static const String kinProgress = 'In Progress';
+  static const String kRejected = 'Rejected';
 
   // add document screen
   static const String kAddNewDocuments = 'Add New Documents';
@@ -179,7 +181,7 @@ class AppStrings {
 
   //connection screen
   static const String kConnectionDes =
-      'Here you can manage your recipients. By adding this recipient, you establish a secure connection between both parties to exchange credentials';
+      'Here you can manage your connections. By adding this connection, you establish a secure connection between both parties to exchange documents';
   static const String kCurrent = 'Current';
   static const String kHistory = 'History';
   static const String kNoConnectionFound =

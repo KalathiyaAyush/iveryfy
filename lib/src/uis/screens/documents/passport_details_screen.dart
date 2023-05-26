@@ -1,17 +1,17 @@
 // ignore_for_file: unused_field, unused_element
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iverify/src/resources/routes_manager.dart';
+import 'package:iverify/src/resources/assets_manager.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '/src/resources/font_manager.dart';
 import '/src/resources/style_manager.dart';
 import '/src/resources/value_manager.dart';
 import '/src/resources/color_manager.dart';
+import '/src/resources/routes_manager.dart';
 import '/src/resources/string_manager.dart';
 import '/src/uis/widgets/appbar_widget.dart';
-import '/src/uis/screens/documents/widgets/multi_select.dart';
 import '/src/uis/screens/documents/widgets/document_card.dart';
 
 class PassportDetailScreen extends StatefulWidget {
@@ -22,7 +22,7 @@ class PassportDetailScreen extends StatefulWidget {
 }
 
 class _PassportDetailScreenState extends State<PassportDetailScreen> {
-  List<String> _selectedItems = [];
+  final List<String> _selectedItems = [];
 
   final List<String> tagsList = [
     AppStrings.kIDProof,
@@ -50,6 +50,9 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var date = DateTime(2023, 5, 17);
+    var newDate = DateTime(date.year, date.month + 3, date.day);
+    print(newDate);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -115,10 +118,10 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
                       right: AppPadding.p10, left: AppPadding.p15),
                   child: DocumentCard(
                     onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(AppRoutes.myDocumentsScreen);
+                      // Navigator.of(context)
+                      //     .pushNamed(AppRoutes.myDocumentsScreen);
                     },
-                    assetName: 'lib/assets/svg/arrow.svg',
+                    assetName: ImageAssets.dropdownIcon,
                     children: _selectedItems
                         .map(
                           (e) => Padding(
