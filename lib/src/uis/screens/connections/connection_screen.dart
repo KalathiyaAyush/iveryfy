@@ -185,7 +185,7 @@ class _ConnectionScreenState extends State<ConnectionScreen>
           Text(
             AppStrings.kConnectionDes,
             style: regularTextStyle(
-              fontSize: FontSize.s13,
+              fontSize: FontSize.s12,
               color: ColorManager.titleTextColor,
               fontFamily: FontConstants.quicksand,
             ),
@@ -237,7 +237,7 @@ class _ConnectionScreenState extends State<ConnectionScreen>
                           Text(
                             '4 Documents',
                             style: mediumTextStyle(
-                              fontSize: FontSize.s14,
+                              fontSize: FontSize.s12,
                               color: const Color.fromRGBO(64, 145, 108, 1),
                               fontFamily: FontConstants.quicksand,
                             ),
@@ -256,7 +256,7 @@ class _ConnectionScreenState extends State<ConnectionScreen>
                           child: Text(
                             '60d \nLeft',
                             style: regularTextStyle(
-                              fontSize: FontSize.s13,
+                              fontSize: FontSize.s10,
                               color: ColorManager.textColor,
                               fontFamily: FontConstants.quicksand,
                             ),

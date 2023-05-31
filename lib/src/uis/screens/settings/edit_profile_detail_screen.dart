@@ -231,11 +231,52 @@ class _EditProfileDetailScreenState extends State<EditProfileDetailScreen> {
                                 ),
                               ),
                               SizedBox(height: AppHeight.h15),
-                              AppTextField(
-                                controller: _nationalityController,
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
-                                labelText: AppStrings.kNationality,
+                              // AppTextField(
+                              //   controller: _nationalityController,
+                              //   autovalidateMode:
+                              //       AutovalidateMode.onUserInteraction,
+                              //   labelText: AppStrings.kNationality,
+                              // ),
+                              Container(
+                                height: AppHeight.h50,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.circular(AppRadius.r8),
+                                    border: Border.all(
+                                      color: ColorManager.primaryColor,
+                                    )),
+                                child: DropdownButtonFormField(
+                                  style: mediumTextStyle(
+                                    fontSize: FontSize.s16,
+                                    color: ColorManager.textColor,
+                                    fontFamily: FontConstants.quicksand,
+                                  ),
+                                  icon: Padding(
+                                    padding:
+                                        EdgeInsets.only(bottom: AppPadding.p8),
+                                    child: SvgPicture.asset(
+                                        ImageAssets.dropdownIcon),
+                                  ),
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.symmetric(
+                                        vertical: AppPadding.p12,
+                                        horizontal: AppPadding.p15),
+                                    border: InputBorder.none,
+                                    labelText: AppStrings.kNationality,
+                                    labelStyle: regularTextStyle(
+                                      color: ColorManager.buttonGreyText,
+                                      fontFamily: FontConstants.quicksand,
+                                      fontSize: FontSize.s16,
+                                    ),
+                                  ),
+                                  items: const [
+                                    DropdownMenuItem(
+                                        value: 'United kingdom',
+                                        child: Text('United kingdom')),
+                                  ],
+                                  onChanged: (value) {},
+                                ),
                               ),
                               SizedBox(height: AppHeight.h15),
                               AppTextField(

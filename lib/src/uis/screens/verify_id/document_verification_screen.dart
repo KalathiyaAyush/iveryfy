@@ -26,7 +26,7 @@ class DocumentVerificationScreen extends StatelessWidget {
                   const Spacer(),
                   Padding(
                     padding: EdgeInsets.only(
-                        left: AppPadding.p15, right: AppPadding.p15),
+                        left: AppPadding.p40, right: AppPadding.p40),
                     child: Column(
                       children: [
                         Image.asset(ImageAssets.verifiedIcon),
@@ -44,7 +44,7 @@ class DocumentVerificationScreen extends StatelessWidget {
                           AppStrings.kVerifiedDes,
                           textAlign: TextAlign.center,
                           style: regularTextStyle(
-                            fontSize: FontSize.s18,
+                            fontSize: FontSize.s16,
                             color: ColorManager.titleTextColor,
                             fontFamily: FontConstants.quicksand,
                           ),

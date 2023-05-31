@@ -43,8 +43,13 @@ class IverifiIDScreen extends StatelessWidget {
                   padding: EdgeInsets.only(
                       left: AppPadding.p20, right: AppPadding.p20),
                   child: Container(
+                    height: AppHeight.h50,
                     width: AppWidth.w330,
-                    padding: EdgeInsets.only(left: AppPadding.p12),
+                    padding: EdgeInsets.only(
+                        left: AppPadding.p12,
+                        right: AppPadding.p12,
+                        top: AppPadding.p8,
+                        bottom: AppPadding.p8),
                     decoration: BoxDecoration(
                       border: Border.all(color: ColorManager.primaryColor),
                       borderRadius: BorderRadius.circular(AppRadius.r6),

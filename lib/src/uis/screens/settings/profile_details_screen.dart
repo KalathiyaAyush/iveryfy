@@ -67,12 +67,14 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                         height: AppHeight.h120,
                         width: AppWidth.w130,
                         decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            width: AppWidth.w4,
-                            color: ColorManager.secondaryColor,
-                          ),
-                        ),
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: AppWidth.w4,
+                              color: ColorManager.secondaryColor,
+                            ),
+                            color: ColorManager.primaryColor),
+                        child: Center(
+                            child: SvgPicture.asset(ImageAssets.cameraIcon)),
                       ),
                     ),
                     SizedBox(height: AppHeight.h20),

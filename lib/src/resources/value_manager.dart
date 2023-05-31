@@ -22,6 +22,8 @@ class AppPadding {
   static double get p11 => 11.sp;
   static double get p12 => 12.sp;
   static double get p15 => 15.sp;
+  static double get p16 => 16.sp;
+  static double get p17 => 17.sp;
   static double get p18 => 18.sp;
   static double get p20 => 20.sp;
   static double get p22 => 22.sp;

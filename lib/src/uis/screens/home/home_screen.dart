@@ -245,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 ? 'Verified - 22 sep 2023 12:00:23'
                                 : 'Something went wrong',
                     style: mediumTextStyle(
-                      fontSize: FontSize.s16,
+                      fontSize: FontSize.s12,
                       color: _tabController?.index == 0
                           ? const Color.fromRGBO(82, 183, 136, 1)
                           : _tabController?.index == 1

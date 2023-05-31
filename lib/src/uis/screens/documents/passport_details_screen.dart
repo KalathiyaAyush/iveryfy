@@ -59,9 +59,15 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: AppHeight.h20),
-          AppbarWidget(onbackTap: () {
-            Navigator.of(context).pop();
-          }),
+          Padding(
+            padding: EdgeInsets.only(right: AppPadding.p10),
+            child: AppbarWidget(
+              onbackTap: () {
+                Navigator.of(context).pop();
+              },
+              icon: SvgPicture.asset(ImageAssets.deleteIcon),
+            ),
+          ),
           Padding(
             padding:
                 EdgeInsets.only(right: AppPadding.p10, left: AppPadding.p20),
@@ -213,21 +219,27 @@ class _PassportDetailScreenState extends State<PassportDetailScreen> {
                                   shrinkWrap: true,
                                   children: tagsList
                                       .map(
-                                        (tag) => CheckboxListTile(
-                                          title: Text(tag),
-                                          dense: true,
-                                          side: const BorderSide(
-                                              color: ColorManager.primaryColor),
-                                          contentPadding:
-                                              const EdgeInsets.symmetric(
-                                                  horizontal: 0),
-                                          controlAffinity:
-                                              ListTileControlAffinity.leading,
-                                          activeColor:
-                                              ColorManager.secondaryColor,
-                                          value: _selectedItems.contains(tag),
-                                          onChanged: (isChecked) =>
-                                              _itemChange(tag, isChecked!),
+                                        (tag) => Transform.translate(
+                                          offset: const Offset(-1, 10),
+                                          child: CheckboxListTile(
+                                            visualDensity:
+                                                VisualDensity.compact,
+                                            title: Text(tag),
+                                            dense: true,
+                                            side: const BorderSide(
+                                                color:
+                                                    ColorManager.primaryColor),
+                                            contentPadding:
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 0),
+                                            controlAffinity:
+                                                ListTileControlAffinity.leading,
+                                            activeColor:
+                                                ColorManager.secondaryColor,
+                                            value: _selectedItems.contains(tag),
+                                            onChanged: (isChecked) =>
+                                                _itemChange(tag, isChecked!),
+                                          ),
                                         ),
                                       )
                                       .toList(),

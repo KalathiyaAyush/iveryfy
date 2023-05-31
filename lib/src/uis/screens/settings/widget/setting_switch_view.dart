@@ -32,25 +32,13 @@ class SettingSwitchView extends StatelessWidget {
         children: [
           Row(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: ColorManager.scaffoldBg,
-                    borderRadius: BorderRadius.circular(AppRadius.r30),
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 12,
-                        offset: Offset(0, 4),
-                        color: Color.fromRGBO(39, 34, 70, 0.1),
-                      ),
-                    ]),
-                child: Center(
-                  child: CircleAvatar(
-                    radius: AppRadius.r23,
-                    backgroundColor: ColorManager.scaffoldBg,
-                    child: SvgPicture.asset(
-                      assetName,
-                      height: AppHeight.h20,
-                    ),
+              Center(
+                child: CircleAvatar(
+                  radius: AppRadius.r23,
+                  backgroundColor: ColorManager.scaffoldBg,
+                  child: SvgPicture.asset(
+                    assetName,
+                    height: AppHeight.h20,
                   ),
                 ),
               ),

@@ -299,8 +299,8 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
         child: Container(
           width: AppWidth.w330,
           padding: EdgeInsets.only(
-              left: AppPadding.p20,
-              right: AppPadding.p20,
+              left: AppPadding.p15,
+              right: AppPadding.p15,
               top: AppPadding.p20,
               bottom: AppPadding.p10),
           decoration: BoxDecoration(
@@ -325,7 +325,7 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                     child: Text(
                       '30 July 2022, 12:00:00',
                       style: mediumTextStyle(
-                        fontSize: FontSize.s15,
+                        fontSize: FontSize.s14,
                         color: ColorManager.textColor,
                         fontFamily: FontConstants.quicksand,
                       ),
@@ -349,7 +349,7 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                     child: Text(
                       '30 July 2023, 12:00:00',
                       style: mediumTextStyle(
-                        fontSize: FontSize.s15,
+                        fontSize: FontSize.s14,
                         color: ColorManager.textColor,
                         fontFamily: FontConstants.quicksand,
                       ),
@@ -362,7 +362,7 @@ class _ManageConnectionScreenState extends State<ManageConnectionScreen> {
                 thickness: 2,
               ),
               Text(
-                '6o Day\'s left',
+                '60 Day\'s left',
                 style: regularTextStyle(
                   fontSize: FontSize.s16,
                   color: const Color.fromRGBO(255, 59, 48, 1),

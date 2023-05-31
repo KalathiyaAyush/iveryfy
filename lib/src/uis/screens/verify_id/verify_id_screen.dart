@@ -40,7 +40,7 @@ class VerifyIdScreen extends StatelessWidget {
                   child: Text(
                     AppStrings.kVerifyIdDes,
                     style: mediumTextStyle(
-                      fontSize: FontSize.s25,
+                      fontSize: FontSize.s24,
                       color: ColorManager.titleTextColor,
                       fontFamily: FontConstants.rubik,
                     ),

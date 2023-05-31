@@ -180,7 +180,7 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                 const Spacer(),
                 Center(
                   child: AppElevatedButton(
-                    onPressed: () {},
+                    onPressed: imageFile != null ? () {} : null,
                     child: Text(
                       AppStrings.kNext,
                       style: mediumTextStyle(

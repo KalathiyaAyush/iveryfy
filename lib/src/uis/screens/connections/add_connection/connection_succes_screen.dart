@@ -30,7 +30,7 @@ class ConnectionSuccessScreen extends StatelessWidget {
                   SizedBox(height: AppHeight.h20),
                   Padding(
                     padding: EdgeInsets.only(
-                        left: AppPadding.p20, right: AppPadding.p20),
+                        left: AppPadding.p40, right: AppPadding.p40),
                     child: Column(
                       children: [
                         Text(
@@ -46,7 +46,7 @@ class ConnectionSuccessScreen extends StatelessWidget {
                           AppStrings.kDocumenthavebeenSent,
                           textAlign: TextAlign.center,
                           style: regularTextStyle(
-                            fontSize: FontSize.s18,
+                            fontSize: FontSize.s16,
                             color: ColorManager.titleTextColor,
                             fontFamily: FontConstants.quicksand,
                           ),
