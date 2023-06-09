@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "866886737160",
+    "project_id": "iverifi-3a911",
+    "storage_bucket": "iverifi-3a911.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866886737160:android:5c6d333d1bf4000b8de0bd",
+        "android_client_info": {
+          "package_name": "com.example.iverify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866886737160-nghinfmmsdo13snkjc3stjtsfqbvhbr7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2Bm-7Rd3-4RbB2QVdUA3Jvr5iFuFHbKU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "866886737160-2t9kuv27piido5gt69gojefvc74587ie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
