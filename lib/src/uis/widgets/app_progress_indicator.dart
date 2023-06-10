@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../AppStrings.dart';
-import '../resources/color_manager.dart';
-import '../resources/font_manager.dart';
-import '../resources/routes_manager.dart';
-import '../resources/value_manager.dart';
-import '../uis/widgets/app_card.dart';
+
+import '../../AppStrings.dart';
+import '../../resources/routes_manager.dart';
+import '../../resources/value_manager.dart';
+import 'app_card.dart';
 
 
 class AppProgressIndicator extends StatelessWidget {
@@ -42,7 +41,7 @@ class AppProgressIndicator extends StatelessWidget {
             children: [
               AppCard(
                 padding: EdgeInsets.all(AppPadding.p30),
-                bgColor:Colors.white,
+                bgColor: Colors.white,
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +55,7 @@ class AppProgressIndicator extends StatelessWidget {
                     Text(
                       AppStrings.kPleaseWait,
                       // style: getRegularStyle(
-                      //   color: ColorManager.black,
+                      //   color: Colors.black,
                       //   fontSize: FontSize.s17,
                       // ),
                     )

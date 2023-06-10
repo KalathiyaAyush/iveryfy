@@ -2,6 +2,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../../models/auth/post_signup.dart';
+import '../../../services/api/api_endpoints.dart';
+import '../../../services/api/api_service.dart';
+import '../../../services/firebase_messaging_service.dart';
+
 
 class AuthRepo {
   Future<void> signInWith(
@@ -95,21 +100,21 @@ class AuthRepo {
   //   return digest.toString();
   // }
   //
-  // Future<APIResponse<dynamic>> postSignUp() async {
-  //   final request = APIRequest(
-  //     url: APIEndpoints.postSignUp,
-  //     methodType: MethodType.GET,
-  //   );
-  //   final response = await APIService.instance.callService(
-  //     request,
-  //     create: (data) {
-  //       return PostSignUpDataModel.fromJson(data);
-  //     },
-  //   );
-  //
-  //   return response;
-  // }
-  //
+  Future<APIResponse<dynamic>> postSignUp() async {
+    final request = APIRequest(
+      url: APIEndpoints.postSignUp,
+      methodType: MethodType.GET,
+    );
+    final response = await APIService.instance.callService(
+      request,
+      create: (data) {
+        return PostSignUpDataModel.fromJson(data);
+      },
+    );
+
+    return response;
+  }
+
   // Future<APIResponse<dynamic>> createLinkedInUser(
   //     LinkedInCreateUserReqModel data) async {
   //   final request = APIRequest(
@@ -127,17 +132,17 @@ class AuthRepo {
   //   return response;
   // }
   //
-  // Future<APIResponse<dynamic>> updateFCMToken() async {
-  //   final token = await FirebaseMessagingService.instance.getToken();
-  //   final request = APIRequest(
-  //     url: APIEndpoints.updateUser,
-  //     methodType: MethodType.POST,
-  //     params: {"fcm_token": token},
-  //   );
-  //   final response = await APIService.instance.callService(
-  //     request,
-  //   );
-  //
-  //   return response;
-  // }
+  Future<APIResponse<dynamic>> updateFCMToken() async {
+    final token = await FirebaseMessagingService.instance.getToken();
+    final request = APIRequest(
+      url: APIEndpoints.updateUser,
+      methodType: MethodType.POST,
+      params: {"fcm_token": token},
+    );
+    final response = await APIService.instance.callService(
+      request,
+    );
+
+    return response;
+  }
 }

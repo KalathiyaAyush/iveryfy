@@ -1,3 +1,4 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,18 +18,21 @@ class SigninScreen extends StatelessWidget {
   const SigninScreen({super.key});
 
 
-  void _googleLogin() async {
-    final authProvoder = context.read<AuthProvider>();
+
+  void _googleLogin(BuildContext context) async {
+    AuthProvider authProvoder = AuthProvider();
     await authProvoder.signInWithGoogle();
     if (FirebaseAuth.instance.currentUser == null) return;
     AppProgressIndicator.show();
     final isSuccess = await authProvoder.postSignUp();
     AppProgressIndicator.dismiss();
     if (isSuccess) {
-      _navigateLogic(
-        completionLevel:
-        authProvoder.postSignUpModel?.user?.profileCompletionLevel ?? 0,
-      );
+      // _navigateLogic(
+      //   completionLevel:
+      //   authProvoder.postSignUpModel?.user?.profileCompletionLevel ?? 0,
+      // );
+      Navigator.pushNamed(context, AppRoutes.enterPasscodeScreen);
+
     }
   }
   @override
@@ -94,11 +98,7 @@ class SigninScreen extends StatelessWidget {
             ImageAssets.googleIcon,
             () {
 
-              _googleLogin();
-              // AppRoutes.pushNamed(
-              //   context,
-              //   name: AppRoutes.enterPasscodeScreen,
-              // );
+              _googleLogin(context);
             },
           ),
           SizedBox(height: AppHeight.h30),
